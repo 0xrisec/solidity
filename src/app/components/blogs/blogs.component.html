@@ -1,0 +1,103 @@
+<div class="blog-list">
+    <p-table #dt [value]="blogs" [responsive]="true" dataKey="id" styleClass="p-datatable-blogs" [rowHover]="true"
+            [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+            [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [filterDelay]="0" [globalFilterFields]="['title','author','tag','date']">
+            <ng-template pTemplate="caption">
+                <div class="row text-center mb-5">
+                    <mat-toolbar class="header">
+                        <a href="./" class="d-flex flex-row align-items-center text-decoration-none logo"> 
+                            <img width="40px" src="./assets/images/logo.png">
+                            <h1 class="logo-text">{{logo | uppercase}}</h1>
+                        </a>
+                        <span class="spacer"></span>
+                        <div class="nav">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="#" target="_blank">
+                                            <fa-icon [icon]="faHome"></fa-icon>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="#"> List of Blogs </a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </mat-toolbar>
+                    <div class="col-lg-7 mt-5 mx-auto text-center">
+                        <div class="homeicon mb-3">
+                            <a href="https://github.com/ROOTBABU/solidity" target="_blank">
+                                <fa-icon [icon]="faBlog"></fa-icon>
+                            </a>
+                        </div>
+                        <span class="display-4">List of Blogs</span>
+                        <div class="mt-4">
+                            <span>Listed Addition Refences of Solidity, based on each section.</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 mt-5 mx-auto">
+                        <div>
+                            <span class="p-input-icon-left">
+                                <i class="pi pi-search"></i>
+                                <input pInputText type="text" (input)="dt.filterGlobal($event.target, 'contains')" placeholder="Global Search" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="title">Title & URL<p-sortIcon field="title"></p-sortIcon></th>
+                    <th pSortableColumn="author">Author<p-sortIcon field="author"></p-sortIcon></th>
+                    <th pSortableColumn="tag">Tag <p-sortIcon field="tag"></p-sortIcon></th>
+                    <th pSortableColumn="date">Publication Date <p-sortIcon field="date"></p-sortIcon></th>
+                </tr>
+                <tr >
+                    <th>
+                        <input pInputText type="text" (input)="dt.filter($event.target, 'title', 'startsWith')" placeholder="Search by title" class="p-column-filter">
+                    </th>
+                    <th>
+                        <input pInputText type="text" (input)="dt.filter($event.target, 'author', 'contains')" placeholder="Search by author" class="p-column-filter">
+                    </th>
+                    <th>
+                        <p-dropdown [options]="tags" (onChange)="dt.filter($event.value, 'tag', 'equals')" styleClass="p-column-filter" placeholder="Select a tag" [showClear]="true">
+                            <ng-template let-option pTemplate="item">
+                                <span [class]="'blog-badge tag-' + option.value">&#123;&#123;option.label&#125;&#125;</span>
+                            </ng-template>
+                        </p-dropdown>
+                    </th>
+                    <th>
+                        <p-calendar (onSelect)="onDateSelect($event)" (onClearClick)="dt.filter('', 'date', 'equals')" [showButtonBar]="true" styleClass="p-column-filter" placeholder="Publication Date" [readonlyInput]="true" dateFormat="yy-mm-dd"></p-calendar>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-blog>
+                <tr class="p-selectable-row">
+                    <td>
+                        <span class="p-column-title">title</span>
+                        {{blog.title}}
+                    </td>
+                    <td>
+                        <span class="p-column-title">Author</span>
+                        <span class="image-text">{{blog.author}}</span>
+                    </td>
+                    <td>
+                        <span class="p-column-title">Tag</span>
+                        <span [class]="'blog-badge tag-' + blog.tag">{{blog.tag}}</span>
+                    </td>
+                    <td>
+                        <span class="p-column-title">Date</span>
+                        {{blog.date}}
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="8">No blogs found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+</div>
+<div>
+    <app-footer></app-footer>
+</div>

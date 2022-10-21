@@ -1,0 +1,315 @@
+{
+    "title": "Basics",
+    "icon": "faChessPawn",
+    "url": "/basics",
+    "file": "basics.md",
+    "disscussion": "https://github.com/ROOTBABU/solidity/discussions/2",
+    "topicsList": [
+        {
+            "title": "Introduction",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "Smart Contract",
+                    "childs": [
+                        {
+                            "title": "Overview",
+                            "href": {
+                                "file": "smart-contract.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Traditional contract",
+                            "href": {
+                                "file": "smart-contract.md",
+                                "id": "what-is-contract-traditional-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Smart Contracts",
+                            "href": {
+                                "file": "smart-contract.md",
+                                "id": "smart-contracts",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Imagine a smart contract as a vending machine",
+                            "href": {
+                                "file": "smart-contract.md",
+                                "id": "imagine-a-smart-contract-as-a-vending-machine",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Applications of smart contracts",
+                            "href": {
+                                "file": "smart-contract.md",
+                                "id": "applications-of-smart-contracts",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Solidity",
+                    "childs": [
+                        {
+                            "title": "what is solidity",
+                            "href": {
+                                "file": "solidity.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Solidity Compiler, Byte Code & ABI, EVM and Etherum Network",
+                            "href": {
+                                "file": "solidity.md",
+                                "id": "solidity-compiler-byte-code--abi-evm-and-etherum-network",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Smart Contract deployment and Execution",
+                            "href": {
+                                "file": "solidity.md",
+                                "id": "smart-contract-deployment-and-execution",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Remix IDE",
+                    "childs": [
+                        {
+                            "title": "Overview",
+                            "href": {
+                                "file": "remixide.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Remix Layout",
+                            "href": {
+                                "file": "remixide.md",
+                                "id": "remix-layout",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Tab Panel",
+                            "href": {
+                                "file": "remixide.md",
+                                "id": "tab-panel",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Hello World!",
+                    "childs": [
+                        {
+                            "title": "Overview",
+                            "href": {
+                                "file": "helloworld.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Write Hello World in Solidity",
+                            "href": {
+                                "file": "helloworld.md",
+                                "id": "write-hello-world-in-solidity",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Code Explanation",
+                            "href": {
+                                "file": "helloworld.md",
+                                "id": "code-explanation",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "How to compile and deploy the code",
+                            "href": {
+                                "file": "helloworld.md",
+                                "id": "how-to-compile-and-deploy-the-code",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Bytecode and ABI",
+                            "href": {
+                                "file": "helloworld.md",
+                                "id": "bytecode--abi",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Variables",
+            "icon": "faBox",
+            "childs": [
+                {
+                    "title": "Defination",
+                    "href": {
+                        "file": "variables-basic.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "State Variables",
+                    "href": {
+                        "file": "variables-basic.md",
+                        "id": "state-variables",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Local Variables",
+                    "href": {
+                        "file": "variables-basic.md",
+                        "id": "local-variables",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Global Variables",
+                    "href": {
+                        "file": "variables-basic.md",
+                        "id": "global-variables",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Types",
+            "icon": "faSignsPost",
+            "childs": [
+                {
+                    "title": "Value Types",
+                    "href": {
+                        "file": "types.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Boolean",
+                    "href": {
+                        "file": "types.md",
+                        "id": "boolean",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Integers",
+                    "href": {
+                        "file": "types.md",
+                        "id": "integers",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Fixed Point Numbers",
+                    "href": {
+                        "file": "types.md",
+                        "id": "fixed-point-numbers",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Address",
+                    "href": {
+                        "file": "types.md",
+                        "id": "address",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Fixed-size Byte Arrays",
+                    "href": {
+                        "file": "types.md",
+                        "id": "fixed-size-byte-array",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Functions",
+            "icon": "faF",
+            "childs": [
+                {
+                    "title": "Function Declaration",
+                    "href": {
+                        "file": "functions.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Function Parameters",
+                    "href": {
+                        "file": "functions.md",
+                        "id": "function-parameters",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Visibility",
+                    "href": {
+                        "file": "functions.md",
+                        "id": "visibility",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "State mutability",
+                    "href": {
+                        "file": "functions.md",
+                        "id": "state-mutability",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Return Variables",
+                    "href": {
+                        "file": "functions.md",
+                        "id": "return-variables",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "State Mutability",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "State Mutability",
+                    "href": {
+                        "file": "state-mutability.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

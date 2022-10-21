@@ -1,0 +1,58 @@
+<div class="homepage">
+  <mat-toolbar>
+   <div>
+    <a href="./" class="d-flex flex-row align-items-center text-decoration-none logo"> 
+      <img width="40px" src="./assets/images/logo.png">
+      <h1 class="logo-text">{{logo | uppercase}}</h1>
+    </a>
+   </div>
+    <span class="spacer"></span>
+    <a href="https://github.com/ROOTBABU/solidity" target="_blank">
+      <fa-icon [icon]="faGithub"></fa-icon>
+    </a>
+    <a href="https://discord.gg/UqrZ78gYg3" target="_blank">
+      <fa-icon [icon]="faDiscord"></fa-icon>
+    </a>
+    <a href="https://github.com/ROOTBABU/solidity" target="_blank">
+      <fa-icon [icon]="faMedium"></fa-icon>
+    </a>
+    <a href="https://twitter.com/root_babu" target="_blank">
+      <fa-icon [icon]="faTwitter"></fa-icon>
+    </a>
+    <a href="https://github.com/ROOTBABU/solidity" target="_blank">
+      <fa-icon [icon]="faInfo"></fa-icon>
+    </a>
+  </mat-toolbar>
+  <div class="d-flex flex-column bd-highlight homepage-content">
+    <div class="p-3 text-center">
+      <h1 class="page-heading single-col-max mx-auto">This is the perfect place</h1>
+      <div class="page-intro single-col-max mx-auto">
+        if you want to become an expert on solidity.
+        <!-- <a href="#">Join Our community</a> -->
+      </div>
+      <p class="desc mx-auto">We are focusing on simplifying and categorizing the solidity language description into Basic,
+        Intermediate, and Advanced sections. Join our discord community <a href="https://discord.gg/UqrZ78gYg3"
+          target="_blank">
+          <fa-icon [icon]="faDiscord"></fa-icon>
+        </a> for any updates or questions.</p>
+    </div>
+    <div class="p-3 d-flex flex-wrap mb-5 mt-4 justify-content-center">
+      <mat-card class="homepage-card m-2" *ngFor="let ele of config; let index = index;"
+        (click)="onSectionClick(ele.route)" [class]="{disable : ele.isDisable}">
+        <div class="d-flex flex-row">
+          <div class="d-flex align-self-center">
+            <span class="card-icon" target="_blank">
+              <fa-icon [icon]="icon[index]"></fa-icon>
+            </span>
+          </div>
+          <div class="card-content">
+            <mat-card-title>
+              <span>{{ele.title}}</span>
+            </mat-card-title>
+            <mat-card-subtitle>{{ele.detail}}</mat-card-subtitle>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

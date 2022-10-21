@@ -1,0 +1,62 @@
+.page-header{
+    margin-top: 68px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.logo-text{
+    font-size: 24px;
+}
+
+.homepage mat-toolbar a{
+    padding: 0px 10px;
+}
+
+.homepage-card{
+    width: 400px;
+    cursor: pointer;
+}
+
+.disable{
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.card-content{
+    margin-left: 20px !important;
+}
+
+.card-icon{
+    font-size: 30px;
+}
+
+.homepage-card:hover{
+    border: 1px solid purple;
+}
+.page-heading{
+    font-family: Gilroy,sans-serif;
+    font-weight: 800;
+    font-size: 68px;
+    line-height: 0.9;
+}
+
+.page-intro{
+    font-size: 30px;
+    line-height: 1;
+    margin-top: 47px;
+}
+
+.homepage-content{
+    margin-top: 54px;
+}
+
+.desc{
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #0000008a;
+    text-align: center;
+    width: 75%;
+}

@@ -1,0 +1,30 @@
+.table-header {
+    align-items: center;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.header{
+    background: none;
+}
+
+.homeicon a{
+    font-size: 47px;
+    text-decoration: none;
+}
+
+.breadcrumb{
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+.breadcrumb a{
+    text-decoration: none;
+}
+
+.logo-text{
+    font-size: 24px;
+}

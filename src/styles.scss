@@ -1,1 +1,138 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$rootbabu-sol-primary: mat.define-palette(mat.$indigo-palette);
+$rootbabu-sol-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$rootbabu-sol-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$rootbabu-sol-theme: mat.define-light-theme((
+  color: (
+    primary: $rootbabu-sol-primary,
+    accent: $rootbabu-sol-accent,
+    warn: $rootbabu-sol-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($rootbabu-sol-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Segoe UI !important}
+
+.homepage .mat-toolbar{
+  background: none;
+}
+
+.flex-1{
+  flex: 1;
+}
+
+.homepage .mat-card-title{
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.homepage .mat-card-subtitle{
+  margin-bottom: 0px;
+}
+
+a,.card-icon{
+  color: purple !important;
+}
+
+.logo{
+  color: black !important;
+}
+
+.doclayout-container .mat-sidenav .mat-drawer-inner-container{
+  scrollbar-color: rgba(0,0,0,0.2) #f5f5f5;
+  scrollbar-width: thin;
+}
+
+.doclayout-container .container img{
+  max-width: 100%;
+}
+
+.doclayout-container .container p{
+  font-size: 1rem;
+  margin: 16px 0px;
+  line-height: 25.6px;
+}
+
+.doclayout-container .container h1{
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 32px 0px;
+  line-height: 3rem;
+}
+
+.doclayout-container .container h2{
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.doclayout-container .container h3{
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.doclayout-container .container ul li {
+  margin-bottom: 11.6px;
+  font-size: 1rem;
+  line-height: 25.6px;
+}
+
+.p-datatable .p-datatable-header{
+  background: none !important;
+}
+
+.p-calendar .p-datepicker{
+  min-width: 150% !important;
+}
+
+// .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+//   background: purple !important;
+//   border-color: purple !important;
+// }
+
+// .p-paginator .p-paginator-current {
+//   color: purple !important;
+// }
+
+.w13{
+  width: 13%;
+}
+
+.w25{
+  width: 25%;
+}
+
+.w45{
+  width: 45%;
+}
+
+.img-label{
+  color: rgba(0, 0, 0, 0.68);
+  padding: 10px 0px;
+}

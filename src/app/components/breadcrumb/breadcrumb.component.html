@@ -1,0 +1,11 @@
+
+<ul class="breadcrumb">
+    <li *ngFor="let breadcrumb of breadcrumbs" class="breadcrumb-item">
+        <a [href]="breadcrumb.url">
+            {{ breadcrumb.label }}
+        </a>
+        <a *ngIf="breadcrumb.icon" [href]="breadcrumb.url">
+                <fa-icon class="fa-1x" [icon]="iconComponents[breadcrumb.icon]"></fa-icon>
+        </a>
+    </li>
+</ul>

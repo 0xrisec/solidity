@@ -1,0 +1,58 @@
+/* .list-group-item:hover{
+    background-color: #642070;
+    color: white;
+} */
+/* 
+.list-group-item:hover .media-body h5,
+.list-group-item:hover .media-body p{
+    color: white;
+} */
+
+span{
+    color: black;
+}
+
+.homeicon a{
+    font-size: 47px;
+    text-decoration: none;
+}
+
+.table-header{
+    padding-bottom: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.site-logo{
+    margin-top: -10px;
+}
+
+.table-header .nav{
+    margin-right: 12px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.prerequistie .header{
+    background: none;
+}
+
+.content{
+    margin: 60px 10px;
+}
+
+.logo-text{
+    font-size: 24px !important;
+}
+
+.breadcrumb{
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+.breadcrumb a{
+    text-decoration: none;
+}
