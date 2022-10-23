@@ -34,10 +34,9 @@ export class HomepageComponent implements OnInit {
   }
   display: boolean = false;
   displayMaximizable: boolean = false;
+  
   showDialog() {
-      // this.display = true;
       this.displayMaximizable = true;
-
   }
 
   onSectionClick(path:string){

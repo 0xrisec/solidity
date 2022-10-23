@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
-import { faBars, faBox, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBox, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -55,7 +55,8 @@ export class DocLayoutComponent implements OnInit {
     "faDiscord":faDiscord,
     "faInfo":faInfo,
     "faMedium":faMedium,
-    "faTwitter":faTwitter
+    "faTwitter":faTwitter,
+    "faXmark":faXmark
   }
 
   constructor(private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }

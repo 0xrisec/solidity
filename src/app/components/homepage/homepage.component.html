@@ -7,50 +7,59 @@
       </a>
     </div>
     <span class="spacer"></span>
-    <a href="https://github.com/ROOTBABU" target="_blank">
-      <fa-icon [icon]="faGithub"></fa-icon>
-    </a>
-    <a href="https://gitter.im/ROOTBABU/ROOTBABU.SOL" target="_blank">
-      <fa-icon [icon]="faGitter"></fa-icon>
-    </a>
-    <a href="https://discord.gg/UqrZ78gYg3" target="_blank">
-      <fa-icon [icon]="faDiscord"></fa-icon>
-    </a>
-    <a href="https://rootbabu.medium.com/" target="_blank">
-      <fa-icon [icon]="faMedium"></fa-icon>
-    </a>
-    <a href="https://twitter.com/root_babu" target="_blank">
-      <fa-icon [icon]="faTwitter"></fa-icon>
-    </a>
-    <a href="#">
-      <fa-icon [icon]="faInfo" (click)="showDialog()"></fa-icon>
-    </a>
+    <div class="header-icons">
+      <a href="https://github.com/ROOTBABU" target="_blank">
+        <fa-icon [icon]="faGithub"></fa-icon>
+      </a>
+      <a href="https://gitter.im/ROOTBABU/ROOTBABU.SOL" target="_blank">
+        <fa-icon [icon]="faGitter"></fa-icon>
+      </a>
+      <a href="https://discord.gg/UqrZ78gYg3" target="_blank">
+        <fa-icon [icon]="faDiscord"></fa-icon>
+      </a>
+      <a href="https://rootbabu.medium.com/" target="_blank">
+        <fa-icon [icon]="faMedium"></fa-icon>
+      </a>
+      <a href="https://twitter.com/root_babu" target="_blank">
+        <fa-icon [icon]="faTwitter"></fa-icon>
+      </a>
+      <a href="#">
+        <fa-icon [icon]="faInfo" (click)="showDialog()"></fa-icon>
+      </a>
+    </div>
 
   </mat-toolbar>
   <p-dialog class="homepage-info" header="Project Information" [(visible)]="displayMaximizable" [modal]="true"
     [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" [maximizable]="true"
     [baseZIndex]="10000" [draggable]="false" [resizable]="false">
     <div>
-      <p>The goal of this project is to provide a comprehensive overview of the solidity programming language and to collect all relevant resources in one place, such as vulnerabilities and their POCs or writeups, blogs, and cheatsheets.</p>
+      <p>The goal of this project is to provide a comprehensive overview of the solidity programming language and to
+        collect all relevant resources in one place, such as vulnerabilities and their POCs or writeups, blogs, and
+        cheatsheets. And create a platform for people to connect and share their experiences, resources, and support
+        with each other.</p>
       <h2>Prerequisites:</h2>
-      <p>The prerequisites section contains a list of all the things you need to know in order to understand and use Solidity programming. This includes experience with at least one programming language, Blockchain fundamentals, Ethereum blockchain etc.</p>
+      <p>The prerequisites section contains a list of all the things you need to know in order to understand and use
+        Solidity programming. This includes experience with at least one programming language, Blockchain fundamentals,
+        Ethereum blockchain etc.</p>
       <h2>Basics:</h2>
-      <p>This section will introduce you to the basics of Solidity programming. You will learn about variables, data types, functions, and more. These concepts will be explained using examples and projects. By the end of this section, you will be able to write your own Smart Contract.</p>
+      <p>This section will introduce you to the basics of Solidity programming. You will learn about variables, data
+        types, functions, and more. These concepts will be explained using examples and projects. By the end of this
+        section, you will be able to write your own Smart Contract.</p>
       <h2>Intermediate & Advanced:</h2>
       <p>This section will help you to understand more concepts about programming in depth.</p>
       <h2>CheatSheet:</h2>
-      <p>The cheatsheet section is a great resource for quick tips and tricks. It is a quick and easy reference guide that can help you save time and energy when working on a project. Simply print out the cheat sheet (or keep it open in a tab) and refer to it when you need a quick reminder on how to do something.
+      <p>The cheatsheet section is a great resource for quick tips and tricks. It is a quick and easy reference guide
+        that can help you save time and energy when working on a project. Simply print out the cheat sheet (or keep it
+        open in a tab) and refer to it when you need a quick reminder on how to do something.
         Whether you are a beginner or a seasoned pro, there is sure to be a cheatsheet that can help you out.</p>
-        <h2>Bugs and security:</h2>
-        <p>List out vulnerabilities that are published on public projects, and explore their POC/writeups. This will help us stay up to date on the current threats and how to mitigate them.</p>
-        <h2>Roadmap:</h2>
-        <p>Guide for individuals who are interested in pursuing a career in blockchain development.</p>
-        <h2>List of Blogs:</h2>
-        <p>An external list of blogs.</p>
+      <h2>Bugs and security:</h2>
+      <p>List out vulnerabilities that are published on public projects, and explore their POC/writeups. This will help
+        us stay up to date on the current threats and how to mitigate them.</p>
+      <h2>Roadmap:</h2>
+      <p>Guide for individuals who are interested in pursuing a career in blockchain development.</p>
+      <h2>List of Blogs:</h2>
+      <p>An external list of blogs.</p>
     </div>
-    <ng-template pTemplate="footer">
-      <p-button icon="pi pi-check" (click)="displayMaximizable=false" label="Ok" class="p-button-text"></p-button>
-    </ng-template>
   </p-dialog>
 
   <div class="d-flex flex-column bd-highlight homepage-content">
