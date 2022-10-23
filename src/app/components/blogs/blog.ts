@@ -3,4 +3,5 @@ export interface Blog {
     author?: string;
     label?: string;
     date?: string;
+    link?:string;
 }
