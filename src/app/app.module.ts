@@ -32,6 +32,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTreeModule} from '@angular/material/tree'; 
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import {MessagesModule} from 'primeng/messages';
 
 import {
   FontAwesomeModule,
@@ -92,7 +93,8 @@ import { DatePipe } from '@angular/common';
     MatIconModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    MatNativeDateModule 
+    MatNativeDateModule ,
+    MessagesModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
