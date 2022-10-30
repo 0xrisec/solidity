@@ -1,6 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
 import { faBars, faBox, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -43,6 +43,7 @@ export class DocLayoutComponent implements OnInit {
   public title: string = "";
   public icon: string = "";
   public githubLink: string = "";
+  public markdown='';
   public defaultGithubLink = "https://github.com/ROOTBABU/solidity/blob/dev/src/assets/markdown/"
   public iconComponents: any = {
     "faBox": faBox,
@@ -58,7 +59,6 @@ export class DocLayoutComponent implements OnInit {
     "faTwitter":faTwitter,
     "faXmark":faXmark
   }
-
   constructor(private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
 
   ngOnInit(): void {
@@ -71,15 +71,30 @@ export class DocLayoutComponent implements OnInit {
       this.breadcrumb.push(new Breadcrumb(this.title, ele.url));
       this.contentLink = this.contentLink.concat(ele.file)
       this.githubLink = this.defaultGithubLink.concat(ele.file);
+      this.renderMd(this.contentLink,ele?.id)
     });
   }
 
   onTabClick(ele: any) {
     if (ele) {
-      this.contentLink = "/assets/markdown/".concat(ele.file);
-      this.githubLink = this.defaultGithubLink.concat(ele.file);
-      setTimeout(() => {
-        let eleId = document.getElementById(ele.id);
+        this.contentLink = "/assets/markdown/".concat(ele.file);
+        this.githubLink = this.defaultGithubLink.concat(ele.file);
+        this.renderMd(this.contentLink,ele.id)
+      }
+  }
+
+  async renderMd(contentLink:string,id: string){
+    let markdownRaw = await this.http.get(contentLink, {
+      responseType: 'text'
+    }).toPromise();
+    if(markdownRaw){
+      this.markdown = this.markdownService.parse(markdownRaw);
+      let md  = document.getElementById("md");
+      if(md){
+        this.markdownService.render(md);
+      }
+      setTimeout(() => { 
+        let eleId = document.getElementById(id);
         if(eleId){
           eleId.scrollIntoView({behavior: 'smooth'});
         }
