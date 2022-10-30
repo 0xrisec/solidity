@@ -9,7 +9,7 @@ import { BlogsComponent } from './components/blogs/blogs.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PrerequisitesComponent } from './components/prerequisites/prerequisites.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { AccordionModule } from 'primeng/accordion';
 
@@ -31,6 +31,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatTreeModule} from '@angular/material/tree'; 
 import {MatIconModule} from '@angular/material/icon'; 
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import {MessagesModule} from 'primeng/messages';
 
 import {
   FontAwesomeModule,
@@ -47,7 +49,9 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -67,6 +71,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AccordionModule,
     MarkdownModule.forRoot({ loader: HttpClient, sanitize: SecurityContext.NONE  }),
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     TableModule,
     CalendarModule,
@@ -85,9 +90,13 @@ import { FooterComponent } from './components/footer/footer.component';
     MatCardModule,
     MatSidenavModule,
     MatTreeModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule ,
+    MessagesModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

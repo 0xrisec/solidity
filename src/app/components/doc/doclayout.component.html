@@ -3,6 +3,11 @@
         <div class="card">
             <div class="card-body text-center">
                 <span class="theme-icon-holder" style="background:none;">
+                    <div class="enable">
+                        <span class="bars d-flex" role="button" (click)="sidenav.toggle()">
+                            <fa-icon class="fa-4x ml-auto" [icon]="iconComponents['faXmark']"></fa-icon>
+                        </span>
+                    </div>
                     <a href="#">
                         <fa-icon class="fa-4x" [icon]="iconComponents[icon]"></fa-icon>
                     </a>

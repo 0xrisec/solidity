@@ -29,7 +29,7 @@ Flaws of a Traditional contract:
 
 ## Smart Contracts:
 
-A `smart contract` is a digital agreement stored on a blockchain that executes automatically when certain terms and conditions are met. All the terms and conditions are written of an agreement into computer code.
+A `smart contract` is a digital agreement stored on a blockchain that executes automatically when certain terms and conditions are met. All the terms and conditions are written of an agreement into programming code.
 
 Example:
 

@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     HomepageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ]
 })
 export class HomepageModule { }

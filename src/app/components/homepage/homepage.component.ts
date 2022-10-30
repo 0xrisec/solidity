@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faGithub, faDiscord, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faDiscord, faMedium, faTwitter, faGitter } from '@fortawesome/free-brands-svg-icons';
 import { faAsterisk, faBlog, faBugs, faChessKing, faChessPawn, faChessQueen, faCircleInfo, faFileAlt, faMap } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -15,6 +15,7 @@ export class HomepageComponent implements OnInit {
   public faInfo:any;
   public faMedium:any;
   public faTwitter:any;
+  public faGitter:any;
   public config:any;
   public logo:string="rootbabu.sol"; 
   public icon = [faAsterisk,faChessPawn,faChessQueen,faChessKing,faFileAlt,faBugs,faMap,faBlog]
@@ -26,14 +27,21 @@ export class HomepageComponent implements OnInit {
     this.faInfo = faCircleInfo;
     this.faTwitter = faTwitter;
     this.faMedium = faMedium;
+    this.faGitter = faGitter;
     this.activateRoute.data.subscribe((ele:any) => {
       this.config = ele.config;
     });
   }
+  display: boolean = false;
+  displayMaximizable: boolean = false;
+  
+  showDialog() {
+      this.displayMaximizable = true;
+  }
 
   onSectionClick(path:string){
     if(path != "#"){
-      this.route.navigate([path]);
+      this.route.navigate([path]);      
     }
   }
 
