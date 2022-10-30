@@ -10,10 +10,10 @@ const routes: Routes = [
     path:'prerequisites',
     loadChildren: ()=>import('./modules/prerequisites/prerequisites.module').then(m=>m.PrerequisitesModule)
   },
-  // {
-  //   path:'**',
-  //   loadChildren: ()=>import('./module/homepage/homepage.module').then(m=>m.HomepageModule)
-  // }
+  {
+    path:'**',
+    loadChildren: ()=>import('./modules/homepage/homepage.module').then(m=>m.HomepageModule)
+  }
 ];
 
 @NgModule({

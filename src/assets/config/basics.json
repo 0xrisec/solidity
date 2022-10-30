@@ -1,9 +1,9 @@
 {
     "title": "Basics",
     "icon": "faChessPawn",
-    "url": "/basics",
+    "url": "./basics",
     "file": "basics.md",
-    "disscussion": "https://github.com/ROOTBABU/solidity/discussions/2",
+    "disscussion": "",
     "topicsList": [
         {
             "title": "Introduction",

@@ -36,7 +36,7 @@ export class DocLayoutComponent implements OnInit {
   treeControl = new NestedTreeControl<NavNode>(node => node.childs);
   dataSource = new MatTreeNestedDataSource<NavNode>();
   hasChild = (_: number, node: NavNode) => !!node.childs && node.childs.length > 0;
-  public contentLink: string = '/assets/markdown/';
+  public contentLink: string = './assets/markdown/';
   public opened: boolean = true;
   public config: NavNode[] =[];
   public breadcrumb: any = [];
