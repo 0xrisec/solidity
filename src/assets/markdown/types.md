@@ -108,13 +108,13 @@ To identify the range of types, we can use the following formulas.
 * The formula for a signed number with N bits are
       
    <div>
-      <img src="../../../assets/images/signed.JPG">
+      <img src="./assets/images/signed.JPG">
    </div>
 
 * The formulas for an unsigned number with N bits are
 
    <div>
-      <img src="../../../assets/images/unsigned.JPG">
+      <img src="./assets/images/unsigned.JPG">
    </div>
 
 Solidity gives us the type method to find out the `minimum` and `maximum` value of a type without having to calculate the range for each type. For an integer type x , you can use `type(x).min` and `type(x).max` to access the `minimum` and `maximum` values represented by the type.
@@ -270,7 +270,7 @@ Fixed-size byte arrays store a sequence of bytes data in hexadecimal format and 
 `Value:` The value can be in `hexadecimal(such as 0x616263)` or any `string`.
 
 **Example:** Below is an example of a public fixed size byte array whose size is 4bytes and value is "abcd".
-<img src="../../../assets/images/Fixed Size Byte Array.JPG">
+<img src="./assets/images/Fixed Size Byte Array.JPG">
 <b><center class="img-label">Fixed-size Byte Array</center></b>
 
 The above image shows a byte array that stores `a`, `b`, `c`, and `d` as hexadecimal numbers and each character has `1byte (8 bits)` size. For hexadecimal values of alphabets, check out the <a href="https://www.alpharithms.com/ascii-table-512119/" target="_blank">ASCII</a> table.

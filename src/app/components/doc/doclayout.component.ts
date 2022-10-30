@@ -77,7 +77,7 @@ export class DocLayoutComponent implements OnInit {
 
   onTabClick(ele: any) {
     if (ele) {
-        this.contentLink = "/assets/markdown/".concat(ele.file);
+        this.contentLink = "./assets/markdown/".concat(ele.file);
         this.githubLink = this.defaultGithubLink.concat(ele.file);
         this.renderMd(this.contentLink,ele.id)
       }
@@ -98,7 +98,7 @@ export class DocLayoutComponent implements OnInit {
         if(eleId){
           eleId.scrollIntoView({behavior: 'smooth'});
         }
-      }, 50)
+      }, 20)
     }
   }
 

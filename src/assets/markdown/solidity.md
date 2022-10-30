@@ -12,7 +12,7 @@ To make these items easier, we need to understand how other programming language
 
 ## Execution of programing language:
 
-<img alt="Code Execution"  src="../../../assets/images/code-execution.JPG" >
+<img alt="Code Execution"  src="./assets/images/code-execution.JPG" >
 <b><center class="img-label">Execution of programing language</center></b>
 
 Programming languages such as `Java` and `Python` are programmer-friendly, but computers cannot understand them. Machine language (binary) is the only language that computers understand. So we need a tool known as a `compiler` that converts high-level programming languages into low-level programming languages (`Assembly language`, `machine code`).
@@ -27,7 +27,7 @@ Likewise, `Solidity Compiler`, `Byte Code & ABI`, `EVM`, and `Ethereum Network` 
 
 ## Solidity Compiler: 
 
-<center><img alt="Compiler" class="w13" src="../../../assets/images/compilerIcon.JPG" ></center>
+<center><img alt="Compiler" class="w13" src="./assets/images/compilerIcon.JPG" ></center>
 <b><center class="img-label">Compiler</center></b>
 
 
@@ -35,7 +35,7 @@ We have a solidity compiler that converts solidity programs into `bytecode & ABI
 
 ## Byte Code & ABI:
 
-<center><img alt="Byte Code and ABI" class="w13" src="../../../assets/images/Byte Code And ABI.JPG" ></center>
+<center><img alt="Byte Code and ABI" class="w13" src="./assets/images/Byte Code And ABI.JPG" ></center>
 <b><center class="img-label">Byte Code & ABI</center></b>
 
 **Byte Code:** The Solidity code gets translated into `bytecode` using `compiler`. It is a set of instructions that runs on the EVM. The EVM execute the `bytecode` instruction by instruction.
@@ -52,7 +52,7 @@ In the Hello World example, we will see how actual bytecode and ABI look like.
 
 ## EVM (Ethereum Virtual Machine):
 
-<center><img alt="Geth" class="w25" src="../../../assets/images/geth.JPG" ></center>
+<center><img alt="Geth" class="w25" src="./assets/images/geth.JPG" ></center>
 <b><center class="img-label">geth</center></b>
 
 `EVM` is part of a program called `Geth`. `Geth` is this piece of software. You can run `Geth` on your machine. And when you run `Geth`, you also run the `EVM`.Once you run this in your system which means that you're part of the `Ethereum network`.
@@ -60,14 +60,14 @@ The Ethereum Virtual Machine or EVM is a piece of software that executes smart c
 
 ## Ethereum Network: 
 
-<center><img alt="Geth" class="w45" src="../../../assets/images/eth network.JPG" ></center>
+<center><img alt="Geth" class="w45" src="./assets/images/eth network.JPG" ></center>
 <b><center class="img-label"> Ethereum Network</center></b>
 
 Ethereum is a distributed, peer-to-peer network of computers that are all running `Geth` (that all are running Ethereum virtual machine). A peer-to-peer network means computers share information directly rather than using a central server.
 
 # Smart Contract deployment and Execution:
 
-<center><img alt="Geth" src="../../../assets/images/smart-contract-execution.JPG" ></center>
+<center><img alt="Geth" src="./assets/images/smart-contract-execution.JPG" ></center>
 <b><center class="img-label">Smart Contract deployment and Execution</center></b>
 
 ## Deployment: 
