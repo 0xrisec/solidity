@@ -79,7 +79,13 @@ export class DocLayoutComponent implements OnInit {
     if (ele) {
         this.contentLink = "./assets/markdown/".concat(ele.file);
         this.githubLink = this.defaultGithubLink.concat(ele.file);
-        this.renderMd(this.contentLink,ele.id)
+        setTimeout(() => { 
+          let eleId = document.getElementById(ele.id);
+          if(eleId){
+            eleId.scrollIntoView({behavior: 'smooth'});
+          }
+        }, 60)
+        // this.renderMd(this.contentLink,ele.id)
       }
   }
 
@@ -91,7 +97,7 @@ export class DocLayoutComponent implements OnInit {
       this.markdown = this.markdownService.parse(markdownRaw);
       let md  = document.getElementById("md");
       if(md){
-        this.markdownService.render(md);
+         this.markdownService.render(md);
       }
       setTimeout(() => { 
         let eleId = document.getElementById(id);
