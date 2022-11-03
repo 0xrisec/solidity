@@ -27,7 +27,7 @@ Likewise, `Solidity Compiler`, `Byte Code & ABI`, `EVM`, and `Ethereum Network` 
 
 ## Solidity Compiler: 
 
-<center><img class="image w13" alt="Compiler" src="./assets/images/compilerIcon.JPG" ></center>
+<center><img class="image w13" alt="Compiler" src="./assets/images/compiler-icon.JPG" ></center>
 <b><center class="img-label">Compiler</center></b>
 
 
@@ -35,7 +35,7 @@ We have a solidity compiler that converts solidity programs into `bytecode & ABI
 
 ## Byte Code & ABI:
 
-<center><img class="image w13" alt="Byte Code and ABI" src="./assets/images/Byte Code And ABI.JPG" ></center>
+<center><img class="image w13" alt="Byte Code and ABI" src="./assets/images/bytecode-abi.JPG" ></center>
 <b><center class="img-label">Byte Code & ABI</center></b>
 
 **Byte Code:** The Solidity code gets translated into `bytecode` using `compiler`. It is a set of instructions that runs on the EVM. The EVM execute the `bytecode` instruction by instruction.
@@ -60,7 +60,7 @@ The Ethereum Virtual Machine or EVM is a piece of software that executes smart c
 
 ## Ethereum Network: 
 
-<center><img class="image" alt="Geth" class="w45" src="./assets/images/eth network.JPG" ></center>
+<center><img class="image" alt="Geth" class="w45" src="./assets/images/eth-network.JPG" ></center>
 <b><center class="img-label"> Ethereum Network</center></b>
 
 Ethereum is a distributed, peer-to-peer network of computers that are all running `Geth` (that all are running Ethereum virtual machine). A peer-to-peer network means computers share information directly rather than using a central server.

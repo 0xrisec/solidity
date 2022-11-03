@@ -270,7 +270,7 @@ Fixed-size byte arrays store a sequence of bytes data in hexadecimal format and 
 `Value:` The value can be in `hexadecimal(such as 0x616263)` or any `string`.
 
 **Example:** Below is an example of a public fixed size byte array whose size is 4bytes and value is "abcd".
-<img class="image" src="./assets/images/Fixed Size Byte Array.JPG">
+<img class="image" src="./assets/images/fixed-size-byte-array.JPG">
 <b><center class="img-label">Fixed-size Byte Array</center></b>
 
 The above image shows a byte array that stores `a`, `b`, `c`, and `d` as hexadecimal numbers and each character has `1byte (8 bits)` size. For hexadecimal values of alphabets, check out the <a href="https://www.alpharithms.com/ascii-table-512119/" target="_blank">ASCII</a> table.

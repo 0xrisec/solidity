@@ -6,7 +6,7 @@ Remix is a web browser based integrated development environemnt(IDE) that allows
 
 # Remix Layout:
 
-<img class="image" alt="Remix IDE Panels"  src="./assets/images/Remix IDE panels.JPG" >
+<img class="image" alt="Remix IDE Panels"  src="./assets/images/remix-ide-panels.JPG" >
 <b><center class="img-label">Remix IDE Panels</center></b>
 
  Remix IDE consists three panels:
@@ -20,14 +20,14 @@ It consists of four modules. `File Explorer, Search in files, Solidity compiler,
 
 **1. File Explorer:** Click the File Explorer icon to access the `File Explorer` module.
 
-<center><img class="image" alt="Remix IDE Panels"  src="./assets/images/file explorer.JPG" ></center>
+<center><img class="image" alt="Remix IDE Panels"  src="./assets/images/file-explorer.JPG" ></center>
 <b><center class="img-label">File Explorer</center></b>
 
 File Explorer is used to managing `workspaces and files`. Right-clicking on a file or folder also brings up a context menu.
 
 **2. Search in files:** Click the search icon to get to the `Search in files` module.
 
-<center><img class="image" alt="Remix IDE Panels"  src="./assets/images/search in files.JPG" ></center>
+<center><img class="image" alt="Remix IDE Panels"  src="./assets/images/search-in-files.JPG" ></center>
 <b><center class="img-label">Search in files</center></b>
 
 The search box allows you to search any string in files and filter them based on their extensions.
@@ -43,7 +43,7 @@ Using `File Explorer`, select a file to compile. If you have several files open,
 
 Deploy & Run transactions can be accessed by clicking the fourth icon.
 
-<center><img class="image" alt="Remix IDE Panels"  src="./assets/images/deploy and transaction.JPG" ></center>
+<center><img class="image" alt="Remix IDE Panels"  src="./assets/images/deploy-transaction.JPG" ></center>
 <b><center class="img-label">Deploy and run transaction</center></b>
 
 - **Environment:** There are multiple environments to connect to the `blockchain`, so this field helps us to connect to it such as 

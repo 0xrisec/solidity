@@ -6,7 +6,7 @@ First, we'll create a file, then write the code, deploy it, and execute it in Re
 
 You can create a new file by clicking the button under the `default_workspace` heading on the left. Click it and name our new file `HelloWorld.sol`. Click on the newly created `HelloWorld.sol` file to open the editor.
 
- <img class="image" alt="HelloWorld example in remix IDE"  src="./assets/images/HelloWorld.JPG"  >
+ <img class="image" alt="HelloWorld example in remix IDE"  src="./assets/images/hello-world.JPG"  >
  <b><center class="img-label">Created a new file HelloWorld.sol</center></b>
 
  ## Write Hello World in Solidity
@@ -73,12 +73,12 @@ If you do not want to specify a license or if the source code is not open-source
 
 If the license identifier isn't included in the contract file the compiler will show a `warning`.
 
- <img class="image" src="./assets/images/SPDX-Warning.JPG"  >
+ <img class="image" src="./assets/images/spdx-warning.JPG"  >
  <b><center class="img-label">SPDX-Warning</center></b>
 
 If there are multiple SPDX-License-Identifier line in the contract file the compiler will show an `ParseError.`
 
- <img class="image" src="./assets/images/ParseError.JPG"  >
+ <img class="image" src="./assets/images/parse-error.JPG"  >
  <b><center class="img-label">ParseError: Multiple SPDX-License-Identifier</center></b>
 
 **2. Pragmas:**
@@ -94,7 +94,7 @@ Each Solidity contract must contain a `pragma` directive, because it will always
 
 If the `pragma` isn't included in the contract file the compiler will show a warning.
 
- <img class="image" src="./assets/images/Pragama-warning.JPG"  >
+ <img class="image" src="./assets/images/pragama-warning.JPG"  >
  <b><center class="img-label">Warning: required of compiler version</center></b>
 
 **3. Contract:**
@@ -136,7 +136,7 @@ This line declares a state variable called `hello` of type string . You can thi
 
 Solidity compiler creates ByteCode and ABI when we compile the smart contract, you can see them at the bottom of the compiler tab panel. 
 
-  <img class="image" src="././assets/images/remix bytecode.JPG"  >
+  <img class="image" src="././assets/images/remix-bytecode.JPG"  >
   <b><center class="img-label">Bytecode and ABI</center></b>
 
 **Bytecode:** Take a copy of these files and paste them into notepad. Basically, bytecode file contains data in JSON that has a key named `object`, whose value is a hexadecimal number, which is the actual bytecode that EVM runs.
@@ -155,7 +155,7 @@ From the bytecode file, copy the value of the object key. Add the prefix `0x` to
 
 **ABI:** ABI is an interface used to interact with bytecode.
 
-  <img class="image" src="././assets/images/ABI code.JPG"  >
+  <img class="image" src="././assets/images/abi-code.JPG"  >
   <b><center class="img-label">ABI</center></b>
 
 Solidity automatically creates a get method to access the value of variables we create, such as `hello` in our `Hello World example` (the get method is actually called to access the value). In the ABI file, we can see that an object is created for the `hello` get method. Through this interface, we can interact with bytecode in any programming language such as In our Hello World example, we click a button to print the `hello world!`, which is actually code in `JS`.  As the `JS` code interacts with the `ABI` and the `ABI` interacts with the `bytecode`, the `bytecode` runs in `EVM` and `EVM` returns the output as per the instructions.
