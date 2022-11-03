@@ -1,12 +1,13 @@
 import { ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
 import { faBars, faBox, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 export class Breadcrumb {
   public label: string = "";
@@ -38,12 +39,13 @@ export class DocLayoutComponent implements OnInit {
   hasChild = (_: number, node: NavNode) => !!node.childs && node.childs.length > 0;
   public contentLink: string = './assets/markdown/';
   public opened: boolean = true;
-  public config: NavNode[] =[];
+  public config: NavNode[] = [];
   public breadcrumb: any = [];
   public title: string = "";
   public icon: string = "";
   public githubLink: string = "";
-  public markdown='';
+  public markdown = '';
+  public previousLink: string = '';
   public defaultGithubLink = "https://github.com/ROOTBABU/solidity/blob/dev/src/assets/markdown/"
   public iconComponents: any = {
     "faBox": faBox,
@@ -52,14 +54,16 @@ export class DocLayoutComponent implements OnInit {
     "faF": faF,
     "faChessPawn": faChessPawn,
     "faBars": faBars,
-    "faGithub":faGithub,
-    "faDiscord":faDiscord,
-    "faInfo":faInfo,
-    "faMedium":faMedium,
-    "faTwitter":faTwitter,
-    "faXmark":faXmark
+    "faGithub": faGithub,
+    "faDiscord": faDiscord,
+    "faInfo": faInfo,
+    "faMedium": faMedium,
+    "faTwitter": faTwitter,
+    "faXmark": faXmark
   }
-  constructor(private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
+  public eleId: string = '';
+
+  constructor(private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe((ele: any) => {
@@ -70,42 +74,53 @@ export class DocLayoutComponent implements OnInit {
       this.breadcrumb.push(new Breadcrumb("", "/", "faHouseChimney"));
       this.breadcrumb.push(new Breadcrumb(this.title, ele.url));
       this.contentLink = this.contentLink.concat(ele.file)
+      this.previousLink = this.contentLink;
       this.githubLink = this.defaultGithubLink.concat(ele.file);
-      this.renderMd(this.contentLink,ele?.id)
     });
   }
 
   onTabClick(ele: any) {
     if (ele) {
-        this.contentLink = "./assets/markdown/".concat(ele.file);
-        this.githubLink = this.defaultGithubLink.concat(ele.file);
-        setTimeout(() => { 
-          let eleId = document.getElementById(ele.id);
-          if(eleId){
-            eleId.scrollIntoView({behavior: 'smooth'});
-          }
-        }, 60)
-        // this.renderMd(this.contentLink,ele.id)
+      this.contentLink = "./assets/markdown/".concat(ele.file);
+      this.githubLink = this.defaultGithubLink.concat(ele.file);
+      this.eleId = ele.id;
+      if (this.previousLink != this.contentLink) {
+        this.ngxLoader.start();
+      } else {
+        let eleId = document.getElementById(this.eleId);
+        if (eleId) {
+          eleId.scrollIntoView({ behavior: 'smooth' });
+        }
       }
+    }
   }
 
-  async renderMd(contentLink:string,id: string){
-    let markdownRaw = await this.http.get(contentLink, {
-      responseType: 'text'
-    }).toPromise();
-    if(markdownRaw){
-      this.markdown = this.markdownService.parse(markdownRaw);
-      let md  = document.getElementById("md");
-      if(md){
-         this.markdownService.render(md);
+  onLoad() {
+    let ele = document.getElementById(this.eleId);
+    const element = document.querySelectorAll(".image");
+    this.previousLink = this.contentLink;
+    let ngxLoader: NgxUiLoaderService = this.ngxLoader;
+    let scrollPage = this.scrollPage;
+    if (ele) {
+      if (element.length) {
+        element.forEach((item,index)=>{
+          item.addEventListener("load", function () {
+            scrollPage(ele, ngxLoader);
+          });
+        })
+      } else {
+        scrollPage(ele, ngxLoader);
       }
-      setTimeout(() => { 
-        let eleId = document.getElementById(id);
-        if(eleId){
-          eleId.scrollIntoView({behavior: 'smooth'});
-        }
-      }, 20)
     }
+  }
+
+  scrollPage(ele: any, ngxLoader: NgxUiLoaderService) {
+    ele.scrollIntoView({ behavior: 'smooth' });
+    ngxLoader.stop();
+  }
+
+  onError() {
+    console.log("Markdown reedering Error!")
   }
 
   onSearch(ele: any) {

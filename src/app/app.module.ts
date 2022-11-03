@@ -33,6 +33,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import {MessagesModule} from 'primeng/messages';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 import {
   FontAwesomeModule,
@@ -94,7 +95,8 @@ import { DatePipe } from '@angular/common';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule ,
-    MessagesModule
+    MessagesModule,
+    NgxUiLoaderModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
