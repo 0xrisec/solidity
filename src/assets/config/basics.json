@@ -2,7 +2,7 @@
     "title": "Basics",
     "icon": "faChessPawn",
     "url": "./basics",
-    "file": "basics",
+    "file": "basics.md",
     "disscussion": "",
     "topicsList": [
         {
