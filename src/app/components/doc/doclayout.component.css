@@ -71,6 +71,11 @@ hr{
   color: #5d6778;
   font-size: 1rem;
   padding-left: 4px;
+  width: 100%;
+}
+
+.nav-link{
+  width: 100%;
 }
 
 .mat-tree-node{
