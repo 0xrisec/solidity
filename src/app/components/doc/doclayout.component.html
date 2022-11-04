@@ -1,10 +1,10 @@
 <mat-sidenav-container class="doclayout-container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidenav">
+    <mat-sidenav #sidenav [mode]="navMode" [(opened)]="opened" class="sidenav">
         <div class="card">
             <div class="card-body text-center">
                 <span class="theme-icon-holder" style="background:none;">
-                    <div class="enable">
-                        <span class="bars d-flex" role="button" (click)="sidenav.toggle()">
+                    <div class="enable" #xmark >
+                        <span class="bars d-flex" role="button" (click)="closeSideNav()">
                             <fa-icon class="fa-4x ml-auto" [icon]="iconComponents['faXmark']"></fa-icon>
                         </span>
                     </div>
@@ -49,12 +49,12 @@
     <mat-sidenav-content class="vh-100">
         <div class="docs-content sidenav-content" id="top">
             <div class="d-flex content-header">
-                <div>
-                    <span class="bars d-flex" role="button" (click)="sidenav.toggle()">
+                <div *ngIf="isBar">
+                    <span class="bars d-flex disable" role="button" (click)="toggleBar()">
                         <fa-icon class="fa-4x" [icon]="iconComponents['faBars']"></fa-icon>
                     </span>
                 </div>
-                <div class="nav breadcrumb-container">
+                <div class="nav" [ngClass]="{'breadcrumb-container':isBar}">
                     <app-breadcrumb [breadcrumbs]="breadcrumb"></app-breadcrumb>
                 </div>
                 <div class="github-link">

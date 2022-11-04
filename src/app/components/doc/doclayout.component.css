@@ -1,13 +1,10 @@
-.sidenav-content {
-    padding: 1.2rem 3rem 0rem;
-  }
-
 .docs-content .breadcrumb li a{
   color: black;
 }
 
 .nav{
   margin-right: auto;
+  font-size: 1rem;
 }
 
 .docs-wrapper a{
@@ -88,7 +85,6 @@ hr{
 .breadcrumb-container{
   align-items: center;
   margin-left: auto;
-  font-size: 1rem;
 }
 
 .github-link{

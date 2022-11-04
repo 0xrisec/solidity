@@ -1,6 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
 import { faBars, faBox, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +8,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 
 export class Breadcrumb {
   public label: string = "";
@@ -30,15 +31,16 @@ interface NavNode {
 @Component({
   selector: 'app-doc',
   templateUrl: './doclayout.component.html',
-  styleUrls: ['./doclayout.component.css']
+  styleUrls: ['./doclayout.component.css'],
+  providers: [MatSidenav],
 })
 
-export class DocLayoutComponent implements OnInit {
+export class DocLayoutComponent implements OnInit,AfterViewInit {
   treeControl = new NestedTreeControl<NavNode>(node => node.childs);
   dataSource = new MatTreeNestedDataSource<NavNode>();
   hasChild = (_: number, node: NavNode) => !!node.childs && node.childs.length > 0;
   public contentLink: string = './assets/markdown/';
-  public opened: boolean = true;
+  public opened: boolean = false;
   public config: NavNode[] = [];
   public breadcrumb: any = [];
   public title: string = "";
@@ -62,6 +64,11 @@ export class DocLayoutComponent implements OnInit {
     "faXmark": faXmark
   }
   public eleId: string = '';
+  public isBar: boolean = true;
+  public navMode:MatDrawerMode = 'side'
+
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  @ViewChild('xmark') xmark: ElementRef;
 
   constructor(private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
 
@@ -79,8 +86,21 @@ export class DocLayoutComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    if (window.screen.width <= 700) { 
+      this.opened = false;
+      this.navMode = 'over'
+    } else{
+      this.opened = true;
+    }
+  }
+  
   onTabClick(ele: any) {
     if (ele) {
+      if (window.screen.width <= 700) { 
+        this.opened = false;
+        this.isBar = true;
+      }
       this.contentLink = "./assets/markdown/".concat(ele.file);
       this.githubLink = this.defaultGithubLink.concat(ele.file);
       this.eleId = ele.id;
@@ -95,6 +115,20 @@ export class DocLayoutComponent implements OnInit {
     }
   }
 
+  public toggleBar() {
+    if (window.screen.width <= 700) {
+      this.isBar = false;
+    } else {
+      this.isBar = true;
+    }
+    this.sidenav.toggle();
+  }
+
+  public closeSideNav() {
+    this.isBar = true;
+    this.sidenav.toggle();
+  }
+
   onLoad() {
     let ele = document.getElementById(this.eleId);
     const element = document.querySelectorAll(".image");
@@ -103,7 +137,7 @@ export class DocLayoutComponent implements OnInit {
     let scrollPage = this.scrollPage;
     if (ele) {
       if (element.length) {
-        element.forEach((item,index)=>{
+        element.forEach((item, index) => {
           item.addEventListener("load", function () {
             scrollPage(ele, ngxLoader);
           });
