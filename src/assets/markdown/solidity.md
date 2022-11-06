@@ -6,7 +6,7 @@ A statically-typed language is a language (such as `Java`, `C`, or `C++`) where 
 
 Solidity is similar in appearance to other coding languages such as `C++`, `Python`, and `JavaScript`.  For example, Solidity programming also has variables, functions, Access  modifiers, arithmetic operations, string manipulation, inheritance, and  many other concepts.
 
-# Solidity Compiler, Byte Code & ABI, EVM and Etherum Network:
+# Solidity Compiler, Byte Code & ABI, EVM and Ethereum Network:
 
 To make these items easier, we need to understand how other programming language codes are executed.
 

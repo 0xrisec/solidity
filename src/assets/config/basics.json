@@ -66,10 +66,10 @@
                             }
                         },
                         {
-                            "title": "Solidity Compiler, Byte Code & ABI, EVM and Etherum Network",
+                            "title": "Solidity Compiler, Byte Code & ABI, EVM and Ethereum Network",
                             "href": {
                                 "file": "solidity.md",
-                                "id": "solidity-compiler-byte-code--abi-evm-and-etherum-network",
+                                "id": "solidity-compiler-byte-code--abi-evm-and-Ethereum-network",
                                 "githubLink": ""
                             }
                         },

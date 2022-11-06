@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rootbabu-sol",
+            "outputPath": "dist/rootbabu-sol/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -121,6 +121,65 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/rootbabu-sol/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "rootbabu-sol:build:development",
+              "serverTarget": "rootbabu-sol:server:development"
+            },
+            "production": {
+              "browserTarget": "rootbabu-sol:build:production",
+              "serverTarget": "rootbabu-sol:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "rootbabu-sol:build:production",
+              "serverTarget": "rootbabu-sol:server:production"
+            },
+            "development": {
+              "browserTarget": "rootbabu-sol:build:development",
+              "serverTarget": "rootbabu-sol:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

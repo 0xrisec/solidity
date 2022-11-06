@@ -66,7 +66,7 @@ import { DatePipe } from '@angular/common';
     FooterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     AccordionModule,
