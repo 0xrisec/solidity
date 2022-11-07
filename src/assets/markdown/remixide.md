@@ -1,6 +1,6 @@
 # Overview
 
-Remix is a web browser based integrated development environemnt(IDE) that allows you to write, deploy and administer Solidity smart contracts, without the need to install Solidity locally.
+Remix is a web browser based integrated development environment(IDE) that allows you to write, deploy and administer Solidity smart contracts, without the need to install Solidity locally.
 
 <a href="https://remix.ethereum.org" target="_blank">Access Remix online</a>, We will use Remix for all our coding.
 
