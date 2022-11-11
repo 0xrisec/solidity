@@ -310,6 +310,28 @@
                     }
                 }
             ]
+        },
+        {
+            "title": "Constant and Immutable State Variables ",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Constant",
+                    "href": {
+                        "file": "constant-immutable.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Immutable",
+                    "href": {
+                        "file": "constant-immutable.md",
+                        "id": "immutable",
+                        "githubLink": ""
+                    }
+                }
+            ]
         }
     ]
 }
