@@ -53,7 +53,7 @@ contract SimpleContract {
 
     //updating state variable
     function increment() public view returns (uint) {
-        totalAmount = totalAmount + 1;
+        totalAmount = totalAmount + 1; //reading and modifying state variable
         return totalAmount; 
     }
 }
@@ -90,7 +90,7 @@ pragma solidity 0.8.0;
 contract SimpleContract {
     uint public total = 10;
     function add(uint a, uint b) public pure returns (uint) {
-        total = total + a + b;
+        total = total + a + b; // reading and modifying state variable
         return total;
     }
 }
