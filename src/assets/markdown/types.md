@@ -204,6 +204,7 @@ contract Example{
 pragma solidity 0.8.15;
 contract Example{
        int public exp = 10**2; //100
+       bool public isEqual = 10**2 == 1e2; // where 1e2 = 1 x 10**2
 }
 ```
 
