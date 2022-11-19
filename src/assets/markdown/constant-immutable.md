@@ -37,7 +37,7 @@ contract MyContract {
 }
 ```
 
-# Immutable
+## Immutable
 
 An immutable variable is less restricted than a constant variable. Variables that are immutable can be assigned arbitrary values in the constructor of the contract or at the time of their declaration, i.e. they can be assigned during construction time.
 
@@ -86,18 +86,18 @@ contract MyContract {
 }
 ```
 <pre style="background: rgba(0,0,0,.05); padding:20px; color:red">
-//DeclarationError: Only constant variables are allowed at file level.
-//DeclarationError: The "immutable" keyword can only be used for state variables.
+DeclarationError: Only constant variables are allowed at file level.
+DeclarationError: The "immutable" keyword can only be used for state variables.
 </pre>
 
 <div class="doc-note">
    <p class="alert alert-primary">
       <b>Note:</b><br>
       <span>
-         - Value types, byte array type or string variables can be constant, but others cannot.
+         - Value types and byte array type variables can be constant, but others cannot.
       </span><br>
       <span>
-         - Only value type variables can be immutable, but others cannot.
+         - Only value type variables can be immutable except string type, but others cannot.
       </span>
    </p>
 </div>
