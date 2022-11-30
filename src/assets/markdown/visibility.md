@@ -135,7 +135,7 @@ contract OtherContract{
 
 - compile the contract through the solidity compiler tab
 
-<img class="image" alt="Remix IDE Panels"  src="./assets/images/deployed-contracts.JPG" >
+<img class="image" alt=""  src="./assets/images/deployed-contracts.JPG" >
 <b><center class="img-label"></center></b>
 
 - Select the name of the contract in the contract field of the Deploy & Run Transactions tab and deploy each contract.
@@ -144,24 +144,25 @@ contract OtherContract{
 
 ### Code explanation:
 
-A main contract named MyContract has three variables, publicVar, privateVar, and internalVar, which we can use anywhere within MyContract. Four functions such as publicFun, privateFun, internalFun and total which we can call anywhere within MyContract. Such as total function is accessing all variables and functions except external ones(`externalFun` function).
+A main contract named `MyContract` has three variables, `publicVar`, `privateVar`, and `internalVar`, which we can use anywhere within `MyContract`. Four functions such as `publicFun()`, `privateFun()`, `internalFun()` and `total()` which we can call anywhere within `MyContract`. Such as total function is accessing all variables and functions except external ones(`externalFun` function).
 
-<img class="image" alt="Remix IDE Panels"  src="./assets/images/main-contract.JPG" >
+<img class="image" alt="Main Contract"  src="./assets/images/main-contract.JPG" >
 <b><center class="img-label">Main Contract</center></b>
 
-Due to the fact that we cannot access private and internal variables and function outside of the contract, they are not visible by REMIX IDE.
-Outside of the contract, we can only access public variables, public functions, and external functions, so publicVar, publicFun, externalFun, and total (the total function is public) are visible.
+Due to the fact that we cannot access private and internal variables and function outside of the contract,so they are not visible by REMIX IDE ( Since they are not exposed to the outside through the contract’s ABI.
+ ).
+Outside of the contract, we can only access public variables, public functions, and external functions, so `publicVar`, `publicFun()`, `externalFun()`, and `total()` (the total function is public) are visible. 
 
-Derived Contracts can access their parent's public and internal variables and functions. As an example, in a derived contract, the foo function accesses public and internal variables and functions of the parent contract.
+Derived Contracts can access their parent's public and internal variables and functions. As an example, in a derived contract, the `foo()` function accesses public and internal `variables & functions` of the parent contract.
 
-<img class="image" alt="Remix IDE Panels"  src="./assets/images/derived-contract.JPG" >
+<img class="image" alt="Derived Contract"  src="./assets/images/derived-contract.JPG" >
 <b><center class="img-label">Derived Contract</center></b>
 
 Derived contract shows its public variable, public function, and external function outside the contract, along with its parent public variable, public function, and external function.
 
-The external function can be accessed by other contracts and is visible outside the contract. In Other Contract, foo function accesses external function along with public variables and functions.
+The external function can be accessed by other contracts and is visible outside the contract. In Other Contract, `fun()` function accesses external function along with public `variables & functions`.
 
-<img class="image" alt="Remix IDE Panels"  src="./assets/images/another-contract.JPG" >
+<img class="image" alt=""  src="./assets/images/another-contract.JPG" >
 <b><center class="img-label"></center></b>
 
-Each contract deployment contract has a unique address. In order to access the variables and functions of another contract, we first need to know its address. In our example, the fun function gets addressed and creates the main contract object, so we can access variables and functions of the main contract.
+Each contract deployment contract has a unique address. In order to access the variables and functions of another contract, we first need to know its address. In our example, the `fun()` function gets addressed and creates the main contract object, so we can access variables and functions of the main contract.
