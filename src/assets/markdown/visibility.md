@@ -119,10 +119,10 @@ contract DerivedContract is MyContract{ // The is keyword is used for inheritanc
 
 //Defining Other contract
 contract OtherContract{
+    MyContract mainContract = new MyContract();
     //giving main contract address as a param
-    function fun(address contractAddr) public view returns(uint){ 
+    function fun() public view returns(uint){ 
         // create object of a main contract where `contractAddr` is the address of the main contract
-        MyContract mainContract = MyContract(contractAddr);
         //accessing public vairable and function of main contract
         uint varTotal = mainContract.publicVar();
         uint funTotal = mainContract.publicFun(2,2)+mainContract.externalFun(2,2);
