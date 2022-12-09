@@ -25,7 +25,6 @@ Block properties are global variables in Solidity that provide information about
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.15;
 
-
 contract MyContract {
     // Store the address of the miner
     address public minerAddress;
@@ -101,7 +100,6 @@ Example:
 ```sol
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.15;
-
 
 contract MyContract {
     // Store the sender of the transaction
@@ -201,7 +199,6 @@ Example:
 ```sol
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.15;
-
 
 contract MyContract {
     
