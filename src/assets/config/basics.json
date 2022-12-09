@@ -302,9 +302,232 @@
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "State Mutability",
+                    "title": "Overview",
                     "href": {
                         "file": "state-mutability.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "View",
+                    "href": {
+                        "file": "state-mutability.md",
+                        "id": "view-state-mutability-read-not-modify",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Pure",
+                    "href": {
+                        "file": "state-mutability.md",
+                        "id": "pure-state-mutability-not-read-not-modify",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Important Points",
+                    "href": {
+                        "file": "state-mutability.md",
+                        "id": "important-points",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Visibility",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Overview",
+                    "href": {
+                        "file": "visibility.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Types of visibility",
+                    "href": {
+                        "file": "visibility.md",
+                        "id": "types-of-visibility",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Constant and Immutable State Variables",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Constant",
+                    "href": {
+                        "file": "constant-immutable.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Immutable",
+                    "href": {
+                        "file": "constant-immutable.md",
+                        "id": "immutable",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "More about variables and functions",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Reading and Writing to a State Variable",
+                    "href": {
+                        "file": "variable-functions.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Free functions",
+                    "href": {
+                        "file": "variable-functions.md",
+                        "id": "free-function",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Constructor",
+                    "href": {
+                        "file": "variable-functions.md",
+                        "id": "constructor",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Control Structures",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "if/else and ternary operator",
+                    "href": {
+                        "file": "control-structures.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "While and For Loop",
+                    "href": {
+                        "file": "control-structures.md",
+                        "id": "while-and-for-loop",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Units & Gas",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Ether Units",
+                    "href": {
+                        "file": "units.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Time Units",
+                    "href": {
+                        "file": "units.md",
+                        "id": "time-units",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Gas",
+                    "href": {
+                        "file": "units.md",
+                        "id": "gas",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Gas Limit",
+                    "href": {
+                        "file": "units.md",
+                        "id": "gas-limit",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Globally Available Variables",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Overview",
+                    "href": {
+                        "file": "globally-available-variables.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },{
+                    "title": "Block properties",
+                    "href": {
+                        "file": "globally-available-variables.md",
+                        "id": "block-properties",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Message properties",
+                    "href": {
+                        "file": "globally-available-variables.md",
+                        "id": "message-properties",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Transaction properties",
+                    "href": {
+                        "file": "globally-available-variables.md",
+                        "id": "transaction-properties",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Refrence Type",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Reference Types",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Mapping",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Mapping",
+                    "href": {
+                        "file": "mapping.md",
                         "id": "top",
                         "githubLink": ""
                     }

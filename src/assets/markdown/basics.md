@@ -1,16 +1,18 @@
 # Solidity Basics
 
-Before proceeding to the basics solidity section, we expect that you have cleared all `the blockchain fundamentals`.
+Before proceeding to the basics of Solidity, we expect that you have a strong understanding of the fundamentals of blockchain technology.
 
-Contribution: In the top-right corner, click on `Edit on GitHub` to edit the selected page.
+To contribute to this section, click the "Edit on GitHub" button in the top-right corner of the page to edit the selected page.
 
-Your `questions`, `comments`, and `suggestions` are welcome here: <a href="https://discord.gg/qg4qks4aU6" target="_blank">Baiscs Section Channel </a>
+Your questions, comments, and suggestions are welcome in the Basics Section <a href="https://discord.gg/qg4qks4aU6" target="_blank">discord</a> channel.
 
-Throughout the basics section, all the fundamentals of solidity will be explained using examples and projects. There are three categories here:
+In this section, we will cover the fundamentals of Solidity using examples and projects. The topics covered include:
 
-1. Introduction and Environmental setup: Introduction of smart contract, solidity, IDE, its environmental setup, etc.
+1. Introduction and environmental setup: This includes an introduction to smart contracts and Solidity, as well as instructions on how to set up a development environment for writing and testing Solidity code.
 
-2. Language Description: Solidity language basics with code examples.
+2. Language description: This covers the basics of the Solidity language, including common data types, control structures, and other language features, along with code examples to illustrate each concept.
 
-3. Project: Develop a smart contract.
+3. Project: In this section, we will develop a simple smart contract from scratch to demonstrate how to use Solidity to write and deploy a contract on the Ethereum blockchain.
+
+
 

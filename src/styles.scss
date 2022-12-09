@@ -132,6 +132,15 @@ a,.card-icon{
   width: 45%;
 }
 
+.w50{
+  width: 50%;
+}
+
+.w60{
+  width: 60%;
+}
+
+
 .img-label{
   color: rgba(0, 0, 0, 0.68);
   padding: 10px 0px;
@@ -188,6 +197,11 @@ a,.card-icon{
 
 .sidenav-content {
   padding: 1.2rem 3rem 0rem;
+}
+
+.docs-content table tr th,.docs-content table tr td{
+  border: 1px solid black;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 700px) {
