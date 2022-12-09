@@ -450,6 +450,22 @@
                         "id": "time-units",
                         "githubLink": ""
                     }
+                },
+                {
+                    "title": "Gas",
+                    "href": {
+                        "file": "units.md",
+                        "id": "gas",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Gas Limit",
+                    "href": {
+                        "file": "units.md",
+                        "id": "gas-limit",
+                        "githubLink": ""
+                    }
                 }
             ]
         },
@@ -458,18 +474,33 @@
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Block properties",
+                    "title": "Overview",
                     "href": {
                         "file": "globally-available-variables.md",
                         "id": "top",
                         "githubLink": ""
                     }
+                },{
+                    "title": "Block properties",
+                    "href": {
+                        "file": "globally-available-variables.md",
+                        "id": "block-properties",
+                        "githubLink": ""
+                    }
                 },
                 {
-                    "title": "Time Units",
+                    "title": "Message properties",
                     "href": {
-                        "file": "units.md",
-                        "id": "time-units",
+                        "file": "globally-available-variables.md",
+                        "id": "message-properties",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Transaction properties",
+                    "href": {
+                        "file": "globally-available-variables.md",
+                        "id": "transaction-properties",
                         "githubLink": ""
                     }
                 }
