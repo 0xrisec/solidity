@@ -511,10 +511,26 @@
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Reference Types",
+                    "title": "Array",
                     "href": {
                         "file": "reference-types.md",
                         "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Fixed-size Arrays",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "fixed-size-arrays",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Dynamic Array",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "dynamic-array",
                         "githubLink": ""
                     }
                 }
