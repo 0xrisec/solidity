@@ -334,7 +334,6 @@ contract Example{
 }
 ```
 
-Members:
-
-    .length yields the fixed length of the byte array (read-only).
+**Members:**
+ .length yields the fixed length of the byte array (read-only).
 

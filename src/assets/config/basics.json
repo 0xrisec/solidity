@@ -527,23 +527,237 @@
                     }
                 },
                 {
-                    "title": "Dynamic Array",
+                    "title": "Dynamic Arrays",
                     "href": {
                         "file": "reference-types.md",
-                        "id": "dynamic-array",
+                        "id": "dynamic-arrays",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Dynamically-sized byte array",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "dynamically-sized-byte-array",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "String",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "string",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Mapping",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "mapping",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Structs",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "structs",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Enum",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "enum",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Data Location",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "data-location",
                         "githubLink": ""
                     }
                 }
             ]
         },
         {
-            "title": "Mapping",
+            "title": "Error handling",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Mapping",
+                    "title": "Assert",
                     "href": {
-                        "file": "mapping.md",
+                        "file": "error-handling.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Require",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "require",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Revert",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "revert",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Exceptions",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "exceptions",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Payable and Non-payable",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Payable",
+                    "href": {
+                        "file": "payable.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Events and Custom Error",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Events",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Function Modifier",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "function-modifiers.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "OOPS",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Inheritance",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Calling Parent Contracts",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Shadowing Inherited State Variables",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Interface",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Import and library",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Low level function",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "ABI encode / decode",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Unchecked Math",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "events.md",
                         "id": "top",
                         "githubLink": ""
                     }

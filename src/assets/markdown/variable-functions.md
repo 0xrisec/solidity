@@ -78,7 +78,7 @@ Free function are still always executed in the context of a contract. As well as
 
 ## Constructor
 
-Upon contract creation, the constructor function is executed, where you can run the initialization code for the contract.
+The constructor function is a special function in Solidity that is executed when the contract is deployed. Upon contract creation, the constructor function is executed, where you can run the initialization code for the contract.
 
 ```sol
 // SPDX-License-Identifier: GPL-3.0
