@@ -763,6 +763,20 @@
                     }
                 }
             ]
+        },
+        {
+            "title": "Type conversion",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
         }
     ]
 }
