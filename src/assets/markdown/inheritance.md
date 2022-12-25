@@ -205,3 +205,6 @@ The "B" contract also defines a function called "bar" which calls the "foo" func
 The "foo" function of the "A" contract is marked as "virtual" which means that it can be overridden by child contracts. The "foo" function of the "B" contract is marked as "override" which indicates that it is overriding the "foo" function of the "A" contract.
 
 The "bar" function of the "B" contract can be called to return the output of the "A.foo()" function, which is "A".
+
+
+**`view` functions can be overridden by `pure` functions.**

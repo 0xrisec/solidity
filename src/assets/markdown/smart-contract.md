@@ -6,7 +6,7 @@ Ethereum applications rely on `smart contracts` as their foundational element. S
 
 To grasp the concept of `smart contracts`, it is important to first understand the basics of `traditional contracts`.
 
-## What is Contract (Traditional contract)?
+# What is Contract (Traditional contract)?
 
 `Traditional contract` is a legally binding `agreement` between two or more parties that outlines the terms and conditions of a particular relationship. It can be verbal or written, as long as it includes certain conditions. The purpose of a contract is to establish a clear understanding between the parties involved and to provide a course of action in the event that the terms of the contract are not met.
 
@@ -26,7 +26,7 @@ To grasp the concept of `smart contracts`, it is important to first understand t
 
 - **Time Consumption:** The process of completing a traditional contract can take a significant amount of time, as it involves the involvement of multiple parties such as lawyers and bankers.
 
-## Smart Contracts:
+# Smart Contracts:
 
 `Smart contracts` are digital agreements stored on a `blockchain` that automatically execute when certain predetermined conditions are met. These conditions are written into the contract's programming code such as solidity.
 
@@ -61,7 +61,7 @@ To use a vending machine, you will typically follow these steps:
 
 It's important to note that `vending machines` will not dispense a product if the correct steps are not followed, such as if you do not select a `product` or do not insert enough `money`. This is similar to how a `smart contract` works, where specific outputs are guaranteed in return for specific inputs, as long as certain terms and conditions are met.
 
-# Applications of smart contracts:
+## Applications of smart contracts:
 
 Here are some examples of how smart contracts are being used in the real world:
 

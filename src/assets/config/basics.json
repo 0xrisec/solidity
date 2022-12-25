@@ -1,5 +1,6 @@
 {
     "title": "Basics",
+    "version": "Solidity v0.8.17",
     "icon": "faChessPawn",
     "url": "./basics",
     "file": "basics.md",
@@ -222,14 +223,6 @@
                     "href": {
                         "file": "types.md",
                         "id": "integers",
-                        "githubLink": ""
-                    }
-                },
-                {
-                    "title": "Fixed Point Numbers",
-                    "href": {
-                        "file": "types.md",
-                        "id": "fixed-point-numbers",
                         "githubLink": ""
                     }
                 },
@@ -665,7 +658,7 @@
             ]
         },
         {
-            "title": "OOPS",
+            "title": "Inheritance",
             "icon": "fas fa-function",
             "childs": [
                 {
@@ -737,6 +730,20 @@
             ]
         },
         {
+            "title": "keccak256",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
             "title": "ABI encode / decode",
             "icon": "fas fa-function",
             "childs": [
@@ -772,6 +779,20 @@
                     "title": "Function Modifier",
                     "href": {
                         "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Enums",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "enum.md",
                         "id": "top",
                         "githubLink": ""
                     }

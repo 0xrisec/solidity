@@ -586,7 +586,7 @@ A new zombie will be added to the array of zombies in the `ZombieApocalypse` con
 - Structs allow groups of related variables to be treated as one entity. In many situations, this will allow you to organize your code more effectively and make it easier to work with.
 
 - It is not possible for a struct to contain a member of its own type, although the struct itself can be the value type of a mapping member or it can contain a dynamically-sized array of its type.
-
+<!-- 
 ## enum
 
 `Enums` are user-defined data types that allow you to define named constants called `enumerators`. Using enums allows you to represent a finite set of options in your code, and provides you with named constants that can be used to represent specific values.
@@ -665,7 +665,7 @@ An enum's enumerators (i.e. constant values) are automatically assigned integer 
 - There should be at least one value in an enumerated list.
 - You cannot use booleans or numbers as enum members
 - In a mapping, enums are not permitted to be used as a key type
-- You cannot return an enum within a function because enums aren't part of the ABI.
+- You cannot return an enum within a function because enums aren't part of the ABI. -->
 
 ## Data location
 
@@ -815,3 +815,14 @@ This code will not compile, because the myFunction function takes a mapping as a
 
 
 
+
+
+
+funtion fun(string calldata num){
+
+}
+
+function fun2(){
+    fun("asdf"); // not call why?
+    
+}
