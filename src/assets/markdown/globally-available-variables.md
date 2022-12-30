@@ -10,7 +10,7 @@ We are going to be looking at these three properties of global variables
 
 ## Block properties
 
-Block properties are global variables in Solidity that provide information about the current block, such as the block number, timestamp, difficulty, gas limit, and coinbase address. These variables are part of the block object, which is a global object that is available in all Solidity functions.
+`Block properties` are global variables that provide information about the `current block`, such as the `block number`, `timestamp`, `difficulty`, `gas limit`, and `coinbase address`. These variables are part of the block object, which is a global object that is available in all Solidity functions.
 
 | name(type)                      | functionality/what it contains                      | Use Case                                                                                                                                                            |
 |---------------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -23,7 +23,7 @@ Block properties are global variables in Solidity that provide information about
 **Example:**
 ```sol
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.15;
+pragma solidity 0.8.17;
 
 contract MyContract {
     // Store the address of the miner
@@ -99,7 +99,7 @@ Example:
 
 ```sol
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.15;
+pragma solidity 0.8.17;
 
 contract MyContract {
     // Store the sender of the transaction
@@ -198,7 +198,7 @@ Example:
 
 ```sol
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.15;
+pragma solidity 0.8.17;
 
 contract MyContract {
     

@@ -13,7 +13,7 @@ The reuire is a bult-in function that can be enforces conditions on input argume
 **Example:**
 ```sol
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.15;
+pragma solidity 0.8.17;
 
 contract MyContract {
      // Declare a state variable
@@ -54,7 +54,7 @@ revert("description");
 // SPDX-License-Identifier: GPL-3.0
 // This line specifies the license of the contract.
 
-pragma solidity 0.8.15;
+pragma solidity 0.8.17;
 // This line specifies the version of Solidity that the contract is written in.
 
 contract MyContract {

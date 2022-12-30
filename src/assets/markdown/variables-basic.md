@@ -16,7 +16,7 @@
 
 **`<Variable Name>` :** The variable name is a label that is used to reference the variable within the contract. Variable names are case-sensitive. The first character must be a letter or an underscore, not a number. Reserved keywords are not allowed to use as variable names.
 
-<!-- <a href="https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.15+commit.e14f2714.js" class="code-link"><i class="fas fa-link"></i></a> -->
+<!-- <a href="https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.17+commit.e14f2714.js" class="code-link"><i class="fas fa-link"></i></a> -->
 
 **Example:**
 ```sol

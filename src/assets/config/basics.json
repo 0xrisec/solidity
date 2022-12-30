@@ -500,11 +500,63 @@
             ]
         },
         {
+            "title": "Enums",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "enums",
+                    "href": {
+                        "file": "enums.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Error handling",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Assert",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Require",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "require",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Revert",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "revert",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Exceptions",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "exceptions",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
             "title": "Refrence Type",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Array",
+                    "title": "Arrays",
                     "href": {
                         "file": "reference-types.md",
                         "id": "top",
@@ -558,63 +610,48 @@
                         "id": "structs",
                         "githubLink": ""
                     }
-                },
-                {
-                    "title": "Enum",
-                    "href": {
-                        "file": "reference-types.md",
-                        "id": "enum",
-                        "githubLink": ""
-                    }
-                },
-                {
-                    "title": "Data Location",
-                    "href": {
-                        "file": "reference-types.md",
-                        "id": "data-location",
-                        "githubLink": ""
-                    }
                 }
             ]
         },
         {
-            "title": "Error handling",
+            "title": "Data Locations",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Assert",
+                    "title": "Data Location",
                     "href": {
-                        "file": "error-handling.md",
-                        "id": "top",
+                        "file": "data-locations.md",
+                        "id": "data-location",
                         "githubLink": ""
                     }
                 },
                 {
-                    "title": "Require",
+                    "title": "Value types data location",
                     "href": {
-                        "file": "error-handling.md",
-                        "id": "require",
+                        "file": "data-locations.md",
+                        "id": "value-types-data-location",
                         "githubLink": ""
                     }
                 },
                 {
-                    "title": "Revert",
+                    "title": "Refrence types Data location",
                     "href": {
-                        "file": "error-handling.md",
-                        "id": "revert",
+                        "file": "data-locations.md",
+                        "id": "refrence-types-data-location",
                         "githubLink": ""
                     }
                 },
                 {
-                    "title": "Exceptions",
+                    "title": "Assignment behaviour",
                     "href": {
-                        "file": "error-handling.md",
-                        "id": "exceptions",
+                        "file": "data-locations.md",
+                        "id": "assignment-behaviour",
                         "githubLink": ""
                     }
                 }
             ]
         },
+       
         {
             "title": "Payable and Non-payable",
             "icon": "fas fa-function",
@@ -626,11 +663,19 @@
                         "id": "top",
                         "githubLink": ""
                     }
+                },
+                {
+                    "title": "Non Payable",
+                    "href": {
+                        "file": "payable.md",
+                        "id": "non-payable",
+                        "githubLink": ""
+                    }
                 }
             ]
         },
         {
-            "title": "Events and Custom Error",
+            "title": "Events",
             "icon": "fas fa-function",
             "childs": [
                 {
@@ -650,7 +695,7 @@
                 {
                     "title": "Function Modifier",
                     "href": {
-                        "file": "function-modifiers.md",
+                        "file": "function-modifier.md",
                         "id": "top",
                         "githubLink": ""
                     }
@@ -664,37 +709,45 @@
                 {
                     "title": "Inheritance",
                     "href": {
-                        "file": "events.md",
+                        "file": "inheritance.md",
                         "id": "top",
                         "githubLink": ""
                     }
                 },
                 {
-                    "title": "Calling Parent Contracts",
+                    "title": "Override and Virtual",
                     "href": {
-                        "file": "events.md",
-                        "id": "top",
+                        "file": "inheritance.md",
+                        "id": "override-and-virtual",
                         "githubLink": ""
                     }
                 },
                 {
                     "title": "Shadowing Inherited State Variables",
                     "href": {
-                        "file": "events.md",
-                        "id": "top",
+                        "file": "inheritance.md",
+                        "id": "shadowing-inherited-state-variables",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Calling Parent Contracts",
+                    "href": {
+                        "file": "inheritance.md",
+                        "id": "calling-parent-contracts",
                         "githubLink": ""
                     }
                 }
             ]
         },
         {
-            "title": "Interface",
+            "title": "Abstract Contracts and Interfaces",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Function Modifier",
+                    "title": "Interfaces",
                     "href": {
-                        "file": "events.md",
+                        "file": "interfaces.md",
                         "id": "top",
                         "githubLink": ""
                     }
@@ -784,20 +837,7 @@
                     }
                 }
             ]
-        },
-        {
-            "title": "Enums",
-            "icon": "fas fa-function",
-            "childs": [
-                {
-                    "title": "Function Modifier",
-                    "href": {
-                        "file": "enum.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
-                }
-            ]
         }
+       
     ]
 }
