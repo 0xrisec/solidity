@@ -745,10 +745,18 @@
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Interfaces",
+                    "title": "Abstract Contracts",
                     "href": {
                         "file": "interfaces.md",
                         "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Interfaces",
+                    "href": {
+                        "file": "interfaces.md",
+                        "id": "interfaces",
                         "githubLink": ""
                     }
                 }

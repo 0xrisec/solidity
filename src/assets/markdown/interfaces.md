@@ -106,3 +106,61 @@ abstract contract DerivedContract is BaseContract {
 ## Interfaces
 
 An interface defines a list of functions that any contract inheriting from it must implement. Interfaces are used to specify a contract's behavior and can be thought of as a blueprint for the functions that a contract should have.
+
+**Declaration:**
+The `interface` keyword is used to declare an interface, and the name of the interface follows the keyword. Inside the curly braces, you can declare one or more functions:
+
+```sol
+interface MyInterface {
+    // Declare one or more functions
+    function functionName(type1 param1, type2 param2, ...) visibility modifier returns (type1, type2, ...);
+}
+```
+
+`Contracts` can inherit `interfaces` just like they can inherit `other contracts`. This allows a contract to implement the functions defined in an `interface`, which can be useful for defining a common interface that is shared by multiple contracts, or for creating a contract hierarchy where `derived contracts` inherit certain behaviors from their `base contracts`.
+
+**Example:**
+
+```sol
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity 0.8.17;
+
+interface MyInterface {
+    // Declare a function called doSomething that takes an uint256 value as an input and returns an uint256 value
+    function doSomething(uint256 value) pure external returns (uint256);
+}
+
+// Declare a contract called MyContract that depends on the MyInterface interface
+contract MyContract is MyInterface {
+    // Implement the doSomething function defined in the MyInterface interface
+    function doSomething(uint256 value) pure public returns (uint256) {
+        // Implementation goes here
+        return value;
+    }
+}
+```
+
+The `MyInterface` interface contains a single function called `doSomething` that takes an `uint256` value as an input and returns an `uint256` value. The `pure` and `external` keywords are used to specify that the function is a `pure` function that can only be called from outside the contract.
+
+The `MyContract` contract is then declared, and it depends on the `MyInterface` interface. This means that the `MyContract` contract must implement all of the functions defined in the `MyInterface` interface.
+
+The `MyContract` contract implements the `doSomething` function defined in the `MyInterface` interface by providing an implementation for the function.
+
+**Important Points:**
+
+**1.** `Variables` cannot be declared in `interfaces`.
+
+**2.** `Functions` in an `interface` must be marked as `external` and cannot contain any implementation details.
+
+**3.** `Interfaces` are similar to `abstract contracts` in that they define a set of required behaviors or functions for contracts that implement them. However, there are some key differences between `interfaces` and `abstract contracts`:
+- `Interfaces` can inherit from other `interfaces`, but cannot inherit from `contracts`.
+- `Interfaces` cannot have any functions implemented. All functions declared in an interface must be external and cannot have any implementation.
+- `Interfaces` cannot declare a constructor. 
+- `Interfaces` cannot declare state variables.
+- `Interfaces` cannot declare modifiers.
+
+**4.** All functions declared in `interfaces` are implicitly `virtual`, which means that they can be overridden by derived contracts. When a contract overrides a function declared in an interface, it is not necessary to use the `override` keyword, as the function is already marked as `virtual`.
+
+**5.** `Interfaces` can inherit from other `interfaces`, just like `contracts` can inherit from `other contracts`. This allows you to create a hierarchy of `interfaces`, where `derived interfaces` can inherit the functions and behavior of their `base interfaces`.
+
+<!-- - You can define types such as enums, structs, and other contract-like structures inside interfaces and other contract-like structures, and these types can be accessed from other contracts. -->
