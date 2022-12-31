@@ -763,42 +763,66 @@
             ]
         },
         {
-            "title": "Import and library",
+            "title": "Import and Libraries",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Function Modifier",
+                    "title": "Import",
                     "href": {
-                        "file": "events.md",
+                        "file": "import.md",
                         "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Libraries",
+                    "href": {
+                        "file": "import.md",
+                        "id": "libraries",
                         "githubLink": ""
                     }
                 }
             ]
         },
         {
-            "title": "Low level function",
+            "title": "Special Functions",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Function Modifier",
+                    "title": "Fallback",
                     "href": {
-                        "file": "events.md",
+                        "file": "special-functions.md",
                         "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Receive Ether Function",
+                    "href": {
+                        "file": "special-functions.md",
+                        "id": "receive-ether-function",
                         "githubLink": ""
                     }
                 }
             ]
         },
         {
-            "title": "keccak256",
+            "title": "Keccak256 & Function Selector",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Function Modifier",
+                    "title": "Keccak256",
                     "href": {
-                        "file": "events.md",
+                        "file": "keccak256.md",
                         "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Function Selector",
+                    "href": {
+                        "file": "keccak256.md",
+                        "id": "function-selector",
                         "githubLink": ""
                     }
                 }
@@ -809,9 +833,55 @@
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Function Modifier",
+                    "title": "Overview",
                     "href": {
-                        "file": "events.md",
+                        "file": "abi.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encode(...) and abi.decode(...)",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencode-and-abidecode",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encodePacked(...) and abi.decodePacked(...)",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencodepacked-and-abidecodepacked",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encodeWithSelector(...)",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencodewithselector",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encodeWithSignature(...) ",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencodewithsignature",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Low level functions",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Call",
+                    "href": {
+                        "file": "low-level-function.md",
                         "id": "top",
                         "githubLink": ""
                     }
@@ -823,9 +893,9 @@
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Function Modifier",
+                    "title": "Unchecked Math",
                     "href": {
-                        "file": "events.md",
+                        "file": "unchecked-math.md",
                         "id": "top",
                         "githubLink": ""
                     }
@@ -833,13 +903,13 @@
             ]
         },
         {
-            "title": "Type conversion",
+            "title": "Type Conversion",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Function Modifier",
+                    "title": "Type Conversion",
                     "href": {
-                        "file": "events.md",
+                        "file": "type-conversion.md",
                         "id": "top",
                         "githubLink": ""
                     }
