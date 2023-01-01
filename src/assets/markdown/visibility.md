@@ -1,8 +1,8 @@
 # Visibility
 
-Visibility is used to set the accessibility of variables and functions within a smart contract. This allows us to easily secure certain parts of a contract without writing custom code.
+`Visibility` controls the accessibility of variables and functions within a smart contract. It helps to secure specific elements of the contract without the need for additional coding. 
 
-Visibility only prevents other contracts from reading or modifying the information. In a contract, visibility is set for three types of function callers: `Main Contract`, `Derived Contract` and `Another Contract`.
+`Visibility` only restricts other contracts from accessing or altering the information. In a smart contract, `visibility` can be set for three types of function callers: `the main contract`, `a derived contract`, and `another contract`.
 
 **MyContract:** In my case, the name of the main contract is MyContract.
 <pre style="background: rgba(0,0,0,.05); padding:20px">
@@ -11,7 +11,7 @@ contract MyContract{
 }
 </pre>
 
-**DerivedContract:** A derived contract is a contract that is constructed from a base contract or an existing contract. In other words a contract inherited from the main contract. The `is` keyword is used for inheritance in Solidity.
+**DerivedContract:** A `derived contract`, also known as a `child contract`, is a contract that is built upon an existing contract, known as the `base or parent contract`. The `is` keyword is used in Solidity to indicate `inheritance`.
 
 <pre style="background: rgba(0,0,0,.05); padding:20px">
 //base contract or main contract or parent contract
@@ -41,7 +41,7 @@ contract AnotherContract{
 
 ## Types of visibility
 
-Function visibility can be `private`, `internal`, `external`, or `public`, while state variables have only three visibility modifiers `public`, `internal`, or `private`. The keyword `external` is not applicable to state variables.
+Function visibility can be set to `private`, `internal`, `external`, or `public`, while state variables can only be designated as `public`, `internal`, or `private`. It is not possible to use the `external` keyword for state variables.
 
 **Declaration:**
 
@@ -62,70 +62,88 @@ function function_name(&lt;Parameters&gt;) &lt;state mutability&gt; <b>&lt;visib
 <img class="image" alt="Remix IDE Panels"  src="./assets/images/visibility.JPG" >
 <b><center class="img-label">visibilty within contracts</center></b>
 
-- **public:** A public variable or function can be accessed by inside `contract itself`, `derived contracts` and `another contract and accounts`. By default, all functions and variables are `public`.
+- **public:** A `public` variable or function can be accessed by anyone, including the `contract itself`, `derived contracts`, `other contracts`, and `external accounts`. 
 
-- **internal:** Internal variable and function can be accessed by inside `contract itself` and `derived contracts`.
+- **internal:** An `internal` variable or function can only be accessed within the contract and its `derived contracts`.
 
-- **external:** An external function can only be called from `another contract` or from `a third-party contract`. The main contract itself or any contracts derived from it cannot call it.
+- **external:** An `external` function can only be called from `other contracts` or `external accounts`. It cannot be called from within the `main contract` or any `derived contracts`.
 
-- **private:** Private functions and variables can only be accessed inside `contract itself`. `Another contract` and `derived contracts` cannot access private functions and variables.
-
+- **private:** A `private` variable or function is only accessible within the `contract itself`. It cannot be accessed by `other contracts` or `external accounts` and `derived contracts`.
 
 ## Example
 ```sol
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.15;
+pragma solidity 0.8.17;
 
-//Defining Main contract
+// Define the main contract "MyContract"
 contract MyContract {
-    //creating public variable and function
+    // Declare a public variable
     uint public publicVar = 12;
-    uint private priavteVar = 12;
+
+    // Declare a private variable
+    uint private privateVar = 12;
+
+    // Declare an internal variable
     uint internal internalVar = 12;
-    // uint external publicVar = 12;
 
-    function publicFun(uint a,uint b) public pure returns(uint){
-        return a+b;
+    // Declare a public function
+    function publicFun(uint a, uint b) public pure returns(uint) {
+        // Return the sum of the two input parameters
+        return a + b;
     }
 
-    function privateFun(uint a,uint b) private pure returns(uint){
-        return a*b;
+    // Declare a private function
+    function privateFun(uint a, uint b) private pure returns(uint) {
+        // Return the product of the two input parameters
+        return a * b;
     }
 
-    function internalFun(uint a,uint b) internal pure returns(uint){
-        return a-b;
+    // Declare an internal function
+    function internalFun(uint a, uint b) internal pure returns(uint) {
+        // Return the difference of the two input parameters
+        return a - b;
     }
 
-    function externalFun(uint a,uint b) external pure returns(uint){
-        return a/b;
+    // Declare an external function
+    function externalFun(uint a, uint b) external pure returns(uint) {
+        // Return the quotient of the two input parameters
+        return a / b;
     }
 
-    function total() public view returns(uint){
-        uint varTotal = publicVar + priavteVar + internalVar;
-        uint funTotal = publicFun(2,2) + privateFun(2,2) + internalFun(2,2);
+    // Declare a public view function
+    function total() public view returns(uint) {
+        // Calculate the total of the variables and functions
+        uint varTotal = publicVar + privateVar + internalVar;
+        uint funTotal = publicFun(2, 2) + privateFun(2, 2) + internalFun(2, 2);
+        // Return the sum of the variable total and function total
         return varTotal + funTotal;
     }
 }
 
-//Defining child contract
-contract DerivedContract is MyContract{ // The is keyword is used for inheritance in Solidity.
-    //accessing public vairable and function of main contract
-    function foo() public view returns(uint){
+// Define a derived contract "DerivedContract"
+contract DerivedContract is MyContract {
+    // The "is" keyword is used for inheritance in Solidity.
+    // Declare a public view function that accesses public and internal variables and functions of the main contract
+    function foo() public view returns(uint) {
         uint varTotal = publicVar + internalVar;
-        uint funTotal = publicFun(2,2) + internalFun(2,2);
+        uint funTotal = publicFun(2, 2) + internalFun(2, 2);
+        // Return the sum of the variable total and function total
         return varTotal + funTotal;
     }
 }
 
-//Defining Other contract
-contract OtherContract{
+// Define an "OtherContract"
+contract OtherContract {
+    // Create an instance of the main contract
     MyContract mainContract = new MyContract();
-    //giving main contract address as a param
-    function fun() public view returns(uint){ 
-        // create object of a main contract where `contractAddr` is the address of the main contract
-        //accessing public vairable and function of main contract
+
+    // Declare a public view function that accesses public variables and functions of the main contract
+    function fun() public view returns(uint) {
+        // Access the public variable of the main contract
         uint varTotal = mainContract.publicVar();
-        uint funTotal = mainContract.publicFun(2,2)+mainContract.externalFun(2,2);
+        // Access the public and external functions of the main contract
+        uint funTotal = mainContract.publicFun(2, 2) + mainContract.externalFun(2, 2);
+        // Return the sum of the variable total and function total
         return varTotal + funTotal;
     }
 }
@@ -133,36 +151,36 @@ contract OtherContract{
 
 ### Compilation and Deployment:
 
-- compile the contract through the solidity compiler tab
+- Use the Solidity compiler tab to compile the contract. This will produce the bytecode and ABI (Application Binary Interface) of the contract, which are necessary for deployment.
 
 <img class="image" alt=""  src="./assets/images/deployed-contracts.JPG" >
 <b><center class="img-label"></center></b>
 
-- Select the name of the contract in the contract field of the Deploy & Run Transactions tab and deploy each contract.
+- In the Deploy & Run Transactions tab, select the name of the contract in the contract field. 
 
-- You will see the deployed contract at the bottom of the tab after clicking the deploy button.
+- Click the deploy button to deploy the contract. You will see the deployed contract at the bottom of the tab.
+
+- Repeat this process for each contract that you want to deploy.
 
 ### Code explanation:
 
-A main contract named `MyContract` has three variables, `publicVar`, `privateVar`, and `internalVar`, which we can use anywhere within `MyContract`. Four functions such as `publicFun()`, `privateFun()`, `internalFun()` and `total()` which we can call anywhere within `MyContract`. Such as total function is accessing all variables and functions except external ones(`externalFun` function).
+The main contract `MyContract` has three variables: `publicVar`, `privateVar`, and `internalVar`, which can be used within the contract. It also has four functions: `publicFun()`, `privateFun()`, `internalFun()`, and `total()`, which can be called from within the contract. The `total()` function accesses all of the variables and functions within the contract except for the `externalFun()` function.
 
 <img class="image" alt="Main Contract"  src="./assets/images/main-contract.JPG" >
 <b><center class="img-label">Main Contract</center></b>
 
-Due to the fact that we cannot access private and internal variables and function outside of the contract,so they are not visible by REMIX IDE ( Since they are not exposed to the outside through the contract’s ABI.
- ).
-Outside of the contract, we can only access public variables, public functions, and external functions, so `publicVar`, `publicFun()`, `externalFun()`, and `total()` (the total function is public) are visible. 
+`Private` and `internal` variables and functions are not accessible from outside of the contract, so they are not visible in the `REMIX IDE` (since they are not exposed through the contract's `ABI`). From outside of the contract, we can only access `public` variables, `public` functions, and `external` functions. Therefore, `publicVar`, `publicFun()`, `externalFun()`, and `total()` (which is a `public` function) are visible.
 
-Derived Contracts can access their parent's public and internal variables and functions. As an example, in a derived contract, the `foo()` function accesses public and internal `variables & functions` of the parent contract.
+`Derived contracts` can access their parent's `public` and `internal` variables and functions. For example, in a `derived contract`, the `foo()` function can access the `public` and `internal` variables and functions of the `parent contract`.
 
 <img class="image" alt="Derived Contract"  src="./assets/images/derived-contract.JPG" >
 <b><center class="img-label">Derived Contract</center></b>
 
-Derived contract shows its public variable, public function, and external function outside the contract, along with its parent public variable, public function, and external function.
+Derived contract shows its public `variable`, `public` function, and `external` function outside the contract, along with its parent `public` variable, `public` function, and `external` function.
 
-The external function can be accessed by other contracts and is visible outside the contract. In Other Contract, `fun()` function accesses external function along with public `variables & functions`.
+The `external` function can be accessed by other contracts and is visible from outside the contract. In the `OtherContract`, the `fun()` function can access the `external` function, as well as the `public` variables and functions.
 
 <img class="image" alt=""  src="./assets/images/another-contract.JPG" >
 <b><center class="img-label"></center></b>
 
-Each contract deployment contract has a unique address. In order to access the variables and functions of another contract, we first need to know its address. In our example, the `fun()` function gets addressed and creates the main contract object, so we can access variables and functions of the main contract.
+The `OtherContract` contract creates an instance of the `MyContract` contract and accesses its `public` variables and functions in the `fun` function.

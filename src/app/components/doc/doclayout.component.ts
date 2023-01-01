@@ -44,6 +44,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   public config: NavNode[] = [];
   public breadcrumb: any = [];
   public title: string = "";
+  public version: string = "";
   public icon: string = "";
   public githubLink: string = "";
   public markdown = '';
@@ -77,6 +78,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
       this.config = ele?.topicsList;
       this.dataSource.data = this.config;
       this.title = ele?.title;
+      this.version = ele?.version;
       this.icon = ele?.icon;
       this.breadcrumb.push(new Breadcrumb("", "/", "faHouseChimney"));
       this.breadcrumb.push(new Breadcrumb(this.title, ele.url));

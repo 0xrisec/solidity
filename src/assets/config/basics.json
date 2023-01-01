@@ -1,5 +1,6 @@
 {
     "title": "Basics",
+    "version": "Solidity v0.8.17",
     "icon": "faChessPawn",
     "url": "./basics",
     "file": "basics.md",
@@ -222,14 +223,6 @@
                     "href": {
                         "file": "types.md",
                         "id": "integers",
-                        "githubLink": ""
-                    }
-                },
-                {
-                    "title": "Fixed Point Numbers",
-                    "href": {
-                        "file": "types.md",
-                        "id": "fixed-point-numbers",
                         "githubLink": ""
                     }
                 },
@@ -507,13 +500,13 @@
             ]
         },
         {
-            "title": "Refrence Type",
+            "title": "Enums",
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Reference Types",
+                    "title": "enums",
                     "href": {
-                        "file": "reference-types.md",
+                        "file": "enums.md",
                         "id": "top",
                         "githubLink": ""
                     }
@@ -521,18 +514,408 @@
             ]
         },
         {
-            "title": "Mapping",
+            "title": "Error handling",
             "icon": "fas fa-function",
             "childs": [
                 {
+                    "title": "Assert",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Require",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "require",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Revert",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "revert",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Exceptions",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "exceptions",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Refrence Type",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Arrays",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Fixed-size Arrays",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "fixed-size-arrays",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Dynamic Arrays",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "dynamic-arrays",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Dynamically-sized byte array",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "dynamically-sized-byte-array",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "String",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "string",
+                        "githubLink": ""
+                    }
+                },
+                {
                     "title": "Mapping",
                     "href": {
-                        "file": "mapping.md",
+                        "file": "reference-types.md",
+                        "id": "mapping",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Structs",
+                    "href": {
+                        "file": "reference-types.md",
+                        "id": "structs",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Data Locations",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Data Location",
+                    "href": {
+                        "file": "data-locations.md",
+                        "id": "data-location",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Value types data location",
+                    "href": {
+                        "file": "data-locations.md",
+                        "id": "value-types-data-location",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Refrence types Data location",
+                    "href": {
+                        "file": "data-locations.md",
+                        "id": "refrence-types-data-location",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Assignment behaviour",
+                    "href": {
+                        "file": "data-locations.md",
+                        "id": "assignment-behaviour",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+       
+        {
+            "title": "Payable and Non-payable",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Payable",
+                    "href": {
+                        "file": "payable.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Non Payable",
+                    "href": {
+                        "file": "payable.md",
+                        "id": "non-payable",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Events",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Events",
+                    "href": {
+                        "file": "events.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Function Modifier",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Function Modifier",
+                    "href": {
+                        "file": "function-modifier.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Inheritance",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Inheritance",
+                    "href": {
+                        "file": "inheritance.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Override and Virtual",
+                    "href": {
+                        "file": "inheritance.md",
+                        "id": "override-and-virtual",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Shadowing Inherited State Variables",
+                    "href": {
+                        "file": "inheritance.md",
+                        "id": "shadowing-inherited-state-variables",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Calling Parent Contracts",
+                    "href": {
+                        "file": "inheritance.md",
+                        "id": "calling-parent-contracts",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Abstract Contracts and Interfaces",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Abstract Contracts",
+                    "href": {
+                        "file": "interfaces.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Interfaces",
+                    "href": {
+                        "file": "interfaces.md",
+                        "id": "interfaces",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Import and Libraries",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Import",
+                    "href": {
+                        "file": "import.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Libraries",
+                    "href": {
+                        "file": "import.md",
+                        "id": "libraries",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Special Functions",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Fallback",
+                    "href": {
+                        "file": "special-functions.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Receive Ether Function",
+                    "href": {
+                        "file": "special-functions.md",
+                        "id": "receive-ether-function",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Keccak256 & Function Selector",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Keccak256",
+                    "href": {
+                        "file": "keccak256.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Function Selector",
+                    "href": {
+                        "file": "keccak256.md",
+                        "id": "function-selector",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "ABI encode / decode",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Overview",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encode(...) and abi.decode(...)",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencode-and-abidecode",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encodePacked(...) and abi.decodePacked(...)",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencodepacked-and-abidecodepacked",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encodeWithSelector(...)",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencodewithselector",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "abi.encodeWithSignature(...) ",
+                    "href": {
+                        "file": "abi.md",
+                        "id": "abiencodewithsignature",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Low level functions",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Call",
+                    "href": {
+                        "file": "low-level-function.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Unchecked Math",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Unchecked Math",
+                    "href": {
+                        "file": "unchecked-math.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Type Conversion",
+            "icon": "fas fa-function",
+            "childs": [
+                {
+                    "title": "Type Conversion",
+                    "href": {
+                        "file": "type-conversion.md",
                         "id": "top",
                         "githubLink": ""
                     }
                 }
             ]
         }
+       
     ]
 }

@@ -1,76 +1,74 @@
 # Overview
 
-The fundamental building block of Ethereum applications is a smart contract, `a computer program stored on a blockchain`.
+Ethereum applications rely on `smart contracts` as their foundational element. Smart contracts are computer programs that are stored on a blockchain.
 
-The term <a href="https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html" target="_blank">Smart Contract</a> was coined in 1994 by `Nick Szabo`. He envisioned a <a href="https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html"  target="_blank">digital marketplace</a> in which transactions and business functions can be carried out without the need for `intermediaries`. Ethereum's smart contracts make this vision a reality.
+`Nick Szabo` first introduced the concept of <a href="https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html" target="_blank">smart contracts</a> in `1994`, envisioning a <a href="https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart_contracts_2.html"  target="_blank">digital marketplace</a> in which parties could carry out transactions and business functions without the need for intermediaries. His idea has been brought to fruition through the use of smart contracts on the Ethereum platform, which allow for the creation of decentralized applications that can facilitate various transactions and business functions without the need for intermediaries.
 
-In order to fully understand `smart contracts`, we first need to understand what `traditional contracts` are.
+To grasp the concept of `smart contracts`, it is important to first understand the basics of `traditional contracts`.
 
+# What is Contract (Traditional contract)?
 
-## What is Contract (Traditional contract)?
+`Traditional contract` is a legally binding `agreement` between two or more parties that outlines the terms and conditions of a particular relationship. It can be verbal or written, as long as it includes certain conditions. The purpose of a contract is to establish a clear understanding between the parties involved and to provide a course of action in the event that the terms of the contract are not met.
 
-The concept of a contract is similar to an agreement between two parties to carry out a certain task under certain conditions. The agreement can take any form, be it verbal or written, as long as some conditions are included.
+**Here is an example:**
 
-Here is an example:
+- `Bob's` house is for sale and `Alice` wants to buy it.
+- A third party is needed to facilitate the sale and establish trust.
+- `Alice` must make an advance payment to `Bob` in the presence of the third party after agreeing on a price.
+- `Alice` and `Bob` will sign an agreement outlining the terms and conditions of the sale.
+- The `third party` will facilitate the transfer of the original property documents, title, rights, and ownership from `Bob` to `Alice`, following all legal procedures and laws.
 
-- `Bob's` house is for sale, and `Alice` wants to buy it.
-- In order to transfer ownership of the house, `a third party (intermediary)` is needed to establish the trust. 
-- To seal the deal, `Alice` must make some advance payment to `Bob` in front of `a third party` after agreeing to the price as a buyer. `The third party` charges its own fees.
-- `Alice` will sign an agreement with `the seller (Bob)`. The terms and conditions of an agreement clarify the parties rights and obligations.
-- Once the payment has been made and the agreement has been followed. In the presence of `a third party`, `Bob` will transfer original property documents, title, rights, and ownership to `Alice` (all legal procedures and the law are followed).
+**Flaws of a Traditional contract:**
 
-Flaws of a Traditional contract:
+- **Reliance on Intermediaries:** In a traditional contract, the third party (such as a lawyer or real estate agent) plays a crucial role in facilitating the agreement and establishing trust between the two parties. However, there is a risk that the third party may not fulfill their duties or may even disappear, so it is important to choose a reputable intermediary.
 
-- **Trusting Intermediaries:** The `third party` may run away at any time. Both parties should rely entirely on the intermediary's reputation. As a result, traditional contracts require trusted intermediaries to fulfill the agreement objective.
+- **Expense:** Traditional contracts can be expensive due to the fees associated with hiring a third party to facilitate the agreement.
 
-- **Cost:** A traditional contract is expensive because a third party company needs to be paid a lot of fees.
+- **Time Consumption:** The process of completing a traditional contract can take a significant amount of time, as it involves the involvement of multiple parties such as lawyers and bankers.
 
-- **Speed:** It is time consuming to process because a lawyer and banker need to be involved.
+# Smart Contracts:
 
-## Smart Contracts:
+`Smart contracts` are digital agreements stored on a `blockchain` that automatically execute when certain predetermined conditions are met. These conditions are written into the contract's programming code such as solidity.
 
-A `smart contract` is a digital agreement stored on a blockchain that executes automatically when certain terms and conditions are met. All the terms and conditions are written of an agreement into programming code.
+**For example:**
 
-Example:
+- `Bob` wants to sell his house.
 
-- `Bob` wants to sell his house. 
+- `Bob` creates a `smart contract` with the terms and conditions for the sale.
 
-- In a smart contract, `Bob` specifies the terms and conditions under which he will sell the house and signs it using his private key.
+- `Alice` is interested in buying the house.
 
-- `Alice` is interested in buying a house.
+- `Alice` signs the contract using her private key and pays the agreed upon price.
 
-- `Alice` uses her private key to sign Bob's contract on an internet platform. Finally, `Alice` pays `Bob's` contract the amount of the house price. (Once Alice pays Bob, the smart contract will be executed on the blockchain.) 
+- The `smart contract` is executed on the blockchain.
 
-- The blockchain network will verify some aspects of the smart contract after it has been executed, such as 
-    1. The house belongs to `Bob`, or is he the real owner?
-    2. Does `Alice` have enough money to purchase the house? There are also many other conditions.
+- The blockchain network verifies various aspects of the contract, such as `Bob's` ownership of the house and `Alice's` ability to pay.
 
-- All smart contract conditions are met if all nodes in the blockchain network agree. In conclusion, once the smart contract receives the transaction information on the blockchain, the smart contract can automatically change ownership of the asset once `the buyer (Alice)` pays `the seller (Bob)`. There is no longer a need to wait for a `lawyer` and `banker` to process the agreement.
+- If all conditions are met, the `smart contract` automatically transfers ownership of the house from `Bob` to `Alice`.
 
-- Without smart contracts, `Alice` and `Bob` would have to pay third-party companies such as a house broker, the bank, a lawyer.
+- The need for `third-party intermediaries` such as lawyers and bankers is eliminated.
 
-## Imagine a smart contract as a vending machine:
+## Imagine a smart contract as a vending machine: 
 
-In the case of `vending machines`, you will find similar scenarios as follows:
+A smart contract can be thought of as a vending machine in the sense that it is a self-executing contract with the terms of the agreement.
 
-- Select a product from the menu. The `vending machines` will return the amount you paid once you have selected the product
+To use a vending machine, you will typically follow these steps:
 
-- Enter the correct amount of the product.
+- Select a` product` from the menu.
+- Insert the correct amount of money for the `product`.
+- The `vending machine` will verify the `amount` you have inserted.
+- If the `amount` is correct, the `vending machine` will dispense the product.
 
-- When you insert the correct amount, the `vending machine` verifies it
+It's important to note that `vending machines` will not dispense a product if the correct steps are not followed, such as if you do not select a `product` or do not insert enough `money`. This is similar to how a `smart contract` works, where specific outputs are guaranteed in return for specific inputs, as long as certain terms and conditions are met.
 
-- The `vending machine` dispenses the product if the amount is correct.
+## Applications of smart contracts:
 
-Your desired product will only be dispensed after all requirements are met such as `vending machines won't give out products if you don't select a product or insert enough money`. In the same way, a `smart contract` works, which guarantees specific outputs in return for specific inputs (once certain terms and conditions are met).
+Here are some examples of how smart contracts are being used in the real world:
 
-# Applications of smart contracts:
+**1. Auto-pay insurance:**  companies like <a href="https://etherisc.com/" target="_blank">etherisc</a> use smart contracts to automate the process of paying insurance claims.
 
-Listed below are some real world examples of smart contracts
+**2. Decentralized arts and collectibles:**  platforms like Foundation, OpenSea, and CryptoPunks allow users to invest in and own digital artwork and collectibles using smart contracts.
 
-- **Auto-pay insurance:** such as <a href="https://etherisc.com/" target="_blank">etherisc</a> 
+**3. Decentralized gaming:** in games like <a href="" target="_blank">decentraland</a> and <a href="" target="_blank"> Axie Infinity</a>, players can use smart contracts to trade and own digital assets that have real-world value.
 
-- **Decentralized arts and collectibles:**  In these applications, you can invest in the work of your favorite creators, increase their earning potential, and invest in digital ownership. such as Foundation, OpenSea, CryptoPunks
-
-- **Decentralized gaming:** In these games, players create virtual worlds and battle other players with collectibles that have real-world value. such as <a href="" target="_blank">decentraland</a>,<a href="" target="_blank"> Axie Infinity</a>, etc.
-
-- **Decentralized technology:** A decentralized developer tool, a platform for open-source development, and integration of cryptoeconomic systems are some of the applications that fall into this category. such as <a href="https://gitcoin.co/" target="_blank">gitcoin Marketplace</a>
+**4. Decentralized technology:** smart contracts are being used in a range of decentralized technology applications, such as the  <a href="https://gitcoin.co/" target="_blank">gitcoin Marketplace</a>, a platform for open-source development and the integration of cryptoeconomic systems.

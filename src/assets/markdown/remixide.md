@@ -2,58 +2,56 @@
 
 Remix is a web browser based integrated development environment(IDE) that allows you to write, deploy and administer Solidity smart contracts, without the need to install Solidity locally.
 
-<a href="https://remix.ethereum.org" target="_blank">Access Remix online</a>, We will use Remix for all our coding.
+Remix is an online integrated development environment (IDE) that allows developers to write, deploy, and manage Solidity smart contracts from a web browser. It is a convenient tool for working with Solidity and the Ethereum platform, as it does not require the installation of any software locally.
+
+To use Remix, you can simply access it online <a href="https://remix.ethereum.org" target="_blank">online</a>. Remix provides a range of features and tools for working with Solidity, including a code editor, compiler, debugger, and more. It is a popular choice among Ethereum developers, and we will be using it throughout our coding exercises. Overall, Remix is a powerful and easy-to-use platform for working with Solidity and the Ethereum platform.
 
 # Remix Layout:
 
 <img class="image" alt="Remix IDE Panels"  src="./assets/images/remix-ide-panels.JPG" >
 <b><center class="img-label">Remix IDE Panels</center></b>
 
- Remix IDE consists three panels:
+The `Remix IDE` is divided into three main panels:
 
- - **Code Panel :** It allows to view and edit files in multiple tabs.
- - **Terminal :** You can see the result and run you code in the Terminal
- - **Tab Panel :** File Explorer, Search in files, Solidity compiler, Deploy and run transaction
+**Code Panel:** This panel allows you to view and edit files in multiple tabs. You can open and edit Solidity files, as well as other types of files, in this panel.
+
+**Terminal:** The Terminal panel displays the output of your code. You can use this panel to see the results of your code, debug any issues, and more.
+
+**Tab Panel:** The `Tab Panel` contains a variety of tools and features that you can use when working with Solidity. It includes the File Explorer, which allows you to browse and organize your files, the Search in files tool, which allows you to search for specific text within your files, the Solidity compiler, which converts your code into bytecode, and the Deploy and run transaction tool, which allows you to deploy your code to the Ethereum network and execute transactions.
 
 ## Tab Panel: 
-It consists of four modules. `File Explorer, Search in files, Solidity compiler, Deploy and run transaction`
 
-**1. File Explorer:** Click the File Explorer icon to access the `File Explorer` module.
+The `Tab Panel` in the Remix IDE consists of four modules: `the File Explorer`, `the Search in files tool`, `the Solidity compiler`, and `the Deploy and run transaction `module.
+
+**1. File Explorer:** 
 
 <center><img class="image" alt="Remix IDE Panels"  src="./assets/images/file-explorer.JPG" ></center>
 <b><center class="img-label">File Explorer</center></b>
 
-File Explorer is used to managing `workspaces and files`. Right-clicking on a file or folder also brings up a context menu.
+The `File Explorer` module allows you to manage your workspaces and files. You can access it by clicking the File Explorer icon in the `Tab Panel`. You can use the File Explorer to navigate through your files and folders, and you can also access a context menu by right-clicking on a file or folder.
 
-**2. Search in files:** Click the search icon to get to the `Search in files` module.
+**2. Search in files:**
 
 <center><img class="image" alt="Remix IDE Panels"  src="./assets/images/search-in-files.JPG" ></center>
 <b><center class="img-label">Search in files</center></b>
 
-The search box allows you to search any string in files and filter them based on their extensions.
+The `Search in files` module allows you to search for specific text within your files. You can access it by clicking the search icon in the `Tab Panel`. The `Search in files` tool includes a search box and allows you to filter your search results by file extension.
 
-**3. Solidity compiler:** Click the Solidity icon to get to the `Solidity compiler` module.
+**3. Solidity compiler:**
 
 <center><img class="image" alt="Remix IDE Panels"  src="./assets/images/remix-compiler.JPG" id="image"></center>
 <b><center class="img-label">Solidity compiler</center></b>
 
-Using `File Explorer`, select a file to compile. If you have several files open, make sure the one you want to compile is the active file. There is a choice of `compiler versions`, `auto compile` and `hide warnings`. To compile the file, click on compile or compile and run script.
+The `Solidity compiler` module allows you to compile your Solidity code into `bytecode` & `ABI`. You can access it by clicking the Solidity icon in the `Tab Panel`. To use the Solidity compiler, you must first select the file you want to compile using the `File Explorer`. You can then select a compiler version, choose whether to auto-compile and hide warnings, and click the compile or compile and run script button to start the compilation process. When you have successfully compiled the file, you will see a green checkmark on the icon that indicates that your file has been successfully compiled.
 
-**4. Deploy and run transaction:** When you have successfully compiled the file, you will see a green checkmark on the icon that indicates that your file has been successfully compiled.
-
-Deploy & Run transactions can be accessed by clicking the fourth icon.
+**4. Deploy and run transaction:**
 
 <center><img class="image" alt="Remix IDE Panels"  src="./assets/images/deploy-transaction.JPG" ></center>
 <b><center class="img-label">Deploy and run transaction</center></b>
 
-- **Environment:** There are multiple environments to connect to the `blockchain`, so this field helps us to connect to it such as 
+The `Deploy and run transaction` module allows you to deploy your compiled code to the `Ethereum network` and execute `transactions`. You can access it by clicking the fourth icon in the `Tab Panel`. The `Deploy and run transaction` module includes:
+- An `environment field`, which allows you to connect to the blockchain using different environments such as the `Remix VM (London)` or the `Remix VM (Berlin)`. 
+- An `account field`, which displays a list of current environment accounts and their balances. 
+- A `gas Limit` field, which sets the maximum amount of gas allowed for all the transactions created in `Remix`. etc.
 
-    `Remix VM (London):` The Remix VM (previously known as JavaScript VM) maintains its own "blockchain" and, on each reload the old chain will be cleared and a new blockchain will be started. The London refers to the London fork of Ethereum.
-
-    `Remix VM (Berlin):` The same as above, but with the Berlin fork of Ethereum.
-
-- **Account:** Here is a list of current environment accounts (and their balances).
-
-- **Gas Limit:** This sets the maximum amount of gas that will be allowed for all the transactions created in Remix.
-
-- **Deploy:** To deploy the contract on a selected environment, click the deploy button.
+To deploy your contract on a selected environment, you can simply click the deploy button.
