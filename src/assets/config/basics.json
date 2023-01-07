@@ -2,7 +2,7 @@
     "title": "Basics",
     "version": "Solidity v0.8.17",
     "icon": "faChessPawn",
-    "url": "./basics",
+    "url": "basics",
     "file": "basics.md",
     "disscussion": "",
     "topicsList": [

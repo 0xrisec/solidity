@@ -37,8 +37,8 @@
           "icon": "fas fa-bug",
           "title": "Bugs and Security",
           "detail": "Coming Soon!",
-          "route": "#",
-          "isDisable": true
+          "route": "bugs",
+          "isDisable": false
         },
         {
           "icon": "fas fa-map",
