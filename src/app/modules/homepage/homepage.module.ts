@@ -5,7 +5,9 @@ import { HomepageRoutingModule } from './homepage-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     HomepageRoutingModule,

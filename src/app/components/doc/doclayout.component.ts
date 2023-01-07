@@ -9,18 +9,7 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
-
-export class Breadcrumb {
-  public label: string = "";
-  public url: string = "";
-  public icon?: string = "";
-
-  constructor(label: string, url: string, icon?: string) {
-    this.label = label;
-    this.url = url;
-    this.icon = icon;
-  }
-}
+import { Breadcrumb } from 'src/app/models/breadcrumb.model';
 
 interface NavNode {
   title: string;

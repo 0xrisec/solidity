@@ -1,21 +1,17 @@
-<mat-toolbar>
-    <img width="40px" src="./assets/images/logo.png">
-    <h1 class="logo-text">{{logo | uppercase}}</h1>
-    <span class="spacer"></span>
-    <a href="https://github.com/ROOTBABU/solidity" target="_blank">
-      <fa-icon [icon]="faGithub"></fa-icon>
+<mat-toolbar class="header">
+  <a href="./" class="d-flex flex-row align-items-center text-decoration-none logo">
+      <img width="40px" src="./assets/images/logo.png">
+      <h1 class="logo-text">{{logo | uppercase}}</h1>
+  </a>
+  <span class="spacer"></span>
+  <div>
+    <app-breadcrumb [breadcrumbs]="breadcrumb"></app-breadcrumb>
+  </div>
+  <span class="spacer" *ngIf="githubLink"></span>
+  <div class="github-link">
+    <a [href]="githubLink" *ngIf="githubLink" class="d-flex flex-row " target="_blank">
+        <fa-icon [icon]="faGithub" class="d-flex align-items-center"></fa-icon>
+        <span class="edit-on-github">Edit on GitHub</span>
     </a>
-    <a href="https://discord.gg/UqrZ78gYg3" target="_blank">
-      <fa-icon [icon]="faDiscord"></fa-icon>
-    </a>
-    <a href="https://github.com/ROOTBABU/solidity" target="_blank">
-      <fa-icon [icon]="faMedium"></fa-icon>
-    </a>
-    <a href="https://twitter.com/root_babu" target="_blank">
-      <fa-icon [icon]="faTwitter"></fa-icon>
-    </a>
-    <a href="https://github.com/ROOTBABU/solidity" target="_blank">
-      <fa-icon [icon]="faInfo"></fa-icon>
-    </a>
+  </div>
 </mat-toolbar>
-<p><a href="https://www.twitter.com/mokkapps"><img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" height=25></a> <a href="https://www.linkedin.com/in/mokkapps"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" height=25></a> <a href="https://www.instagram.com/mokkapps/"><img src="https://img.shields.io/badge/instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white" height=25></a> <a href="https://medium.com/@MokkappsDev"><img src="https://img.shields.io/badge/medium-%2312100E.svg?&style=for-the-badge&logo=medium&logoColor=white" height=25></a> <a href="https://dev.to/mokkapps"><img src="https://img.shields.io/badge/DEV.TO-%230A0A0A.svg?&style=for-the-badge&logo=dev-dot-to&logoColor=white" height=25></a></p>

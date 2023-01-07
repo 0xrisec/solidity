@@ -13,13 +13,16 @@ export class PrerequisitesComponent implements OnInit {
   public logo: string = "rootbabu.sol";
   public faHome: any;
   public faAsterisk: any;
+  public headerConfig:any;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     this.faHome = faHouseChimney;
     this.faAsterisk = faAsterisk;
     this.route.data.subscribe((ele: any) => {
       this.config = ele?.topicsList;
+      this.headerConfig = ele?.headerConfig;
     });
   }
 }
