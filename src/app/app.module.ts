@@ -8,6 +8,7 @@ import { DocLayoutComponent } from './components/doc/doclayout.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { PrerequisitesComponent } from './components/prerequisites/prerequisites.component';
+import { RoadmapsComponent } from './components/roadmaps/roadmaps.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
@@ -34,6 +35,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import {MessagesModule} from 'primeng/messages';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import {TabViewModule} from 'primeng/tabview';
+import {GalleriaModule} from 'primeng/galleria';
 
 import {
   FontAwesomeModule,
@@ -63,7 +66,8 @@ import { DatePipe } from '@angular/common';
     BlogsComponent,
     BreadcrumbComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RoadmapsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -96,7 +100,9 @@ import { DatePipe } from '@angular/common';
     MatFormFieldModule,
     MatNativeDateModule ,
     MessagesModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule,
+    TabViewModule,
+    GalleriaModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

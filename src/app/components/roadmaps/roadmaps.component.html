@@ -1,0 +1,24 @@
+<div class="roadmap">
+    <app-header *ngIf="headerConfig" [config]="headerConfig"></app-header>
+
+<p-tabView (onChange)="handleChange($event)">
+    <p-tabPanel *ngFor = "let tab of tabConfig" [header]="tab.header" [leftIcon]="tab.leftIcon" [tooltip]="tab.tooltip">
+                <p-galleria [value]="tab.images" [(visible)]="displayCustom" [(activeIndex)]="activeIndex" [responsiveOptions]="tab.responsiveOptions" [containerStyle]="{'max-width': '850px'}" [numVisible]="7"
+                    [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="false" [baseZIndex]="100000">
+                    <ng-template pTemplate="item" let-item>
+                        <img [src]="item?.previewImageSrc" style="width: 100%; display: block;"/>
+                    </ng-template>
+                    <ng-template pTemplate="thumbnail" let-item>
+                        <div class="grid grid-nogutter justify-content-center">
+                            <img [src]="item.thumbnailImageSrc" style="display: block;"/>
+                        </div>
+                    </ng-template>
+                </p-galleria>
+                <div *ngIf="tab.images" class="grid">
+                    <div *ngFor="let image of tab.images; let index = index;" class="col-3 h160 overflow-hidden" key="index">
+                        <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer" class="w100" (click)="imageClick(index)"/>
+                    </div>
+                </div>
+    </p-tabPanel>
+</p-tabView>
+</div>

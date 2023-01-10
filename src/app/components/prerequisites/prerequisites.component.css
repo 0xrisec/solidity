@@ -46,13 +46,3 @@ span{
 .logo-text{
     font-size: 24px !important;
 }
-
-.breadcrumb{
-    font-size: 16px;
-    font-weight: normal;
-    margin-bottom: 0px;
-}
-
-.breadcrumb a{
-    text-decoration: none;
-}

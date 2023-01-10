@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PrerequisitesComponent } from 'src/app/components/prerequisites/prerequisites.component';
-import prerquisitesConfig from 'src/assets/config/prerquisites.json';
+import prerequisitesConfig from 'src/assets/config/prerequisites.json';
 
 const routes: Routes = [
-  {path:'',component:PrerequisitesComponent,data: prerquisitesConfig}
+  {path:'',component:PrerequisitesComponent,data: prerequisitesConfig}
 ];
 
 @NgModule({

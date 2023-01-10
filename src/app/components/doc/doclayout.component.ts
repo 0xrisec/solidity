@@ -3,24 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
-import { faBars, faBox, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBox, faBugs, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
-
-export class Breadcrumb {
-  public label: string = "";
-  public url: string = "";
-  public icon?: string = "";
-
-  constructor(label: string, url: string, icon?: string) {
-    this.label = label;
-    this.url = url;
-    this.icon = icon;
-  }
-}
+import { Breadcrumb } from 'src/app/models/breadcrumb.model';
 
 interface NavNode {
   title: string;
@@ -49,6 +38,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   public githubLink: string = "";
   public markdown = '';
   public previousLink: string = '';
+  public mdFolder:string;
   public defaultGithubLink = "https://github.com/ROOTBABU/solidity/blob/dev/src/assets/markdown/"
   public iconComponents: any = {
     "faBox": faBox,
@@ -56,6 +46,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     "faSignsPost": faSignsPost,
     "faF": faF,
     "faChessPawn": faChessPawn,
+    "faBugs": faBugs,
     "faBars": faBars,
     "faGithub": faGithub,
     "faDiscord": faDiscord,
@@ -80,11 +71,12 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
       this.title = ele?.title;
       this.version = ele?.version;
       this.icon = ele?.icon;
+      this.mdFolder = ele.url;
       this.breadcrumb.push(new Breadcrumb("", "/", "faHouseChimney"));
       this.breadcrumb.push(new Breadcrumb(this.title, ele.url));
-      this.contentLink = this.contentLink.concat(ele.file)
+      this.contentLink = this.contentLink.concat(this.mdFolder, "/", ele.file)
       this.previousLink = this.contentLink;
-      this.githubLink = this.defaultGithubLink.concat(ele.file);
+      this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", ele.file);
     });
   }
 
@@ -103,8 +95,8 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
         this.opened = false;
         this.isBar = true;
       }
-      this.contentLink = "./assets/markdown/".concat(ele.file);
-      this.githubLink = this.defaultGithubLink.concat(ele.file);
+      this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", ele.file);
+      this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", ele.file);
       this.eleId = ele.id;
       if (this.previousLink != this.contentLink) {
         this.ngxLoader.start();

@@ -1,7 +1,10 @@
 .breadcrumb{
-    margin: 0px;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0px;
 }
 
 .breadcrumb a{
     text-decoration: none;
 }
+

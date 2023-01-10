@@ -1,23 +1,5 @@
 <div class="prerequistie">
-    <mat-toolbar class="header">
-        <a href="./" class="d-flex flex-row align-items-center text-decoration-none logo">
-            <img width="40px" src="./assets/images/logo.png">
-            <h1 class="logo-text">{{logo | uppercase}}</h1>
-        </a>
-        <span class="spacer"></span>
-        <div class="nav">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="#">
-                            <fa-icon [icon]="faHome"></fa-icon>
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="./prerequisites">Prerequisites</a></li>
-                </ol>
-            </nav>
-        </div>
-    </mat-toolbar>
+    <app-header *ngIf="headerConfig" [config]="headerConfig"></app-header>
     <div class="col-lg-7 mt-5 mx-auto text-center">
         <div class="homeicon">
             <a href="#">

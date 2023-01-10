@@ -49,8 +49,9 @@ export class BlogsComponent implements OnInit {
       { label: 'Basic', value: 'basic' },
       { label: 'Intermediate', value: 'intermediate' },
       { label: 'Advanced', value: 'advanced' },
-      { label: 'Bug', value: 'bug' },
-      { label: 'Prerequisite', value: 'prerequisite' }
+      { label: 'Bugs', value: 'bugs' },
+      { label: 'Prerequisite', value: 'prerequisite' },
+      { label: 'Security', value: 'security' }
     ]
     this.primengConfig.ripple = true;
 

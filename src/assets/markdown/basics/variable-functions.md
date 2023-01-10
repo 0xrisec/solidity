@@ -149,33 +149,7 @@ contract DerivedContract is MainContract(1) {
 }
 ```
 
-Here are the comments added to the code:
-
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.17;
-
-// Define the MainContract contract
-contract MainContract {
-    // Declare a public state variable called num of type uint
-    uint public num;
-    
-    // Define the constructor function for MainContract
-    // The constructor takes a single argument _num of type uint
-    constructor(uint _num) {
-        // Initialize the num state variable with the value of _num
-        num = _num;
-    }
-}
-
-// Define the DerivedContract contract
-// DerivedContract is derived from MainContract and specifies the required argument 1 for the base contract's constructor
-contract DerivedContract is MainContract(1) {
-    // Define an empty constructor for DerivedContract
-    // This constructor does not take any arguments and does not have any code inside it
-    constructor() {}
-}
-
-In this code, the `MainContract` contract has a single `public` state variable called `num` of type `uint`, and a `constructor` function that takes a single argument `_num` of type `uint`. The `DerivedContract` contract is derived from the `MainContract` and specifies the required argument `1` for the `base contract's constructor` in the `inheritance` list. The `DerivedContract` contract also has an empty `constructor` function that does not take any arguments and does not have any code inside it. When the `DerivedContract` contract is deployed, the `num` state variable in the MainContract will be initialized with the value `1`.
+In above code, the `MainContract` contract has a single `public` state variable called `num` of type `uint`, and a `constructor` function that takes a single argument `_num` of type `uint`. The `DerivedContract` contract is derived from the `MainContract` and specifies the required argument `1` for the `base contract's constructor` in the `inheritance` list. The `DerivedContract` contract also has an empty `constructor` function that does not take any arguments and does not have any code inside it. When the `DerivedContract` contract is deployed, the `num` state variable in the MainContract will be initialized with the value `1`.
 
 **2. Specify through a "modifier style" of the derived constructor:**  If the arguments of the base contract's constructor depend on those of the derived contract, then the second way of specifying the arguments must be used. This is done through a "modifier style" in the derived contract's constructor, as shown in the following example:
 
