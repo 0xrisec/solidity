@@ -246,6 +246,10 @@ a,.card-icon{
   margin-right: 18px;
 }
 
+.blog-list .p-datatable-table thead tr th:first-child{
+  width: 400px;
+}
+
 @media only screen and (max-width: 864px) {
   .homepage-card{
     width: 326px !important;

@@ -181,6 +181,6 @@ Derived contract shows its public `variable`, `public` function, and `external` 
 The `external` function can be accessed by other contracts and is visible from outside the contract. In the `OtherContract`, the `fun()` function can access the `external` function, as well as the `public` variables and functions.
 
 <img class="image" alt=""  src="./assets/images/another-contract.JPG" >
-<b><center class="img-label"></center></b>
+<b><center class="img-label">Other Contract</center></b>
 
 The `OtherContract` contract creates an instance of the `MyContract` contract and accesses its `public` variables and functions in the `fun` function.
