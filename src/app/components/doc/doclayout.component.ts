@@ -40,7 +40,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     }
   }
 
-  isShow: boolean = true;
+  isShow: boolean;
   topPosToStartShowing = 900;
   treeControl = new NestedTreeControl<NavNode>(node => node.childs);
   dataSource = new MatTreeNestedDataSource<NavNode>();
