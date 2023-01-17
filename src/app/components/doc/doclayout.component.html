@@ -46,7 +46,7 @@
         </mat-tree>
     </mat-sidenav>
 
-    <mat-sidenav-content class="vh-100">
+    <mat-sidenav-content class="vh-100" (scroll)="checkScroll($event)">
         <div class="docs-content sidenav-content" id="top">
             <div class="d-flex content-header">
                 <div *ngIf="isBar">
@@ -72,6 +72,8 @@
             <ngx-ui-loader></ngx-ui-loader>
             <hr class="mt-5">
         </div>
+        <fa-icon class="fa-4x ml-auto go-to-top"  *ngIf="isShow" (click)="gotoTop()" [icon]="iconComponents['faCircleArrowUp']"></fa-icon>
+        <!-- <button class="go-to-top" *ngIf="isShow" (click)="gotoTop()">👆</button> -->
         <app-footer></app-footer>
     </mat-sidenav-content>
 </mat-sidenav-container>

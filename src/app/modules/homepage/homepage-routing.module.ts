@@ -10,8 +10,8 @@ import homeConfig from 'src/assets/config/homepage.json';
 import roadmapsConfig from 'src/assets/config/roadmaps.json'
 
 const routes: Routes = [
-  {path:'',component:HomepageComponent,data:homeConfig},
-  {path:'basics',component:DocLayoutComponent,data: basicsConfig},
+  {path:'',component:HomepageComponent,data:homeConfig, pathMatch: 'full'},
+  {path:'basics/:fileName',component:DocLayoutComponent,data: basicsConfig},
   {path:'blogs',component:BlogsComponent},
   {path:'roadmaps',component:RoadmapsComponent,data: roadmapsConfig},
   {path:'bugs',component:DocLayoutComponent,data: bugsConfig}

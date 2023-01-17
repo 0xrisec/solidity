@@ -109,3 +109,14 @@ hr{
 .edit-on-github{
   margin-left: 10px;
 }
+
+.go-to-top{
+  position: fixed;
+  bottom: 33px;
+  right: 30px;
+  font-size: 26px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  color: purple;
+}
