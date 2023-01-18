@@ -152,6 +152,10 @@ a,.card-icon{
   width: 100%;
 }
 
+.mt20{
+  margin-top: 20px;
+}
+
 .img-label{
   color: rgba(0, 0, 0, 0.68);
   padding: 10px 0px;
@@ -271,11 +275,16 @@ a,.card-icon{
   }
 }
 
-@media only screen and (max-width: 390px) {
-  .prerequistie .mat-toolbar{
-    display: flex;
-    flex-direction: column;
+@media only screen and (max-width: 436px) {
+  .common-header{
+    display: flex !important;
+    flex-direction: column !important;
     margin-bottom: 80px !important;
+    margin-top: 20px;
+  }
+
+  .common-header .breadcrumb-container{
+    margin-top: 10px
   }
 
   .prerequistie .nav{
@@ -290,5 +299,13 @@ a,.card-icon{
 
   .blog-list .nav{
     margin-top: 20px;
+  }
+
+  .homepage .page-heading{
+    font-size: 50px !important;
+  }
+
+  .homepage .desc{
+    width: 96% !important;
   }
 }
