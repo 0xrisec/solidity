@@ -308,4 +308,12 @@ a,.card-icon{
   .homepage .desc{
     width: 96% !important;
   }
+
+  .prerequistie .prerequistie-items {
+    flex-direction: column !important;
+  }
+
+  .prerequistie .prerequistie-items div{
+    margin-top: 10px;
+  }
 }

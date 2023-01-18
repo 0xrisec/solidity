@@ -18,7 +18,7 @@
                     <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                         <div class="media-body order-2 order-lg-1">
                             <h2 class="mt-0 font-weight-bold mb-2">{{item.title}}</h2>
-                            <div class="d-flex flex-row">
+                            <div class="d-flex flex-row prerequistie-items">
                                 <div *ngFor="let ele of item.content" class="pr-3">
                                     <p class="mb-0 para fs16" *ngIf="!ele.link">{{ele.para}}</p>
                                     <a class="mb-0 para fs16" [href]="ele.link" *ngIf="ele.link" target="_blank">{{ele.para}}</a>
