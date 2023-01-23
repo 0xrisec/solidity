@@ -904,28 +904,6 @@
                     }
                 }
             ]
-        },
-        {
-            "title": "Projects",
-            "icon": "fas fa-function",
-            "childs": [
-                {
-                    "title": "Lottery Smart Contract",
-                    "href": {
-                        "file": "lottery-smart-contract.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
-                },
-                {
-                    "title": "Voting Smart Contract",
-                    "href": {
-                        "file": "voting-smart-contract.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
-                }
-            ]
         }
     ]
 }
