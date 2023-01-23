@@ -1,15 +1,16 @@
 import { ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
-import { faBars, faBox, faBugs, faChessPawn, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBox, faBugs, faChessPawn, faCircleArrowUp, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Breadcrumb } from 'src/app/models/breadcrumb.model';
+import { AnchorService } from 'src/app/service/anchor.service';
 
 interface NavNode {
   title: string;
@@ -24,7 +25,23 @@ interface NavNode {
   providers: [MatSidenav],
 })
 
+
+
+
 export class DocLayoutComponent implements OnInit,AfterViewInit {
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll(event:any) {
+    const scrollPosition = event.currentTarget.scrollTop;
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  isShow: boolean;
+  topPosToStartShowing = 900;
   treeControl = new NestedTreeControl<NavNode>(node => node.childs);
   dataSource = new MatTreeNestedDataSource<NavNode>();
   hasChild = (_: number, node: NavNode) => !!node.childs && node.childs.length > 0;
@@ -53,7 +70,8 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     "faInfo": faInfo,
     "faMedium": faMedium,
     "faTwitter": faTwitter,
-    "faXmark": faXmark
+    "faXmark": faXmark,
+    "faCircleArrowUp":faCircleArrowUp
   }
   public eleId: string = '';
   public isBar: boolean = true;
@@ -62,25 +80,36 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
   @ViewChild('xmark') xmark: ElementRef;
 
-  constructor(private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
+  constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
 
   ngOnInit(): void {
+    this.route.fragment.subscribe(fragment => { this.eleId = fragment!; });
     this.route.data.subscribe((ele: any) => {
+      this.breadcrumb = [];
+      this.route.url.subscribe(url => {
+        const mdUrl = url.filter(segment => segment.path.endsWith('.md'));
+        if (mdUrl.length) {
+          ele.file = mdUrl[0].path;
+        }
+      });
       this.config = ele?.topicsList;
       this.dataSource.data = this.config;
       this.title = ele?.title;
       this.version = ele?.version;
       this.icon = ele?.icon;
-      this.mdFolder = ele.url;
+      this.mdFolder = ele.folder;
       this.breadcrumb.push(new Breadcrumb("", "/", "faHouseChimney"));
       this.breadcrumb.push(new Breadcrumb(this.title, ele.url));
-      this.contentLink = this.contentLink.concat(this.mdFolder, "/", ele.file)
+      this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", ele.file)
       this.previousLink = this.contentLink;
       this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", ele.file);
     });
   }
 
   ngAfterViewInit(): void {
+    if (this.eleId) {
+      document?.querySelector('#' + this.eleId)?.scrollIntoView({ behavior: 'smooth' });
+    }
     if (window.screen.width <= 700) { 
       this.opened = false;
       this.navMode = 'over'
@@ -107,6 +136,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
         }
       }
     }
+    this.router.navigate([this.mdFolder, ele.file],{ fragment: this.eleId });
   }
 
   public toggleBar() {
@@ -159,5 +189,12 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     //   }, (err) => {
     //     console.log(err)
     //   });
+  }
+
+  gotoTop() {
+    let ele = document.getElementById("top");
+    if(ele){
+      ele.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

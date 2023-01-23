@@ -2,8 +2,9 @@
     "title": "Basics",
     "version": "Solidity v0.8.17",
     "icon": "faChessPawn",
-    "url": "basics",
+    "folder": "basics",
     "file": "basics.md",
+    "url": "basics/basics.md",
     "disscussion": "",
     "topicsList": [
         {
@@ -540,14 +541,6 @@
                         "id": "revert",
                         "githubLink": ""
                     }
-                },
-                {
-                    "title": "Exceptions",
-                    "href": {
-                        "file": "error-handling.md",
-                        "id": "exceptions",
-                        "githubLink": ""
-                    }
                 }
             ]
         },
@@ -879,43 +872,38 @@
             "icon": "fas fa-function",
             "childs": [
                 {
-                    "title": "Call",
+                    "title": "Send",
                     "href": {
                         "file": "low-level-function.md",
                         "id": "top",
                         "githubLink": ""
                     }
-                }
-            ]
-        },
-        {
-            "title": "Unchecked Math",
-            "icon": "fas fa-function",
-            "childs": [
+                },
                 {
-                    "title": "Unchecked Math",
+                    "title": "Transfer",
                     "href": {
-                        "file": "unchecked-math.md",
-                        "id": "top",
+                        "file": "low-level-function.md",
+                        "id": "transfer",
                         "githubLink": ""
                     }
-                }
-            ]
-        },
-        {
-            "title": "Type Conversion",
-            "icon": "fas fa-function",
-            "childs": [
+                },
                 {
-                    "title": "Type Conversion",
+                    "title": "Call",
                     "href": {
-                        "file": "type-conversion.md",
-                        "id": "top",
+                        "file": "low-level-function.md",
+                        "id": "call",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Delegatecall",
+                    "href": {
+                        "file": "low-level-function.md",
+                        "id": "delegatecall",
                         "githubLink": ""
                     }
                 }
             ]
         }
-       
     ]
 }

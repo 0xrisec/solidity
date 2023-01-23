@@ -9,15 +9,11 @@ const routes: Routes = [
   {
     path:'prerequisites',
     loadChildren: ()=>import('./modules/prerequisites/prerequisites.module').then(m=>m.PrerequisitesModule)
-  },
-  {
-    path:'**',
-    loadChildren: ()=>import('./modules/homepage/homepage.module').then(m=>m.HomepageModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', initialNavigation: 'enabledBlocking' })],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled', initialNavigation: 'enabledBlocking' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

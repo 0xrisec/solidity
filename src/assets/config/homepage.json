@@ -10,7 +10,7 @@
           "icon": "fas fa-chess-pawn",
           "title": "Basics",
           "detail": "Learn the basic concepts of Solidity, including hands-on examples and projects.",
-          "route": "basics"
+          "route": "basics/basics.md"
         },
         {
           "icon": "fas fa-chess-queen",
