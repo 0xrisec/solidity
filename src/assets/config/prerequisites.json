@@ -154,10 +154,6 @@
                     "link": ""
                 },
                 {
-                    "para": "Mainnet use cases",
-                    "link": ""
-                },
-                {
                     "para": "Mainnet Ethereum Virtual Machine (EVM) chains",
                     "link": ""
                 },
@@ -167,10 +163,6 @@
                 },
                 {
                     "para": "Why is testnet important?",
-                    "link": ""
-                },
-                {
-                    "para": "Testnet use cases",
                     "link": ""
                 },
                 {
@@ -188,15 +180,15 @@
             "title": "Remix IDE",
             "content": [
                 {
-                    "para": "Solidity Compiler",
+                    "para": "Compiling Smart Contracts in Remix IDE: Understanding Bytecode and ABI",
                     "link": ""
                 },
                 {
-                    "para": "Contract deplyment",
+                    "para": "Smart Contract deplyment with the Remix IDE",
                     "link": ""
                 },
                 {
-                    "para": "Byte Code & ABI",
+                    "para": "Debugging Smart Contracts with the Remix IDE",
                     "link": ""
                 }
             ]
