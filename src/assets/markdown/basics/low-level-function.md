@@ -113,7 +113,7 @@ contract MyContract {
 
 The `".transfer()"` function and the `".send()"` function are both used to send `Ether` from the `contract's balance` to `another account`. However, there are a few key differences between the two functions:
 
-- `".send()"` function does not stop execution with an exception if the transfer fails. Instead, it returns a `boolean` value indicating whether the transfer was successful or not. If the transfer fails, `".send()"` will return `false`, but the calling contract can still check the return value to handle the failure. The `".transfer()"` function will revert all changes and return false if the transfer fails. This makes it a safer and more predictable option for transferring Ether than `".send()"`, but it may not be suitable in all situations. 
+The `".send()"` function does not stop execution with an exception if the transfer fails. Instead, it returns a `boolean` value indicating whether the transfer was successful or not. If the transfer fails, `".send()"` will return `false`, but the calling contract can still check the return value to handle the failure. The `".transfer()"` function will revert all changes and return false if the transfer fails. This makes it a safer and more predictable option for transferring Ether than `".send()"`, but it may not be suitable in all situations. 
 
 ## Call
 
@@ -269,3 +269,7 @@ The `Caller` contract has four functions:
 - **testCallDoesNotExist:** This function takes in an address argument, `_addr`. It checks that the call was successful and emits an event called `Response` with the success status and the result of the function call.
 
 ## Delegatecall
+
+Delegatecall is a way for one contract to use another contract's code and make changes to the first contract's storage while using the first contract's msg.sender. It allows a contract to call another contract's functions while keeping the same storage and msg.sender as the first contract.
+
+For example, let's say you have two contracts: Contract A and Contract B. Contract A has a function called "transfer" that allows it to transfer a certain amount of tokens to a specified address. Contract B has a function called "executeTransfer" that calls the "transfer" function from Contract A.
