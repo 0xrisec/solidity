@@ -131,13 +131,9 @@ We are deploying the contract through the first account on `Remix IDE`, which wi
 
 The contract is initialized with default values and a `zero` balance. Using the four player accounts, we sent `1 ether` each to the contract as participation. To do this, we inserted `1 ether` in the value section on `Remix IDE` and clicked the `"Transact"` button, which executed the `"receive"` function and updated the players' array. 
 
-<center><img class="image" src="./assets/images/lottery-contract-output.JPG"></center>
-<b><center class="img-label">Accounts</center></b>
-
-All of this was done using the `player` accounts, resulting in a total of `4 ether` in the contract and a reduction of `1 ether` from each player's account.
-
 <center><img class="image" src="./assets/images/lottery-game-1.JPG"></center>
-<b><center class="img-label">Accounts</center></b>
+<b><center class="img-label">Output</center></b>
+All of this was done using the `player` accounts, resulting in a total of `4 ether` in the contract and a reduction of `1 ether` from each player's account.
 
 Navigate to the owner's account, and select the winner using the `"pickWinner"` function. This function will randomly choose an account address and send all funds to that address. The `"winner"` variable will be set to the winning address.
 
