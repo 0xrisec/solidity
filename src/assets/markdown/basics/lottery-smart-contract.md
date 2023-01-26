@@ -94,6 +94,7 @@ The contract is called `LotteryGame`, and it has several variables and functions
 - The constructor function is called automatically when the contract is deployed and assigns the address of the deployer to the `"owner"` variable.
 
 **Receive Method**
+
 The `receive()` function is an `external` function with the `"payable"` keyword, which allows it to receive `Ether` from players. It has a `require` statement that checks if the value sent is `1 Ether`. If the requirement is met, the player's address is added to the `"players"` array.
 
 **Picking a Winner**
