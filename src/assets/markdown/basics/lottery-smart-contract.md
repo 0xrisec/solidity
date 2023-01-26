@@ -133,6 +133,7 @@ The contract is initialized with default values and a `zero` balance. Using the 
 
 <center><img class="image" src="./assets/images/lottery-game-1.JPG"></center>
 <b><center class="img-label">Output</center></b>
+
 All of this was done using the `player` accounts, resulting in a total of `4 ether` in the contract and a reduction of `1 ether` from each player's account.
 
 Navigate to the owner's account, and select the winner using the `"pickWinner"` function. This function will randomly choose an account address and send all funds to that address. The `"winner"` variable will be set to the winning address.
