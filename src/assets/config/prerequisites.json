@@ -120,7 +120,7 @@
             "title": "Smart Contract",
             "content": [
                 {
-                    "para": "Traditional smart contract vs Ethereum smart contracts",
+                    "para": "Traditional contract vs Ethereum smart contracts",
                     "link": ""
                 },
                 {
@@ -184,7 +184,7 @@
                     "link": ""
                 },
                 {
-                    "para": "Smart Contract deplyment with the Remix IDE",
+                    "para": "Smart Contract deployment with the Remix IDE",
                     "link": ""
                 },
                 {

@@ -11,8 +11,6 @@ The goal of the `Lottery Game Smart Contract` is to create a decentralized and f
 - Allow the contract `owner` to view the balance at any time.
 - Enable the contract `owner` to transfer the total amount of bets (which is the contract's balance) to the winner's address and end the game.
 
-Overall, the `Lottery Game Smart Contract` is designed to provide a decentralized and fair lottery game experience, while ensuring transparency and security for all players.
-
 ## Code
 
 ```sol
@@ -81,11 +79,11 @@ contract LotteryGame {
 
 ## Code Explanation
 
-The first line of the code specifies the license for the contract, in this case, it's GPL-3.0. This means that the contract is open-source and can be used, modified, and distributed by anyone, as long as they follow the terms of the GPL-3.0 license.
+The first line of the code specifies the license for the contract, in this case, it's `GPL-3.0`. This means that the contract is open-source and can be used, modified, and distributed by anyone, as long as they follow the terms of the `GPL-3.0 license`.
 
 **Solidity Version:** 
 
-The next line of code specifies the version of Solidity that the contract was written in, which is 0.8.17. This is important because different versions of Solidity may have different syntax and features.
+The next line of code specifies the version of Solidity that the contract was written in, which is `0.8.17`.
 
 **Contract Structure**
 
@@ -100,15 +98,26 @@ The `receive()` function is an `external` function with the `"payable"` keyword,
 
 **Picking a Winner**
 
-The `pickWinner()` function is a `public` function that allows the contract `owner` to select a ``winner`` from the players array. The function has two require statements that check if the contract owner is calling the function and if there are at least 3 players in the lottery. It then uses the `random()` private function to generate a random number and selects a winner by taking the modulus of the random number and the number of players. The winner's address is then transferred the balance of the contract.
+The `pickWinner()` function is a `public` function that allows the contract `owner` to select a `winner` from the `players` array. The function has two require statements that check if the contract owner is calling the function and if there are at least `3 players` in the lottery. It then uses the `random()` private function to generate a random number and selects a winner by taking the modulus of the random number and the number of players. The winner's address is then transferred the balance of the contract.
+
+The code uses the `modulo operator (%)` to determine the index by taking `randomNumber` modulo the length of the players array. This ensures that the index is always within the bounds of the array, so that a valid `player` address can be retrieved. The code then uses this index to get the address of the winner from the players array and assigns it to the winner variable.
+
+The `modulo operator (%)` calculates the remainder when one number is divided by another. For example, if you have `10 players` in the players array and the random number generated is `15`, the index would be calculated as `15 % 10 = 5`. This means that the `5th player` in the array would be selected as the winner because `15` divided by `10` equals `1` with a remainder of `5`. The modulo operator is used in this case to determine the index of the winner within the players array, by taking the random number and calculating the remainder when it is divided by the length of the players array.
+
+**Generating Random Numbers**
+
+A random number is generated using the` random()` private view function. The function uses the `keccak256` hash function to generate the random number, which takes the `block.difficulty`, `block.timestamp`, and `players.length` as input. The `abi.encodePacked()` function is then used to pack these inputs into a single byte array, which is then passed as input to the `keccak256` function. The function returns a `32 byte` array, which is then casted to a `uint` using `uint()`.
+
+
+<div class="doc-note">
+	<p class="alert alert-danger">
+      It is important to note that the method used to generate a random number in this contract is for demonstration purposes only and should not be used in production projects as it may not provide true randomness.
+    </p>
+</div>
 
 **Checking Balance**
 
 The `getBalance()` function is a `public` `view` function that allows the contract owner to view the balance of the contract. It has a `require` statement that checks if the contract owner is calling the function.
-
-**Generating Random Numbers**
-
-The `random()` private function is a view function that generates a random number using the `keccak256` hashing function and the block `difficulty`, `timestamp`, and the number of players.
 
 **Resetting the Game**
 

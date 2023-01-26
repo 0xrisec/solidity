@@ -270,6 +270,63 @@ The `Caller` contract has four functions:
 
 ## Delegatecall
 
-Delegatecall is a way for one contract to use another contract's code and make changes to the first contract's storage while using the first contract's msg.sender. It allows a contract to call another contract's functions while keeping the same storage and msg.sender as the first contract.
+`DelegateCall` is a feature that allows a smart contract to run another smart contract's code, but using the first contract's storage and balance. It's like calling a friend to do something for you using your own tools and money. This can be useful for creating reusable code and save gas fee.
 
-For example, let's say you have two contracts: Contract A and Contract B. Contract A has a function called "transfer" that allows it to transfer a certain amount of tokens to a specified address. Contract B has a function called "executeTransfer" that calls the "transfer" function from Contract A.
+`DelegateCall` and `call` function are like two different concepts that both can be used to run another smart contract's code, but they work in different ways.
+
+- `Call` function is like asking someone to do a task for you, but they use their own tools and resources. They can't access your tools and resources.
+
+- `DelegateCall` is like asking someone to do a task for you, but they use your tools and resources. They can access your tools and resources.
+
+In short, `call` function allows a smart contract to run another smart contract's code but without being able to access the called contract's storage. `DelegateCall` allows a smart contract to run another smart contract's code and access the called contract's storage using the calling contract's address and balance.
+
+**Example:**
+```sol
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity 0.8.17;
+
+// Deploy this contract first
+contract B {
+    // storage layout must be the same as contract A
+    uint public number;
+    address public from;
+    uint public amount;
+
+    // This function sets the number, from and amount variables of contract B
+    function setData(uint _num) public payable {
+        number = _num;
+        from = msg.sender;
+        amount = msg.value;
+    }
+}
+
+contract A {
+    uint public number;
+    address public from;
+    uint public amount;
+
+    // This function takes address of another contract B and number as input and sets the variables of contract A using the storage of contract A
+    function setData(address _contract, uint _num) public payable {
+        // A's storage is set, B is not modified.
+        (bool success, bytes memory data) = _contract.delegatecall(
+            abi.encodeWithSignature("setData(uint256)", _num)
+        );
+    }
+}
+```
+
+The `delegatecall` function allows a contract (in this example, `contract A`) to run another contract's (`contract B`) code, but using the first contract's (`contract A`) `storage` and `balance`. This means that any changes made to the `storage` or `balance` within `contract B` will be reflected in `contract A`.
+
+In the code above, `contract B` has a function `setData` that sets the value of the variables `number`, `from`, and `amount`. `Contract A` also has the same variables and a function `setData` that takes the address of `contract B` and a number as input. Inside the function, it calls the `delegatecall` function, passing the encoded function signature and parameter of the `setData` function of `contract B`.
+
+<center><img class="image" src="./assets/images/delegatecall-example-output.JPG"></center>
+<b><center class="img-label">Contract B</center></b>
+
+This allows `contract A` to use the `setData` function of `contract B` without modifying the storage of `contract B`. 
+
+<center><img class="image" src="./assets/images/delegatecall-example-conractA.JPG"></center>
+<b><center class="img-label">Contract A</center></b>
+
+It's important to note that the storage layout of both contracts must be the same for this to work properly. In this example, both `contract A` and `B` have the same variables `number`, `from` and `amount`.
+
+Overall, the `delegatecall` function is a powerful way for smart contract developers as it allows for more efficient and flexible code reuse. However, it's important to consider the security implications of using this feature, as it allows a contract to run another contract's code using its own `storage` and `balance`. If the first contract (the one making the `delegatecall`) is malicious, it could potentially exploit vulnerabilities in the second contract's code and cause damage. Therefore, it's crucial to thoroughly audit and test both contracts before using the `delegatecall` function, and to ensure that the first contract is trustworthy.
