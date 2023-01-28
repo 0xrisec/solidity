@@ -337,7 +337,7 @@ This tutorial has provided a comprehensive guide on how to create a `voting smar
 
 ## Important Points:
 
-**1.** Why Direct Comparison of Strings is not Possible in Solidity.
+**1.** Why direct comparison of `strings` is not possible in Solidity.
 
 `Strings` are stored as `arrays` of `bytes` and cannot be directly compared to other strings. Instead, the `bytes` of the two strings must be compared element by element. Additionally, in order to compare `strings` in Solidity, it is necessary to use a comparison function, such as `keccak256()` or `sha3()`, to generate a hash of the string and compare the hash values.
 
