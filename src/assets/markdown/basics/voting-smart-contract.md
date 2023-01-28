@@ -13,7 +13,7 @@ The objective of the` Voting Smart Contract` is to establish a decentralized and
 
 ## Code Implementation
 
-The first step in creating a `voting smart contract` is to define the structure of the contract. In our example, we will be creating a contract for voting for different associations. The contract will have a struct called `Association` that will hold the name of the `association` and the number of votes it has received.
+The first step in creating a `voting smart contract` is to define the structure of the contract. In our example, we will be creating a contract for voting for different associations. The contract will have a `struct` called `Association` that will hold the name of the `association` and the number of votes it has received.
 
 ```sol
 struct Association {
@@ -22,14 +22,14 @@ struct Association {
 }
 ```
 
-In the next step, we will establish an array known as `associations` to store all the associations that are eligible for voting. Furthermore, we will create an array known as `voters` to keep track of the addresses of the voters and ensure that each voter can only cast one vote. This array is designated as private, which means that it cannot be accessed by anyone other than the smart contract itself.
+In the next step, we will establish an array known as `associations` to store all the associations that are eligible for voting. Furthermore, we will create an array known as `voters` to keep track of the addresses of the voters and ensure that each voter can only cast one vote. This array is designated as `private`, which means that it cannot be accessed by anyone other than the smart contract itself.
 
 ```sol
 Association[] public associations; // array of all associations
 address[] private voters; // list of addresses of voters
 ```
 
-We will also establish a flag named `votingOpen` to indicate whether the voting is currently open or closed. Upon deployment of the contract, the `votingOpen` flag will be set to `true`, signifying that voting is `open`. Once the owner ends the voting process, the `votingOpen` flag will be changed to `false`, indicating that voting is `closed`. This variable is designated as `public`, which means that anyone can check the status of the voting process at any time.
+We will also establish a flag named `votingOpen` to indicate whether the voting is currently `open` or `closed`. Upon deployment of the contract, the `votingOpen` flag will be set to `true`, signifying that voting is `open`. Once the owner ends the voting process, the `votingOpen` flag will be changed to `false`, indicating that voting is `closed`. This variable is designated as `public`, which means that anyone can check the status of the voting process at any time.
 
 ```sol
 bool public votingOpen; // flag to check if voting is open or closed
@@ -118,34 +118,34 @@ function vote(uint _index) public {
 }
 ```
 
-The next step is to create the `voterExists` function, which is invoked from the `vote` function, it is used to determine if an individual `voter` has already casted a `vote`. The function scans through the `voters` array and examines if the address of the `voter (msg.sender)` is present in the `array`. The `for` loop is used for this process. The loop starts at index `0` and continues through all the indexes of the array until it reaches the end of the `voters` array. Within the loop, it checks if the address of the current `voter` (indicated by "voters[i]") is equal to the address of the current message sender (indicated by "msg.sender"). If the `voter's` address is found, the function returns `true`, indicating that the voter has already voted. If it is not found, the function returns `false`, indicating that the `voter` has not yet voted.
+The next step is to create the `voterExists` function, which is invoked from the `vote` function, it is used to determine if an individual `voter` has already casted a `vote`. The function scans through the `voters` array and examines if the address of the `voter (msg.sender)` is present in the `array`. The `for` loop is used for this process. The loop starts at index `0` and continues through all the indexes of the array until it reaches the end of the `voters` array. Within the loop, it checks if the address of the current `voter` (indicated by `"voters[i]"`) is equal to the address of the current message sender(indicated by `"msg.sender"`). If the `voter's` address is found, the function returns `true`, indicating that the voter has already voted. If it is not found, the function returns `false`, indicating that the `voter` has not yet voted.
 
 ```sol
-    function voterExists() private view returns (bool) {
-        // Iterate through the voters array to check if the voter has already voted
-        for (uint i = 0; i < voters.length; i++) {
-            if (voters[i] == msg.sender) {
-                return true;
-            }
+function voterExists() private view returns (bool) {
+    // Iterate through the voters array to check if the voter has already voted
+    for (uint i = 0; i < voters.length; i++) {
+        if (voters[i] == msg.sender) {
+            return true;
         }
-        // If the voter's address is not found in the voters array, return false
-        return false;
-    } 
+    }
+    // If the voter's address is not found in the voters array, return false
+    return false;
+} 
 ```
 
 The next step is to implement the `getTotalVotes` function, which will return the total number of votes cast in the current voting process. The function does this by iterating through all the associations and adding their respective vote counts to a variable named `countVotes`. The function then returns the final total number of votes.
 
 ```sol
-    function getTotalVotes() public view returns (uint) {
-        // variable to store the total number of votes
-        uint countVotes = 0;
-        // loop through all the associations and add their number of votes to the countVotes variable
-        for (uint i = 0; i < associations.length; i++) {
-            countVotes += associations[i].votes;
-        }
-        // return the total number of votes
-        return countVotes;
+function getTotalVotes() public view returns (uint) {
+    // variable to store the total number of votes
+    uint countVotes = 0;
+    // loop through all the associations and add their number of votes to the countVotes variable
+    for (uint i = 0; i < associations.length; i++) {
+        countVotes += associations[i].votes;
     }
+    // return the total number of votes
+    return countVotes;
+}
 ```
 
 The next step is to create the `endVoting` function, which allows the `owner` of the contract to close the voting process. This function first checks if the `message sender (msg.sender)` is the `owner` of the contract using an `require` statement. If the message sender is not the `owner`, the function will throw an error message `"Only the owner can close the voting."`.
@@ -153,18 +153,16 @@ Then it checks if the voting is currently open using another `require` statement
 If both the above conditions are met, the function sets the `votingOpen` flag to `false`, which indicates that the voting process is `closed`. Finally, it calls the `getWinner` function which selects the association with the highest number of votes as the `winner` of the voting process.
 
 ```sol
-
-    function endVoting() public {
-        // Check if the msg.sender is the owner of the contract
-        require(owner == msg.sender, "Only the owner can close the voting.");
-        // Check if voting is open
-        require(votingOpen, "Voting is already closed.");
-        // Set votingOpen flag to false
-        votingOpen = false;
-        // Get the winner of the voting
-        winner = getWinner();
-    }
-    
+function endVoting() public {
+    // Check if the msg.sender is the owner of the contract
+    require(owner == msg.sender, "Only the owner can close the voting.");
+    // Check if voting is open
+    require(votingOpen, "Voting is already closed.");
+    // Set votingOpen flag to false
+    votingOpen = false;
+    // Get the winner of the voting
+    winner = getWinner();
+}    
 ```
 
 Finally, The function `getWinner` is a `private view` function which returns the name of the association with the most votes. The function is declared as `private`, meaning that it can only be called within the smart contract, and `view`, meaning that it does not modify the state of the contract.
@@ -304,17 +302,18 @@ contract Voting {
     } 
 }
 ```
+
 ## Output
 
 <center><img class="image" src="./assets/images/voting-project-accounts.JPG"></center>
 <b><center class="img-label">Accounts</center></b>
 
-The contract has been deployed using the first account, making it the owner of the contract. The owner has the ability to add associations, so we are initially adding three associations named Avengers, Sunrisers, and Thunderbirds. Other individuals can also add more associations, but for now, we are adding them through the owner account. Other accounts will be used as voters.
+The contract has been deployed using the first account(`0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`), making it the `owner` of the contract. The `owner` has the ability to add `associations`, so we are initially adding three `associations` named `Avengers`, `Sunrisers`, and `Thunderbirds`. Other individuals can also add more associations, but for now, we are adding them through the `owner` account. Other accounts will be used as `voters`.
 
 <center><img class="image" src="./assets/images/voting-project-output.JPG"></center>
 <b><center class="img-label">Output</center></b>
 
-Voters can cast their vote by using the vote input field and selecting an association by its index number. The function "getTotalVotes" can be used to check the total number of votes cast. The status of the voting process can also be checked by looking at the "votingOpen" flag, which is currently set to "true" indicating that voting is open.
+`Voters` can cast their vote by using the vote input field and selecting an `association` by its index number. The function `"getTotalVotes"` can be used to check the total number of votes cast. The status of the voting process can also be checked by looking at the `"votingOpen"` flag, which is currently set to `true` indicating that voting is `open`.
 
 <center><img class="image" src="./assets/images/voting-project-err.JPG"></center>
 <b><center class="img-label">Error</center></b>
@@ -324,18 +323,24 @@ If an individual attempts to vote multiple times, the contract will not allow it
 <center><img class="image" src="./assets/images/voting-winner.JPG"></center>
 <b><center class="img-label">Winner</center></b>
 
-Once the voting is complete, the owner can end the voting process. After ending the voting process, the "winner" variable can be checked to see which association received the most votes.
+Once the voting is complete, the owner can end the voting process. After ending the voting process, the `"winner"` variable can be checked to see which association received the most votes.
 
 <!-- ## Code Optimization -->
 
 ## Conclusion
 
-The use of smart contracts for voting systems is a rapidly growing area of interest and has the potential to revolutionize the way we vote. By providing a tamper-proof and transparent system, smart contracts can ensure that the voting process is fair and accurate.
+The use of smart contracts for `voting systems` is a rapidly growing area of interest and has the potential to revolutionize the way we vote. Smart contracts provide a number of benefits for voting systems, such as increased transparency, security, and trust.
 
-This tutorial has provided a comprehensive guide on how to create a voting smart contract in Solidity. We have covered the basics of smart contracts, the key features a voting contract should have, and the steps needed to implement it. By following this tutorial, you should now have a good understanding of how to create your own voting smart contract and be well on your way to creating your own decentralized voting system.
+One real-world example of a voting system using smart contracts is the <a href="https://www.theverge.com/2018/11/10/18080518/blockchain-voting-mobile-app-west-virginia-voatz" target="_blank">West Virginia Secretary of State's office</a>, which in `2018`, piloted a mobile voting platform for overseas military personnel, which used blockchain technology and a smart contract-based system for casting and counting votes. The system was built on the `Ethereum blockchain`, and the smart contract was used to securely manage voter identities and ensure that each vote was counted only once. It is still a new area and the technology is still evolving, but the potential for more widespread adoption in the future is high.
 
-## Questions:
+This tutorial has provided a comprehensive guide on how to create a `voting smart contract` in Solidity. We have covered the basics of smart contracts, the key features a voting contract should have, and the steps needed to implement it. By following this tutorial, you should now have a good understanding of how to create your own vo`ting smart contract` and be well on your way to creating your own decentralized voting system.
 
-1. Why Direct Comparison of Strings is not Possible in Solidity.
+## Important Points:
 
-Strings are stored as arrays of bytes and cannot be directly compared to other strings. Instead, the bytes of the two strings must be compared element by element. Additionally, in order to compare strings in Solidity, it is necessary to use a comparison function, such as keccak256() or sha3(), to generate a hash of the string and compare the hash values.
+**1.** Why Direct Comparison of Strings is not Possible in Solidity.
+
+`Strings` are stored as `arrays` of `bytes` and cannot be directly compared to other strings. Instead, the `bytes` of the two strings must be compared element by element. Additionally, in order to compare `strings` in Solidity, it is necessary to use a comparison function, such as `keccak256()` or `sha3()`, to generate a hash of the string and compare the hash values.
+
+**2.** In the above Solidity function, the `getTotalVotes()` function is used to retrieve the total number of votes cast. This is done by initializing a variable `countVotes` to `0` and then looping through all the `associations` (or candidates) and adding their number of votes to the `countVotes` variable.
+
+Instead of doing this, you could also create a state variable `countVotes` that is incremented each time a vote is cast. This would eliminate the need for the loop in the `getTotalVotes()` function and would also make it more efficient as the total number of votes would always be accessible as a single variable rather than having to loop through the entire array of `associations`.
