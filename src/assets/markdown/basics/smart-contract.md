@@ -69,6 +69,6 @@ Here are some examples of how smart contracts are being used in the real world:
 
 **2. Decentralized arts and collectibles:**  platforms like Foundation, OpenSea, and CryptoPunks allow users to invest in and own digital artwork and collectibles using smart contracts.
 
-**3. Decentralized gaming:** in games like <a href="" target="_blank">decentraland</a> and <a href="" target="_blank"> Axie Infinity</a>, players can use smart contracts to trade and own digital assets that have real-world value.
+**3. Decentralized gaming:** in games like <a href="https://decentraland.org/" target="_blank">decentraland</a> and <a href="https://axieinfinity.com/" target="_blank"> Axie Infinity</a>, players can use smart contracts to trade and own digital assets that have real-world value.
 
 **4. Decentralized technology:** smart contracts are being used in a range of decentralized technology applications, such as the  <a href="https://gitcoin.co/" target="_blank">gitcoin Marketplace</a>, a platform for open-source development and the integration of cryptoeconomic systems.
