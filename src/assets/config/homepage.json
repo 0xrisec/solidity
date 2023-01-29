@@ -35,9 +35,9 @@
         },
         {
           "icon": "fas fa-bug",
-          "title": "Bugs and Security",
+          "title": "Hacks",
           "detail": "Coming Soon!",
-          "route": "bugs",
+          "route": "hacks/hacks.md",
           "isDisable": false
         },
         {

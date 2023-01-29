@@ -1,9 +1,10 @@
 {
-    "title": "Bugs and Security",
-    "version": "",
+    "title": "Hacks",
+    "version": "Solidity v0.8.17",
     "icon": "faBugs",
-    "url": "./bugs",
-    "file": "bugs.md",
+    "folder": "hacks",
+    "file": "hacks.md",
+    "url": "hacks/hacks.md",
     "disscussion": "",
     "topicsList": [
         {
@@ -13,7 +14,7 @@
                 {
                     "title": "Re-Entrancy",
                     "href": {
-                        "file": "re-entrancy.md",
+                        "file": "coming-soon.md",
                         "id": "top",
                         "githubLink": ""
                     }
