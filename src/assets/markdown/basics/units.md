@@ -34,7 +34,7 @@ contract MyContract {
 }
 ```
 
- `MyContract`, defines several variables to demonstrate the usage of `ether` units. The `oneWei` variable is a `public uint` that is initialized to `1 wei`. The `isOneWei` variable is a `public` `bool` that is initialized to `true`, `as 1 == 1 wei`. The `oneEther` variable is a `public uint` that is initialized to `1 ether`. The `isOneEther` variable is a `public bool` that is initialized to `true`, as `1 ether` is equal to ``10**18` and `1 ether` is also equal to `1e18`, where `1e18` is equal to `1 x 10**18`. The `oneGwei` variable is a `public uint` that is initialized to `1 gwei`. The `isOneGwei` variable is a `public bool` that is initialized to `true`, as `1 gwei` is equal to `1e9`.
+ `MyContract`, defines several variables to demonstrate the usage of `ether` units. The `oneWei` variable is a `public uint` that is initialized to `1 wei`. The `isOneWei` variable is a `public` `bool` that is initialized to `true`, `as 1 == 1 wei`. The `oneEther` variable is a `public uint` that is initialized to `1 ether`. The `isOneEther` variable is a `public bool` that is initialized to `true`, as `1 ether` is equal to `10**18` and `1 ether` is also equal to `1e18`, where `1e18` is equal to `1 x 10**18`. The `oneGwei` variable is a `public uint` that is initialized to `1 gwei`. The `isOneGwei` variable is a `public bool` that is initialized to `true`, as `1 gwei` is equal to `1e9`.
 
 ## Time Units
 
