@@ -916,6 +916,14 @@
                         "id": "top",
                         "githubLink": ""
                     }
+                },
+                {
+                    "title": "Voting Smart Contract",
+                    "href": {
+                        "file": "voting-smart-contract.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
                 }
             ]
         }
