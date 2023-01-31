@@ -1,0 +1,25 @@
+{
+    "title": "Hacks",
+    "version": "Solidity v0.8.17",
+    "icon": "faBugs",
+    "folder": "hacks",
+    "file": "hacks.md",
+    "url": "hacks/hacks.md",
+    "disscussion": "",
+    "topicsList": [
+        {
+            "title": "Re-Entrancy",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "Re-Entrancy",
+                    "href": {
+                        "file": "coming-soon.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

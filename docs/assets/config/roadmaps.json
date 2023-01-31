@@ -1,0 +1,25 @@
+{
+    "title": "Roadmaps",
+    "version": "",
+    "icon": "faMap",
+    "folder": "roadmaps",
+    "file": "roadmaps.md",
+    "url": "roadmaps/roadmaps.md",
+    "disscussion": "",
+    "topicsList": [
+        {
+            "title": "Solidity Roadmap",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "Beginners",
+                    "href": {
+                        "file": "solidity.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

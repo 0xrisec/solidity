@@ -1,0 +1,57 @@
+{
+    "config":[
+        {
+          "icon": "fas fa-asterisk",
+          "title": "Prerequisites",
+          "detail": "In order to start solidity, the following prerequisites must be met.",
+          "route": "prerequisites"
+        },
+        {
+          "icon": "fas fa-chess-pawn",
+          "title": "Basics",
+          "detail": "Learn the basic concepts of Solidity, including hands-on examples and projects.",
+          "route": "basics/basics.md"
+        },
+        {
+          "icon": "fas fa-chess-queen",
+          "title": "Intermediate",
+          "detail": "Coming Soon!",
+          "route": "#",
+          "isDisable": true
+        },
+        {
+          "icon": "fas fa-chess-king",
+          "title": "Advanced",
+          "detail": "Coming Soon!",
+          "route": "#",
+          "isDisable": true
+        },
+        {
+          "icon": "fas fa-file-alt",
+          "title": "Cheatsheet",
+          "detail": "Coming Soon!",
+          "route": "#",
+          "isDisable": true
+        },
+        {
+          "icon": "fas fa-bug",
+          "title": "Hacks",
+          "detail": "Coming Soon!",
+          "route": "hacks/hacks.md",
+          "isDisable": false
+        },
+        {
+          "icon": "fas fa-map",
+          "title": "Roadmaps",
+          "detail": "This section displays roadmaps for different parts of blockchain.",
+          "route": "roadmaps/roadmaps.md",
+          "isDisable": false
+        },
+        {
+          "icon": "fas fa-blog",
+          "title": "List of Blogs",
+          "detail": "Listed external resources",
+          "route": "blogs"
+        }
+      ]
+}
