@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'',component:HomepageComponent,data:homeConfig, pathMatch: 'full'},
   {path:'basics/:fileName',component:DocLayoutComponent,data: basicsConfig},
   {path:'blogs',component:BlogsComponent},
-  {path:'roadmaps',component:RoadmapsComponent,data: roadmapsConfig},
+  {path:'roadmaps/:fileName',component:DocLayoutComponent,data: roadmapsConfig},
   {path:'hacks/:fileName',component:DocLayoutComponent,data: hacksConfig}
 ];
 @NgModule({
