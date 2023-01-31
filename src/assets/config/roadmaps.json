@@ -1,89 +1,23 @@
 {
-    "headerConfig": {
-        "file": "",
-        "breadcrumb": [
-            {
-                "label": "",
-                "url": "/",
-                "icon": "faHouseChimney"
-            },
-            {
-                "label": "Roadmaps",
-                "url": "/roadmaps",
-                "icon": ""
-            }
-        ]
-    },
-    "tabView":[
+    "title": "Roadmaps",
+    "version": "",
+    "icon": "faMap",
+    "folder": "roadmaps",
+    "file": "roadmaps.md",
+    "url": "roadmaps/roadmaps.md",
+    "disscussion": "",
+    "topicsList": [
         {
-            "header": "Solidity",
-            "leftIcon": "",
-            "activeIndex": 0,
-            "displayCustom": false,
-            "images":[
+            "title": "Solidity Roadmap",
+            "icon": "",
+            "childs": [
                 {
-                    "previewImageSrc": "./assets/images/solidity-roadmap-1.jpg",
-                    "thumbnailImageSrc": "./assets/images/solidity-roadmap-1.jpg"
-                }
-            ],
-            "responsiveOptions":[
-                {
-                    "breakpoint": "1024px",
-                    "numVisible": 5
-                },
-                {
-                    "breakpoint": "768px",
-                    "numVisible": 3
-                },
-                {
-                    "breakpoint": "560px",
-                    "numVisible": 1
-                }
-            ]
-        },
-        {
-            "header": "Blockchain",
-            "leftIcon": "",
-            "activeIndex": 0,
-            "displayCustom": false,
-            "images":[
-                {
-                    "previewImageSrc": "./assets/images/b-r-1.png",
-                    "thumbnailImageSrc": "./assets/images/b-r-1.png"
-                },
-                {
-                    "previewImageSrc": "./assets/images/b-r-2.png",
-                    "thumbnailImageSrc": "./assets/images/b-r-2.png"
-                },
-                {
-                    "previewImageSrc": "./assets/images/b-r-3.png",
-                    "thumbnailImageSrc": "./assets/images/b-r-3.png"
-                },
-                {
-                    "previewImageSrc": "./assets/images/b-r-4.png",
-                    "thumbnailImageSrc": "./assets/images/b-r-4.png"
-                },
-                {
-                    "previewImageSrc": "./assets/images/b-r-4.png",
-                    "thumbnailImageSrc": "./assets/images/b-r-4.png"
-                },
-                {
-                    "previewImageSrc": "./assets/images/b-r-6.png",
-                    "thumbnailImageSrc": "./assets/images/b-r-6.png"
-                }
-            ],
-            "responsiveOptions":[
-                {
-                    "breakpoint": "1024px",
-                    "numVisible": 5
-                },
-                {
-                    "breakpoint": "768px",
-                    "numVisible": 3
-                },
-                {
-                    "breakpoint": "560px",
-                    "numVisible": 1
+                    "title": "Beginners",
+                    "href": {
+                        "file": "solidity.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
                 }
             ]
         }

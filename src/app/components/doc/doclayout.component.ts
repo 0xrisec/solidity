@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
-import { faBars, faBox, faBugs, faChessPawn, faCircleArrowUp, faF, faHandsPraying, faInfo, faSignsPost, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBox, faBugs, faChessPawn, faCircleArrowUp, faF, faHandsPraying, faInfo, faSignsPost, faXmark, faMap } from '@fortawesome/free-solid-svg-icons';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -71,7 +71,8 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     "faMedium": faMedium,
     "faTwitter": faTwitter,
     "faXmark": faXmark,
-    "faCircleArrowUp":faCircleArrowUp
+    "faCircleArrowUp":faCircleArrowUp,
+    "faMap": faMap
   }
   public eleId: string = '';
   public isBar: boolean = true;

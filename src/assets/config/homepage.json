@@ -44,7 +44,7 @@
           "icon": "fas fa-map",
           "title": "Roadmaps",
           "detail": "This section displays roadmaps for different parts of blockchain.",
-          "route": "roadmaps",
+          "route": "roadmaps/roadmaps.md",
           "isDisable": false
         },
         {
