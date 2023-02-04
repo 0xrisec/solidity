@@ -1,3 +1,5 @@
+
+```sol
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.17;
 
@@ -68,6 +70,7 @@ contract Auction {
     }
 
 }
+```
 
 // Conscieous about for loop, may u can use loop in UI side. here u just use the index.
 

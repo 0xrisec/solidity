@@ -924,6 +924,14 @@
                         "id": "top",
                         "githubLink": ""
                     }
+                },
+                {
+                    "title": "Auction Smart Contract",
+                    "href": {
+                        "file": "auction-smart-contract.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
                 }
             ]
         }
