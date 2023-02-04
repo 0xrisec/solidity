@@ -518,19 +518,12 @@
             "title": "Error handling",
             "icon": "fas fa-function",
             "childs": [
-                {
-                    "title": "Assert",
-                    "href": {
-                        "file": "error-handling.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
-                },
+                
                 {
                     "title": "Require",
                     "href": {
                         "file": "error-handling.md",
-                        "id": "require",
+                        "id": "top",
                         "githubLink": ""
                     }
                 },
@@ -539,6 +532,14 @@
                     "href": {
                         "file": "error-handling.md",
                         "id": "revert",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Assert",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "assert",
                         "githubLink": ""
                     }
                 }
@@ -929,6 +930,14 @@
                     "title": "Auction Smart Contract",
                     "href": {
                         "file": "auction-smart-contract.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Todo Smart Contract",
+                    "href": {
+                        "file": "todo-smart-contract.md",
                         "id": "top",
                         "githubLink": ""
                     }
