@@ -404,19 +404,19 @@ The contract has been deployed by the first account (`0x5B38Da6a701c568545dCfcB0
 <center><img class="image" src="./assets/images/auction-item.JPG"></center>
 <b><center class="img-label">Add Auction Item</center></b>
 
-The item can be found at the 0th index of the items array. The output shows the attributes of the item, such as name, highest bid, highest bidder, start time, end time, bidding status, and item owner.
+The item can be found at the `0th` index of the items array. The output shows the attributes of the item, such as `name`, `highest bid`, `highest bidder`, `start time`, `end time`, `bidding status`, and `item owner`.
 
 <center><img class="image" src="./assets/images/auction-item-0.JPG"></center>
 <b><center class="img-label">Item Details</center></b>
 
 Here is a brief explanation of the values displayed:
 
-- **name:** This is the name of the item, in this case it is "Mona Lisa Painting".
+- **name:** This is the name of the item, in this case it is `"Mona Lisa Painting"`.
 - **highestBid:** This is the highest bid for the item in wei, the value of `30000000000000000000 wei` is equivalent to `30 ether`.
-- **highestBidder:** This is the address of the highest bidder for the item. Since no bids have been placed yet, it is displayed as `0x0000000000000000000000000000000000000000`, which is the zero address.
-- **startTime:** This is the time in seconds since the epoch (UNIX time) when the auction for the item started. In this case, it is `1675439279`. This value can be converted to a human-readable date and time using an online tool, such as the one found at https://www.unixtimestamp.com/. 
-- **endTime:** This is the time in seconds since the epoch (UNIX time) when the auction for the item will end. In this case, it is calculated as the `startTime + _endTime * 1 day` which is `1675871279`.
-- **isOpen:** This is a boolean value indicating whether the bidding for the item is open or closed. In this case, it is true, meaning the bidding is open.
+- **highestBidder:** This is the address of the highest bidder for the item. Since no bids have been placed yet, it is displayed as `0x0000000000000000000000000000000000000000`, which is the `zero` address.
+- **startTime:** This is the time in seconds since the epoch (`UNIX time`) when the auction for the item started. In this case, it is `1675439279`. This value can be converted to a human-readable date and time using an online tool, such as the one found at <a href="https://www.unixtimestamp.com/" target="_blank">here</a>.
+- **endTime:** This is the time in seconds since the epoch (`UNIX time`) when the auction for the item will end. In this case, it is calculated as the `startTime + _endTime * 1 day` which is `1675871279`.
+- **isOpen:** This is a boolean value indicating whether the bidding for the item is `open` or `closed`. In this case, it is `true`, meaning the bidding is `open`.
 - **itemOwner:** This is the address of the owner of the item. In this case, it is `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4` which is the address of the account that added the item.
 
 Next, we will switch to the second account, `0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2`, which will be considered as the `bidder`. The `bidder` does not have the permission to `cancel`, `close`, or `extend` the bid, and attempting to do so will result in an error message stating `"Only the item owner can perform this action."`
@@ -424,12 +424,12 @@ Next, we will switch to the second account, `0xAb8483F64d9C6d1EcF9b849Ae677dD331
 <center><img class="image" src="./assets/images/auction-error.JPG"></center>
 <b><center class="img-label">Unauthorized Action: Only Item Owner Can Cancel/Close/Extend Auction</center></b>
 
-Next, we proceed to place a bid on the item at the 0th index of the items array using the second account, which we'll consider as the bidder. The second account must place a bid that is higher than the current highest bid or it will receive an error saying `"Bid must be greater than the current highest bid". `
+Next, we proceed to place a bid on the item at the `0th` index of the items array using the second account, which we'll consider as the bidder. The second account must place a bid that is higher than the current highest bid or it will receive an error saying `"Bid must be greater than the current highest bid". `
 
 <center><img class="image" src="./assets/images/auction-bidding-error.JPG"></center>
-<b><center class="img-label">Error</center></b>
+<b><center class="img-label">Error: Bid must be greater than the current highest bid</center></b>
 
-In this case, the second account places a bid of 40 ether, which is higher than the current highest bid of 30 ether. This results in the item's highest bid being updated to 40 ether and the highest bidder being set to the second account's address, `0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2`. Additionally, the second account's balance is reduced by 40 ether and contract account balance is incresed by 40 ether.
+In this case, the second account places a bid of `40 ether`, which is higher than the current highest bid of `30 ether`. This results in the item's highest bid being updated to `40 ether` and the highest `bidder` being set to the second account's address, `0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2`. Additionally, the second account's balance is reduced by `40 ether` and contract account balance is incresed by `40 ether`.
 
 <center><img class="image" src="./assets/images/aution-placed-bid-status.JPG"></center>
 <b><center class="img-label">Updated Item Details</center></b>
@@ -438,7 +438,7 @@ In this case, the second account places a bid of 40 ether, which is higher than 
 <center><img class="image" src="./assets/images/auction-account-balance.JPG"></center>
 <b><center class="img-label">Updated EOA Balance</center></b>
 
-Next, we will use the third account (0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db) as another bidder and attempt to place a higher bid (50 ether), greater than the previous highest bid of 40 ether. If successful, the previous highest bid will be returned to its original highest bidder (`0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2`) and the contract's balance will decrease by `40 ether`. The new highest bid of 50 ether will be placed and the contract's balance will be updated to reflect this change by adding 50 ether to the contract account.
+Next, we will use the third account (`0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db`) as another bidder and attempt to place a higher bid (`50 ether`), greater than the previous highest bid of 40 ether. If successful, the previous highest bid will be returned to its original highest bidder (`0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2`) and the contract's balance will decrease by `40 ether`. The new highest bid of `50 ether` will be placed and the contract's balance will be updated to reflect this change by adding `50 ether` to the contract account.
 
 <center><img class="image" src="./assets/images/auction-new-high-bid.JPG"></center>
 <b><center class="img-label">Updated Item Details</center></b>
@@ -447,7 +447,7 @@ Next, we will use the third account (0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db)
 <center><img class="image" src="./assets/images/auction-updated-account-balance.JPG"></center>
 <b><center class="img-label">Updated EOA Balance</center></b>
 
-The item owner (0x5B38Da6a701c568545dCfcB03FcB875f56beddC4) will then close the bid. The isOpen flag will be set to false, indicating that the bidding process is now closed. The item's ownership will then be transferred to the highest bidder, and all the bids for this item will be transferred to the former owner's account.
+The item owner (`0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`) will then close the bid. The `isOpen` flag will be set to `false`, indicating that the bidding process is now closed. The item's ownership will then be transferred to the highest bidder, and all the bids for this item will be transferred to the former `owner's` account.
 
 <center><img class="image" src="./assets/images/aution-close-bid.JPG"></center>
 <b><center class="img-label">Updated Item Details</center></b>
