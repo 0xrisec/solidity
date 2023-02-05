@@ -933,14 +933,6 @@
                         "id": "top",
                         "githubLink": ""
                     }
-                },
-                {
-                    "title": "Todo Smart Contract",
-                    "href": {
-                        "file": "todo-smart-contract.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
                 }
             ]
         }
