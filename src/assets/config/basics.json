@@ -941,14 +941,6 @@
                         "id": "top",
                         "githubLink": ""
                     }
-                },
-                {
-                    "title": "ERC20 Token",
-                    "href": {
-                        "file": "ERC20.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
                 }
             ]
         }
