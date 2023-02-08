@@ -65,9 +65,7 @@ The `EVM` is included in a software program called `Geth`. `Geth` is a command-l
 <center><img class="image" alt="Geth" class="w45" src="./assets/images/eth-network.JPG" ></center>
 <b><center class="img-label"> Ethereum Network</center></b>
 
-Ethereum is a distributed, peer-to-peer network of computers that are all running `Geth` (that all are running Ethereum virtual machine). A peer-to-peer network means computers share information directly rather than using a central server.
-
-`Ethereum` is a decentralized, peer-to-peer network of computers that are all running `Geth`, a software program that includes the `Ethereum Virtual Machine (EVM)`. In a peer-to-peer network, computers communicate and share information directly with each other rather than using a central server.
+`Ethereum` is a distributed, peer-to-peer network of computers that are all running `Geth` (that all are running` Ethereum virtual machine`). In a peer-to-peer network, computers communicate and share information directly with each other rather than using a central server.
 
 On the `Ethereum network`, all the computers running Geth are connected and able to communicate with each other. Each computer running Geth is known as a "node," and together, these nodes form the `Ethereum network`. The nodes on the `Ethereum network` use the EVM to execute smart contracts and validate transactions, ensuring that the Ethereum blockchain is secure and consistent.
 
