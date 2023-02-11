@@ -8,7 +8,7 @@ The following methods can be used to throw an error and revert all changes made 
 
 ## Require: 
 
-The `reuire` is a bult-in function that can be enforces conditions on input arguments or contract states. Contract execution is aborted if the condition is not met. The `require` function takes a boolean expression as an argument and checks if it is `true`. The contract execution continues as usual if the expression is `true`. If the expression is `false`, an `error` is thrown and the contract execution is halted.
+The `require` is a bult-in function that can be enforces conditions on input arguments or contract states. Contract execution is aborted if the condition is not met. The `require` function takes a boolean expression as an argument and checks if it is `true`. The contract execution continues as usual if the expression is `true`. If the expression is `false`, an `error` is thrown and the contract execution is halted.
 
 **Example:**
 ```sol
