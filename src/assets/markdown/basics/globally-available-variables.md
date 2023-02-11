@@ -73,7 +73,7 @@ Following example shows how the global variable can store and retrieve the miner
 
 We define global variables such as `minerAddress of type address`, `blockDifficulty of type 256-bit unsigned integer`, `blockGasLimit of type 256-bit unsigned integer`, `blockNumber of type 256-bit unsigned integer`, `blockTimestamp of type 256-bit unsigned integer` and functions such as `setMinerAddress`, `setBlockDifficulty`, `setBlockGasLimit`, `setBlockNumber`, `setBlockTimestamp` to set the value of the variables respectively.
 
- <img class="image" src="./assets/images/set-block-global-variables.JPG"  >
+ <center><img class="image" src="./assets/images/set-block-global-variables.JPG"></center>
  <b><center class="img-label"></center></b>
 
 To set the value of the `minerAddress` variable, we call the `setMinerAddress` function, which sets the value of the `minerAddress` variable to the current block's coinbase, which is accessed using the `block.coinbase` global variable. 
@@ -87,7 +87,7 @@ To set the value of the `blockNumber` variable, we call the `setBlockNumber` fun
 To set the value of the `blockTimestamp` variable, we call the `setBlockTimestamp` function, which sets the value of the `blockTimestamp` variable to the current block's timestamp, which is accessed using the `block.timestamp` global variable. 
 
 
- <img class="image" src="./assets/images/get-block-global-variables.JPG"  >
+ <center><img class="image" src="./assets/images/get-block-global-variables.JPG"></center>
  <b><center class="img-label"></center></b>
 
 To retrieve the variable's current value, we call the getter functions. The Solidity compiler creates getter functions for state variables by default.
