@@ -483,7 +483,7 @@ contract GameToken is ERC20 {
 }
 ```
 
-**Output**
+### Output
 
 Before you can use `GameToken` contract, you need to deploy it on the Ethereum network.
 
