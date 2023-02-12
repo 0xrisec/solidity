@@ -1,6 +1,6 @@
-import { ViewportScroller } from '@angular/common';
+import { isPlatformBrowser, ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
 import { faBars, faBox, faBugs, faChessPawn, faCircleArrowUp, faF, faHandsPraying, faInfo, faSignsPost, faXmark, faMap } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,6 @@ import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-bran
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MatDrawerMode, MatSidenav } from '@angular/material/sidenav';
 import { Breadcrumb } from 'src/app/models/breadcrumb.model';
-import { AnchorService } from 'src/app/service/anchor.service';
 
 interface NavNode {
   title: string;
@@ -24,9 +23,6 @@ interface NavNode {
   styleUrls: ['./doclayout.component.css'],
   providers: [MatSidenav],
 })
-
-
-
 
 export class DocLayoutComponent implements OnInit,AfterViewInit {
 
@@ -81,7 +77,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
   @ViewChild('xmark') xmark: ElementRef;
 
-  constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
 
   ngOnInit(): void {
     this.route.fragment.subscribe(fragment => { this.eleId = fragment!; });
@@ -108,14 +104,16 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.eleId) {
-      document?.querySelector('#' + this.eleId)?.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (window.screen.width <= 700) { 
-      this.opened = false;
-      this.navMode = 'over'
-    } else{
-      this.opened = true;
+    if (isPlatformBrowser(this.platformId)){
+      if (this.eleId) {
+        document?.querySelector('#' + this.eleId)?.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (window.screen.width <= 700) { 
+        this.opened = false;
+        this.navMode = 'over'
+      } else{
+        this.opened = true;
+      }
     }
   }
   
@@ -179,7 +177,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   }
 
   onError() {
-    console.log("Markdown reedering Error!")
+    console.log("Markdown rendering Error!")
   }
 
   onSearch(ele: any) {

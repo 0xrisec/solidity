@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { AnchorService } from './service/anchor.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,7 @@ import { AnchorService } from './service/anchor.service';
 })
 export class AppComponent {
   title = 'rootbabu-sol';
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: Event) {
-    this.anchorService.interceptClick(event);
-  }
 
   constructor(
-    private anchorService: AnchorService,
   ) { }
 }

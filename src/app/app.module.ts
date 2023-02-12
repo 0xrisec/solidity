@@ -56,18 +56,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
-import { AnchorService } from './service/anchor.service';
-
-export function markedOptionsFactory(anchorService: AnchorService): MarkedOptions {
-  const renderer = new MarkedRenderer();
-
-  // fix `href` for absolute link with fragments so that _copy-paste_ urls are correct
-  renderer.link = (href, title, text) => {
-    return MarkedRenderer.prototype.link.call(renderer, anchorService.normalizeExternalUrl(href!), title, text);
-  };
-
-  return { renderer };
-}
 
 @NgModule({
   declarations: [
@@ -88,9 +76,7 @@ export function markedOptionsFactory(anchorService: AnchorService): MarkedOption
     AccordionModule,
     MarkdownModule.forRoot({
       loader: HttpClient, sanitize: SecurityContext.NONE, markedOptions: {
-        provide: MarkedOptions,
-        useFactory: markedOptionsFactory,
-        deps: [AnchorService],
+        provide: MarkedOptions
       }
     }),
     FormsModule,
