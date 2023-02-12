@@ -59,7 +59,7 @@ function function_name(&lt;Parameters&gt;) &lt;state mutability&gt; <b>&lt;visib
 }
 </pre>
 
-<img class="image" alt="Remix IDE Panels"  src="./assets/images/visibility.JPG" >
+<center><img class="image" alt="Remix IDE Panels"  src="./assets/images/visibility.JPG"></center>
 <b><center class="img-label">visibilty within contracts</center></b>
 
 - **public:** A `public` variable or function can be accessed by anyone, including the `contract itself`, `derived contracts`, `other contracts`, and `external accounts`. 

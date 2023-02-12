@@ -941,6 +941,65 @@
                         "id": "top",
                         "githubLink": ""
                     }
+                },
+                {
+                    "title": "ERC20 Token",
+                    "href": {
+                        "file": "ERC20.md",
+                        "id": "top",
+                        "githubLink": ""
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Objectives",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "objectives",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "ERC-20 Standard",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "erc-20-standard",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "ERC-20 Token Contract",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "erc-20-token-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "OpenZeppelin ERC-20 Token Contract implementation",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "openzeppelin-erc-20-token-contract-implementation",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "More Official Support Sources",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "more-official-support-sources",
+                                "githubLink": ""
+                            }
+                        }
+                        
+                    ]
                 }
             ]
         }

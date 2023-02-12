@@ -47,7 +47,7 @@ Inside the function, the contract uses the `emit` keyword to send the `Deposit` 
 
 The `indexed` keyword is used to indicate that a parameter in an event declaration should be `indexed`. When an `event` parameter is `indexed`, it means that it can be used to filter events when they are logged.
 
-<img class="image" src="./assets/images/event-logs.JPG">
+<center><img class="image" src="./assets/images/event-logs.JPG"></center>
 <b><center class="img-label">Logs of Deposit event</center></b>
 
 So, when the `makeDeposit` function is called and a certain amount of `Ether`, it will emit the `Deposit` event and log the Ethereum account `address` of the caller and the amount of `Ether` being deposited. This information can be accessed or logged by external contracts or applications.

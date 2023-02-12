@@ -8,7 +8,7 @@ The following methods can be used to throw an error and revert all changes made 
 
 ## Require: 
 
-The `reuire` is a bult-in function that can be enforces conditions on input arguments or contract states. Contract execution is aborted if the condition is not met. The `require` function takes a boolean expression as an argument and checks if it is `true`. The contract execution continues as usual if the expression is `true`. If the expression is `false`, an `error` is thrown and the contract execution is halted.
+The `require` is a bult-in function that can be enforces conditions on input arguments or contract states. Contract execution is aborted if the condition is not met. The `require` function takes a boolean expression as an argument and checks if it is `true`. The contract execution continues as usual if the expression is `true`. If the expression is `false`, an `error` is thrown and the contract execution is halted.
 
 **Example:**
 ```sol
@@ -78,7 +78,7 @@ contract MyContract {
 
 The `function` contains an `if` statement that checks if the value of the value argument is greater than `5`. If the condition is `true`, the `revert()` function is called with a `string` argument, causing a revert of the contract's execution. 
 
-<img class="image" src="./assets/images/example-revert-function.JPG">
+<center><img class="image" src="./assets/images/example-revert-function.JPG"></center>
 <b><center class="img-label">Error</center></b>
 
 If the condition is `false`, the contract's execution continues normally.
