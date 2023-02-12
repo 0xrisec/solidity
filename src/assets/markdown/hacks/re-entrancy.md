@@ -369,7 +369,7 @@ contract Attack {
 // // deposit money using msg.value
 // // tranfer money using call low level function
 // // How to update the contract balance in a function 
-// when you call deposit of contract A, you should specifiy the {value: 1 ether} otherwise you getting error, remix value portion will not work.
+// when you call deposit of contract A, you should specify the {value: 1 ether} otherwise you getting error, remix value portion will not work.
 
 ```
 

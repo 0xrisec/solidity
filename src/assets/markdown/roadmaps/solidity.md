@@ -45,7 +45,7 @@
     - [Address](https://rootbabu.github.io/basics/types.md#address)
     - [Fixed Size Byte Arrays](https://rootbabu.github.io/basics/types.md#fixed-size-byte-arrays)
   
-- [Refrence Types](https://rootbabu.github.io/basics/reference-types.md#top)
+- [Reference Types](https://rootbabu.github.io/basics/reference-types.md#top)
     - [Arrays](https://rootbabu.github.io/basics/reference-types.md#top)
     - [Fixed-size Arrays](https://rootbabu.github.io/basics/reference-types.md#fixed-size-arrays)
     - [Dynamic Arrays](https://rootbabu.github.io/basics/reference-types.md#dynamic-arrays)
