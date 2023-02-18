@@ -1000,6 +1000,14 @@
                         }
                         
                     ]
+                },
+                {
+                    "title": "Crowdsale Smart Contract",
+                    "href": {
+                        "file": "crowdsale.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
                 }
             ]
         }
