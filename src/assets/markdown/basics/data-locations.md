@@ -31,7 +31,7 @@ The `EVM` is not a register machine but a stack machine, so all computations are
 
 **Important Points:**
 - Data location for all state variables is `storage`. We can not specify data location annotation with state variable. 
-- We can not specifiy data location annotation with value type variable. Data location annotation can only be specified for `array`, `struct` or `mapping` types only inside the function or local variables and arguments. Must be require in function.
+- We can not specify data location annotation with value type variable. Data location annotation can only be specified for `array`, `struct` or `mapping` types only inside the function or local variables and arguments. Must be require in function.
 
 ## Value types data location
 ```sol
@@ -70,11 +70,11 @@ The contract has four `value type` state variables: `num`, `flag`, `myAddress`, 
 
 The localVariables function is a pure function that returns four local variables of different types: a `uint` (unsigned integer), a `bool` (boolean), an `address`, and a `bytes2` (fixed size byte array with length 2). All local variables are value type so we can not be specified data location annotation. All will be stored at memory lcation.
 
-The update function is a public function that accepts four input arguments and assigns them to the public variables `num`, `flag`, `myAddress`, and `fixedByte`, respectively. All value type arguments, we can not specifiy annotation and all will be stored at calldata data location.
+The update function is a public function that accepts four input arguments and assigns them to the public variables `num`, `flag`, `myAddress`, and `fixedByte`, respectively. All value type arguments, we can not specify annotation and all will be stored at calldata data location.
 
-## Refrence types Data location
+## Reference types Data location
 
-We can not specifiy `data location annotation` with value type variable. `Data location annotation` can only be specified for `array`, `struct` or `mapping` types only inside the function or local variables and arguments. Must be require in function.
+We can not specify `data location annotation` with value type variable. `Data location annotation` can only be specified for `array`, `struct` or `mapping` types only inside the function or local variables and arguments. Must be require in function.
 
 There are three possible values for the `data location annotation`: `memory`, `storage`, and `calldata`. These values determine where the data is stored and how it can be accessed.
 

@@ -10,12 +10,11 @@ We are going to be looking at these three properties of global variables
 
 ## Block properties
 
-`Block properties` are global variables that provide information about the `current block`, such as the `block number`, `timestamp`, `difficulty`, `gas limit`, and `coinbase address`. These variables are part of the block object, which is a global object that is available in all Solidity functions.
+`Block properties` are global variables that provide information about the `current block`, such as the `block number`, `timestamp`, `gas limit`, and `coinbase address`. These variables are part of the block object, which is a global object that is available in all Solidity functions.
 
 | name(type)                      | functionality/what it contains                      | Use Case                                                                                                                                                            |
 |---------------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | block.coinbase(address payable) | current block miner’s address                       | Rewarding the miner for mining the block.<br> Using the miner's address to verify the authenticity of transactions on the blockchain.                               |
-| block.difficulty(uint)          | current block difficulty                            | Determining the minimum amount of work required to mine a block.<br>Using the block difficulty to verify the authenticity of transactions on the blockchain.        |
 | block.gaslimit(uint)            | current block gaslimit                              | Determining the maximum amount of gas that can be used in a transaction.<br>Using the block gas limit to verify the authenticity of transactions on the blockchain. |
 | block.number(uint)              | current block number                                | Determining the age of a block.<br>Using the block number to verify the authenticity of transactions on the blockchain.                                             |
 | block.timestamp(uint)           | current block timestamp in seconds since Unix epoch | Determining the time at which a block was mined.<br>Using the block timestamp to verify the authenticity of transactions on the blockchain.                         |
@@ -28,9 +27,6 @@ pragma solidity 0.8.17;
 contract MyContract {
     // Store the address of the miner
     address public minerAddress;
-
-    // Store the current block's difficulty
-    uint public blockDifficulty;
 
     // Store the gas limit of the current block
     uint public blockGasLimit;
@@ -45,11 +41,6 @@ contract MyContract {
     // Function that sets the minerAddress variable to the current block's coinbase
     function setMinerAddress() public {
         minerAddress = block.coinbase;
-    }
-
-    // This function sets the blockDifficulty variable to the current block's difficulty
-    function setBlockDifficulty() public {
-        blockDifficulty = block.difficulty;
     }
 
     // Sets the blockGasLimit variable to the current block's gas limit
@@ -71,14 +62,12 @@ contract MyContract {
 
 Following example shows how the global variable can store and retrieve the miner's address that mined a particular block on the blockchain.
 
-We define global variables such as `minerAddress of type address`, `blockDifficulty of type 256-bit unsigned integer`, `blockGasLimit of type 256-bit unsigned integer`, `blockNumber of type 256-bit unsigned integer`, `blockTimestamp of type 256-bit unsigned integer` and functions such as `setMinerAddress`, `setBlockDifficulty`, `setBlockGasLimit`, `setBlockNumber`, `setBlockTimestamp` to set the value of the variables respectively.
+We define global variables such as `minerAddress of type address`, `blockGasLimit of type 256-bit unsigned integer`, `blockNumber of type 256-bit unsigned integer`, `blockTimestamp of type 256-bit unsigned integer` and functions such as `setMinerAddress`, `setBlockGasLimit`, `setBlockNumber`, `setBlockTimestamp` to set the value of the variables respectively.
 
  <center><img class="image" src="./assets/images/set-block-global-variables.JPG"></center>
  <b><center class="img-label"></center></b>
 
 To set the value of the `minerAddress` variable, we call the `setMinerAddress` function, which sets the value of the `minerAddress` variable to the current block's coinbase, which is accessed using the `block.coinbase` global variable. 
-
-To set the value of the `blockDifficulty` variable, we call the `setBlockDifficulty` function, which sets the value of the `blockDifficulty variable` to the current block's difficulty, which is accessed using the `block.difficulty` global variable. 
 
 To set the value of the `blockGasLimit` variable, we call the `setBlockGasLimit` function, which sets the value of the `blockGasLimit` variable to the current block's gas limit, which is accessed using the `block.gaslimit` global variable. 
 

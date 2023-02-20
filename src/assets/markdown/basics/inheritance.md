@@ -162,7 +162,7 @@ contract B is A {
     address public owner;
 }
 ```
-Instead, if you want to change the value of a state variable in a child contract, you can do so by assigning a new value to it within a function in the child contract.\
+Instead, if you want to change the value of a state variable in a child contract, you can do so by assigning a new value to it within a function in the child contract.
 
 ```sol
 contract A {
