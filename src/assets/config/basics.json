@@ -1007,7 +1007,73 @@
                         "file": "crowdsale.md",
                         "id": "top",
                         "githubLink": ""
-                    }
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Prerequistes",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "prerequistes",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Objectives",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "objectives",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Create a Token Smart Contract",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "create-a-token-smart-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Create a Crowdsale Contract",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "create-a-crowdsale-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Output",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "output",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Important Points",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "important-points",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "External Resources",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "external-resources",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
                 }
             ]
         }
