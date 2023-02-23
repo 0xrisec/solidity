@@ -70,7 +70,7 @@ When you deploy a `contract`, you will see that there is no button to call a `fa
 <center><img class="image" src="./assets/images/fallback-code-deployed.JPG"></center>
 <b><center class="img-label">Low-level interactions</center></b>
 
-In the `CALLDATA` field, enter the `calldata` you want to send to the `contract`. This should be a valid `hexadecimal` value.
+The `CALLDATA` field refers to the input data that is sent to a smart contract when a function is called. This should be a valid `hexadecimal` value.
 
 Click the `"Transact"` button to send the `calldata` and/or funds to the `contract`.
 
@@ -97,7 +97,7 @@ The `fallback` function is executed either when a function that does not exist i
 
 The `receive` function is executed on a call to the contract with empty calldata. `Receive` is the function that is executed on plain `Ether` transfers (e.g. via `.send()` or `.transfer()`). If no such function exists, but a `payable fallback` function exists, the `fallback` function will be called on a plain `Ether` transfer. If neither a receive `Ether` nor a `payable fallback` function is present, the contract cannot receive `Ether` through regular transactions and throws an exception.
 
-It is declared using the `receive` keyword and must have the `payable` and `external` state mutabilitiy and visibility. This function cannot have any arguments and cannot return anything.
+It is declared using the `receive` keyword and must have the `payable` and `external` state mutability and visibility. This function cannot have any arguments and cannot return anything.
 
 In summary, the `receive` function is a special function that allows a contract to receive `ether` without any data. It is declared using the `receive` keyword and must have the `payable` and `external` state mutabilities. It cannot have any arguments or return anything, and can be marked as `virtual` and can have `modifiers`.
 
