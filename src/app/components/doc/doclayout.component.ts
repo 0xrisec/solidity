@@ -25,9 +25,6 @@ interface NavNode {
   providers: [MatSidenav],
 })
 
-
-
-
 export class DocLayoutComponent implements OnInit,AfterViewInit {
 
   @HostListener('window:scroll', ['$event'])
@@ -56,6 +53,8 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   public markdown = '';
   public previousLink: string = '';
   public mdFolder:string;
+  public activeNode: any;
+  public activeTreeNode: any;
   public defaultGithubLink = "https://github.com/ROOTBABU/solidity/blob/dev/src/assets/markdown/"
   public iconComponents: any = {
     "faBox": faBox,
@@ -84,7 +83,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
 
   ngOnInit(): void {
-    this.route.fragment.subscribe(fragment => { this.eleId = fragment!; });
+    this.route.fragment.subscribe(fragment => this.eleId = fragment!);
     this.route.data.subscribe((ele: any) => {
       this.breadcrumb = [];
       this.route.url.subscribe(url => {
@@ -104,7 +103,35 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
       this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", ele.file)
       this.previousLink = this.contentLink;
       this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", ele.file);
+      const nodePath = this.findNodePath(this.config, ele.file);
+      if (nodePath) {
+        this.activeTreeNode = nodePath[0];
+        for (const node of nodePath) {
+          this.treeControl.expand(node);
+          this.activeNode = node;
+        }
+      }
     });
+    setTimeout(() => {
+      const element = document.querySelector('.active-tree-node');
+      if (element) {
+        element.scrollIntoView({behavior: 'smooth'});
+      }
+    });
+  }
+
+  private findNodePath(nodes: NavNode[], fileName: string): NavNode[] | undefined {
+    for (const node of nodes) {
+      if (node?.href?.file === fileName && node?.href?.id === this.eleId) {
+        return [node];
+      } else if (node.childs) {
+        const childNode = this.findNodePath(node.childs, fileName);
+        if (childNode) {
+          return [node, ...childNode];;
+        }
+      }
+    }
+    return undefined;
   }
 
   ngAfterViewInit(): void {
@@ -119,15 +146,16 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     }
   }
   
-  onTabClick(ele: any) {
-    if (ele) {
+  onTabClick(node: any) {
+    if (node) {
+      this.activeNode = node;
       if (window.screen.width <= 700) { 
         this.opened = false;
         this.isBar = true;
       }
-      this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", ele.file);
-      this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", ele.file);
-      this.eleId = ele.id;
+      this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", node.href.file);
+      this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", node.href.file);
+      this.eleId = node.href.id;
       if (this.previousLink != this.contentLink) {
         this.ngxLoader.start();
       } else {
@@ -137,7 +165,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
         }
       }
     }
-    this.router.navigate([this.mdFolder, ele.file],{ fragment: this.eleId });
+    this.router.navigate([this.mdFolder, node.href.file],{fragment: node.href.id});
   }
 
   public toggleBar() {
