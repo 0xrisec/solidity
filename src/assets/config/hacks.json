@@ -14,7 +14,15 @@
                 {
                     "title": "Re-Entrancy",
                     "href": {
-                        "file": "coming-soon.md",
+                        "file": "re-entrancy.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Types of Re-Entrancy",
+                    "href": {
+                        "file": "types-of-re-entrancy.md",
                         "id": "top",
                         "githubLink": ""
                     }

