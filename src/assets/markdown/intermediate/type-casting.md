@@ -76,3 +76,6 @@ Both casting to a contract type and casting to an interface type have their pros
 <hr>
 
 Type casting is an important concept in Solidity, and there are two types of type casting: casting to a contract type and casting to an interface type. Casting to a contract type allows us to call functions that are defined in a specific contract, while casting to an interface type allows us to interact with any contract that implements that interface. The choice between casting to a contract type and casting to an interface type depends on the specific use case.
+
+# Important Points:
+
