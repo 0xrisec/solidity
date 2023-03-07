@@ -186,7 +186,7 @@ contract AttackerContract {
 
 ## Exploit
 
-Fist Deploy Vunrable Contract
+First Deploy Vulnrable Contract
 Add Some money with different accounts
 
 Deploy Attacker Contract 
@@ -195,7 +195,6 @@ And exploit
 Send VS Transfer VS Call:
 
 ## Preventative Techniques
-
 
 To avoid re-entrancy, you can use the Checks-Effects-Interactions pattern as outlined further below:
 
@@ -211,7 +210,10 @@ list of bugs , POCs
 
 https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/
 
-# Reentrancy Attack Case Studies
+# Types of Re-Entrancy Attacks
 
-
-# Reentrancy Attack Hall of Shame
+- Single-Function Reentrancy
+- Cross-Function Reentrancy
+- Cross-Contract Reentrancy
+- Cross-Chain Reentrancy
+- Read-Only Reentrancy
