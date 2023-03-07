@@ -186,15 +186,103 @@ contract AttackerContract {
 
 ## Exploit
 
-First Deploy Vulnrable Contract
-Add Some money with different accounts
+<hr>
 
-Deploy Attacker Contract 
-And exploit
+Here's a summary of the steps involved in a re-entrancy attack:
 
-Send VS Transfer VS Call:
+**1.** First, you need to deploy a vulnerable contract.
 
-## Preventative Techniques
+**2.** Deposit some money into the vulnerable contract using an externally owned account (EOA), in order to create a balance that can be attacked.
+
+**3.** Deploy an attacker contract that takes the vulnerable contract address as a parameter.
+
+**4.** Call the attacker contract's `attack` function with a value of `1 ether`, in order to trigger the attack.
+
+**5.** The `attack` function will call the vulnerable contract's function that interacts with an external contract.
+
+**6.** The vulnerable contract will attempt to transfer funds to the attacker contract using the call low-level function. This triggers the fallback function in the attacker contract, allowing the attacker to execute further code and potentially steal more funds.
+
+**7.** The fallback function in the attacker contract will repeatedly call the vulnerable contract's withdraw function, effectively re-entering the vulnerable contract's code.
+
+**8.** The re-entrancy attack will continue until the vulnerable contract's balance is depleted, potentially causing damage to the contract's logic and allowing the attacker to steal more funds than they deposited.
+
+<center><img class="image" src="./assets/images/single-function-re-entrancy.jpg"></center>
+<b><center class="img-label">Output</center></b>
+
+<div class="doc-note">
+	<p class="alert alert-primary"><b>Note:</b> 
+       Some people believe that the Reentrancy hack is no longer possible in Solidity such as <a href="https://stackoverflow.com/questions/67722470/reentrancy-hack-in-solidity-no-longer-working-on-pragma-0-8-0" target="_blank">https://stackoverflow.com/questions/67722470/reentrancy-hack-in-solidity-no-longer-working-on-pragma-0-8-0</a>. This belief may have arisen from the fact that some individuals attempted to test this exploit on Remix IDE, which had some issues in the past. However, these issues have now been resolved by Remix IDE. You can currently try testing the exploit on Remix IDE, but there is no guarantee that future issues with Remix IDE will not arise. If the exploit does not work on Remix IDE, you can try testing it on other platforms. If you encounter any issues, you can ask on our Discord server.
+    </p>
+</div>
+
+## Preventing Re-Entrancy Attacks 
+
+<hr>
+
+To prevent re-entrancy attacks, it is necessary to use a custom implementation such as the ReentrancyGuard contract. This modifier ensures that a function can only be called once at a time, thereby preventing an attacker from calling it repeatedly before the initial call is completed.
+
+```sol
+abstract contract ReentrancyGuard {
+    bool internal locked;
+
+    modifier noReentrant() {
+        require(!locked, "No re-entrancy");
+        locked = true;
+        _;
+        locked = false;
+    }
+}
+```
+
+The ReentrancyGuard contract contains a single variable called locked, which is a boolean that keeps track of whether the function is currently being executed.
+
+The noReentrant modifier is defined in this contract, and it is used to prevent re-entrancy attacks on functions that are susceptible to them. When a function is marked with this modifier, it first checks that locked is false. If locked is true, then the function will throw an exception with the message "No re-entrancy". If locked is false, the function will set locked to true, execute the function code (_), and then set locked back to false.
+
+By doing this, the modifier ensures that the function can only be called once at a time, preventing re-entrancy attacks where an attacker can call the same function multiple times before the first call has completed.
+
+To demonstrate the use of the ReentrancyGuard contract and the noReentrant modifier, let's modify a vulnerable contract to prevent re-entrancy attacks.
+
+Here is the code for the vulnerable contract:
+
+```sol
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.19;
+
+contract ReEntrancyGuard {
+    bool internal locked;
+
+    modifier noReentrant() {
+        require(!locked, "No re-entrancy");
+        locked = true;
+        _;
+        locked = false;
+    }
+}
+
+contract VulnerableContract is ReEntrancyGuard {
+    mapping(address => uint) public balances;
+
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw() public noReentrant {
+        require(balances[msg.sender] >= 0, "Insufficient balance");
+
+        (bool success, ) = msg.sender.call{value: balances[msg.sender]}("");
+        require(success, "Transfer failed");
+
+        balances[msg.sender] = 0;
+    }
+
+    function getBalance() public view returns (uint) {
+        return balances[msg.sender];
+    }
+}
+```
+
+<!-- 
+Let's take a closer look at the ReentrancyGuard abstract contract and how it works:
 
 To avoid re-entrancy, you can use the Checks-Effects-Interactions pattern as outlined further below:
 
@@ -202,18 +290,4 @@ Re-entrancy is not limited to Ether transfers, but can occur with any function c
 
 In addition to considering re-entrancy risks in single-contract situations, it's also important to take multi-contract situations into account. As you mentioned, a called contract could modify the state of another contract that the original contract depends on. This can create additional security risks and vulnerabilities that need to be carefully considered and addressed.
 
-To mitigate the risk of re-entrancy attacks, developers can use various techniques such as using the "checks-effects-interactions" pattern, which involves checking for conditions and performing all necessary state changes before interacting with other contracts. Additionally, developers can use mutex locks or other mechanisms to prevent multiple re-entrant calls from occurring simultaneously. Overall, it's important to carefully consider the potential risks and use best practices to ensure that smart contracts are secure and resistant to attacks.
-
-https://stackoverflow.com/questions/67722470/reentrancy-hack-in-solidity-no-longer-working-on-pragma-0-8-0
-
-list of bugs , POCs
-
-https://consensys.net/diligence/blog/2019/09/stop-using-soliditys-transfer-now/
-
-# Types of Re-Entrancy Attacks
-
-- Single-Function Reentrancy
-- Cross-Function Reentrancy
-- Cross-Contract Reentrancy
-- Cross-Chain Reentrancy
-- Read-Only Reentrancy
+To mitigate the risk of re-entrancy attacks, developers can use various techniques such as using the "checks-effects-interactions" pattern, which involves checking for conditions and performing all necessary state changes before interacting with other contracts. Additionally, developers can use mutex locks or other mechanisms to prevent multiple re-entrant calls from occurring simultaneously. Overall, it's important to carefully consider the potential risks and use best practices to ensure that smart contracts are secure and resistant to attacks. -->
