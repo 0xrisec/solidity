@@ -143,7 +143,7 @@ function placeBid(uint _index) public payable{
 In the next step, We will create a function called `itemStatus`. The purpose of the `itemStatus` function is to monitor the status of an auction `item` and update it accordingly. It takes in an `_index` argument which identifies the `item` in the `items` array. The function checks if the auction time has ended by comparing the `endTime` of the `item` with the current block `timestamp`. If the auction time is over, the function updates the status of the auction by setting its `isOpen` property to `false`, sending the highest bid amount to the item `owner` using the `sendBid` function, and assigning the new `owner` to the highest `bidder`. The final step is to return the current status of the auction (whether it is `open` or `closed`) by accessing the `isOpen` property of the `item`.
 
 ```sol
- // Function to check the status of an auction
+// Function to check the status of an auction
 function itemStatus(uint _index) private returns(bool){
     // Check if the auction is still open and the end time has not been reached
     if(items[_index].isOpen && items[_index].endTime < block.timestamp){
@@ -182,24 +182,24 @@ The function should be restricted to be called only by the `owner` of the `smart
 
 ```sol
 /**
-    * extendBid - Function to extend the auction time for a particular item.
-    *
-    * @param _index      - Index of the item in the `items` array
-    * @param _extendTime - The time, in days, to extend the auction by.
-    */
-    function extendBid(uint _index, uint _extendTime) public onlyOwner(_index) {
-        // Check if the item exists in the `items` array
-        require(_index < items.length, "Item doest not exist");
+* extendBid - Function to extend the auction time for a particular item.
+*
+* @param _index      - Index of the item in the `items` array
+* @param _extendTime - The time, in days, to extend the auction by.
+*/
+function extendBid(uint _index, uint _extendTime) public onlyOwner(_index) {
+    // Check if the item exists in the `items` array
+    require(_index < items.length, "Item doest not exist");
 
-        // Check if the auction for this item has ended.
-        require(itemStatus(_index), "The auction has ended.");
+    // Check if the auction for this item has ended.
+    require(itemStatus(_index), "The auction has ended.");
 
-        // Check if the extend time is greater than zero
-        require(_extendTime > 0, "Extend time must be greater than zero");
+    // Check if the extend time is greater than zero
+    require(_extendTime > 0, "Extend time must be greater than zero");
 
-        // Add the extend time to the item's endTime
-        items[_index].endTime += _extendTime * 1 days;
-    }
+    // Add the extend time to the item's endTime
+    items[_index].endTime += _extendTime * 1 days;
+}
 ```
 
 In the next step, we will establish a function named `closeBid` that closes the bidding for a specific `item` and returns the `address` of the `highest bidder` for that `item`. The function has one input parameter: `_index` (the index of the `item` in an array named `items`).
@@ -249,17 +249,17 @@ The function is restricted to be called only by the `owner` of the `smart contra
 ```sol
 // This function cancels a bid in the auction
 function cancelBid(uint _index) public onlyOwner(_index){
-        // Check if the item exists in the auction
-        require(_index < items.length, "Item doest not exist");
-        // Check if the auction for the item is still open
-        require(itemStatus(_index), "The auction is closed, cannot cancel bid");
-        // Check if a bid has been placed for the item
-        require(items[_index].highestBidder != address(0), "No bids placed, cannot cancel bid");
-        // Transfer the highest bid to the highest bidder
-        payable(items[_index].highestBidder).transfer(items[_index].highestBid);
-        // Reset the highest bid and the highest bidder to 0 and address(0) respectively
-        items[_index].highestBid = 0;
-        items[_index].highestBidder = address(0);
+    // Check if the item exists in the auction
+    require(_index < items.length, "Item doest not exist");
+    // Check if the auction for the item is still open
+    require(itemStatus(_index), "The auction is closed, cannot cancel bid");
+    // Check if a bid has been placed for the item
+    require(items[_index].highestBidder != address(0), "No bids placed, cannot cancel bid");
+    // Transfer the highest bid to the highest bidder
+    payable(items[_index].highestBidder).transfer(items[_index].highestBid);
+    // Reset the highest bid and the highest bidder to 0 and address(0) respectively
+    items[_index].highestBid = 0;
+    items[_index].highestBidder = address(0);
 }
 ```
 
@@ -298,13 +298,13 @@ contract Auction {
 
     // Function to add a new item to the auction
     function addItem(string memory _name, uint _startingBid, uint _endTime) public{
-      // Check if the starting bid is greater than zero
-      require(_startingBid > 0, "Starting bid must be greater than zero");
-      // Check if the end time is less than or equal to 7 days
-      require(_endTime <= 7 days, "End time must be less than or equal to 7 days");
-      // Create a new item with the provided details and add it to the array
-      Item memory newItem = Item(_name, _startingBid * 1 ether, address(0), block.timestamp, block.timestamp + _endTime * 1 days, true, msg.sender);
-      items.push(newItem);
+        // Check if the starting bid is greater than zero
+        require(_startingBid > 0, "Starting bid must be greater than zero");
+        // Check if the end time is less than or equal to 7 days
+        require(_endTime <= 7 days, "End time must be less than or equal to 7 days");
+        // Create a new item with the provided details and add it to the array
+        Item memory newItem = Item(_name, _startingBid * 1 ether, address(0), block.timestamp, block.timestamp + _endTime * 1 days, true, msg.sender);
+        items.push(newItem);
     }
     
     // Function to allow a user to place a bid on an item
@@ -378,17 +378,17 @@ contract Auction {
 
     // This function cancels a bid in the auction
     function cancelBid(uint _index) public onlyOwner(_index){
-            // Check if the item exists in the auction
-            require(_index < items.length, "Item doest not exist");
-            // Check if the auction for the item is still open
-            require(itemStatus(_index), "The auction is closed, cannot cancel bid");
-            // Check if a bid has been placed for the item
-            require(items[_index].highestBidder != address(0), "No bids placed, cannot cancel bid");
-            // Transfer the highest bid to the highest bidder
-            payable(items[_index].highestBidder).transfer(items[_index].highestBid);
-            // Reset the highest bid and the highest bidder to 0 and address(0) respectively
-            items[_index].highestBid = 0;
-            items[_index].highestBidder = address(0);
+        // Check if the item exists in the auction
+        require(_index < items.length, "Item doest not exist");
+        // Check if the auction for the item is still open
+        require(itemStatus(_index), "The auction is closed, cannot cancel bid");
+        // Check if a bid has been placed for the item
+        require(items[_index].highestBidder != address(0), "No bids placed, cannot cancel bid");
+        // Transfer the highest bid to the highest bidder
+        payable(items[_index].highestBidder).transfer(items[_index].highestBid);
+        // Reset the highest bid and the highest bidder to 0 and address(0) respectively
+        items[_index].highestBid = 0;
+        items[_index].highestBidder = address(0);
     }
 }
 ```
