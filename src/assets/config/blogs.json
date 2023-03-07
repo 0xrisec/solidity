@@ -1,5 +1,82 @@
 {
     "data": [
+      {
+        "title":"Security in Solidity Smart Contracts",
+        "link":"https://github.com/Dreammaster13/blockchain-for-devs-book/blob/d43da680d11f87cb2cf6b0486486f3cdbb4fa59a/content/part-2-dapps-ethereum-and-solidity/blockchain-and-smart-contract-security/solidity-smart-contract-security/smart-contract-security.md",
+        "author": "Dreammaster13",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"Reentrancy Attack: The Ultimate Guide",
+        "link":"https://www.immunebytes.com/blog/reentrancy-attack/#Types_of_Reentrancy_Attack",
+        "author": "immunebytes",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"Ethereum Contract Security Techniques and Tips",
+        "link":"https://github.com/asteroidsbg/wiki/wiki/Safety",
+        "author": "asteroidsbg",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"Reentrancy",
+        "link":"https://github.com/andstor/cross-chain-smart-contract-vulnerability-detection-methods-slr/wiki/Blockchain-vulnerability-analysis",
+        "author": "andstor",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"Reentrancy",
+        "link":"https://github.com/kadenzipfel/smart-contract-vulnerabilities/blob/16af11e0eb36ab76ff057a8028695caa5f69e094/vulnerabilities/reentrancy.md",
+        "author": "kadenzipfel",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"Reentrancy",
+        "link":"https://consensys.github.io/smart-contract-best-practices/attacks/reentrancy/",
+        "author": "consensys",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"Protect Your Solidity Smart Contracts From Reentrancy Attacks",
+        "link":"https://medium.com/coinmonks/protect-your-solidity-smart-contracts-from-reentrancy-attacks-9972c3af7c21",
+        "author": "Will Shahda",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"A Historical Collection of Reentrancy Attacks",
+        "link":"https://github.com/pcaversaccio/reentrancy-attacks",
+        "author": "pcaversaccio",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"DeFi Hacks Analysis - Root Cause",
+        "link":"https://wooded-meter-1d8.notion.site/0e85e02c5ed34df3855ea9f3ca40f53b?v=22e5e2c506ef4caeb40b4f78e23517ee",
+        "author": "pcaversaccio",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"A Mechanism to Detect and Prevent Ethereum Blockchain Smart Contract Reentrancy Attacks",
+        "link":"https://www.frontiersin.org/articles/10.3389/fcomp.2021.598780/full%5C",
+        "author": "Ayman Alkhalifah",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
+      {
+        "title":"Learn EVM Attacks",
+        "link":"https://github.com/coinspect/learn-evm-attacks/",
+        "author": "Coinspect",
+        "tag": "hacks",
+        "date":"03/07/2023"
+      },
     {
         "title":"Has Anyone Seen Web3?",
         "link":"https://betterprogramming.pub/has-anyone-seen-web3-a-complete-roadmap-free-resources-to-become-web3-developer-4e5dc9332c1f",
@@ -13,6 +90,7 @@
       "author": "Zaryab Afser",
       "tag": "hacks",
       "date":"01/09/2022"
-  }
+    }
+    
   ]
 }
