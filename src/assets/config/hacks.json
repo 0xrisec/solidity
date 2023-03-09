@@ -12,12 +12,54 @@
             "icon": "",
             "childs": [
                 {
-                    "title": "Re-Entrancy",
+                    "title": "Single-Function Re-Entrancy",
                     "href": {
                         "file": "re-entrancy.md",
                         "id": "top",
                         "githubLink": ""
-                    }
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Understanding Reentrancy",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "understanding-reentrancy",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "POC",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "poc",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Exploit",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "exploit",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Preventing Re-Entrancy Attacks",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "preventing-re-entrancy-attacks",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
                 },
                 {
                     "title": "Types of Re-Entrancy",
