@@ -36,7 +36,7 @@
         {
           "icon": "fas fa-bug",
           "title": "Hacks",
-          "detail": "Coming Soon!",
+          "detail": "Smart contract security, covering attack vectors, vulnerabilities, and mitigation strategies.",
           "route": "hacks/hacks.md",
           "isDisable": false
         },
