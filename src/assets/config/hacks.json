@@ -58,11 +58,19 @@
                                 "id": "preventing-re-entrancy-attacks",
                                 "githubLink": ""
                             }
+                        },
+                        {
+                            "title": "Types of Re-Entrancy",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "types-of-re-entrancy-attacks",
+                                "githubLink": ""
+                            }
                         }
                     ]
                 },
                 {
-                    "title": "Types of Re-Entrancy",
+                    "title": "Cross-Function Reentrancy",
                     "href": {
                         "file": "coming-soon.md",
                         "id": "top",

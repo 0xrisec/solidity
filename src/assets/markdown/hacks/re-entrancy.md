@@ -203,7 +203,7 @@ Here's a summary of the steps involved in a re-entrancy attack:
 **8.** The re-entrancy attack will continue until the vulnerable contract's balance is depleted, potentially causing damage to the contract's logic and allowing the attacker to steal more funds than they deposited.
 
 <center><img class="image" src="./assets/images/single-function-re-entrancy.jpg"></center>
-<b><center class="img-label">Output</center></b>
+<b><center class="img-label">Attack flaw</center></b>
 
 <div class="doc-note">
 	<p class="alert alert-primary"><b>Note:</b> 
@@ -274,3 +274,20 @@ contract VulnerableContract is ReEntrancyGuard {
     }
 }
 ```
+
+
+## Types of Re-Entrancy Attacks
+
+<hr> 
+
+**1.** Single-Function Reentrancy : This type of attack occurs when a single function in a contract is called multiple times before the previous call completes which we have already discussed above.
+
+**2.** Cross-Function Reentrancy
+
+**3.** Cross-Contract Reentrancy
+
+**4.** Cross-Chain Reentrancy
+
+**5.** Read-Only Reentrancy
+
+In the next section, we will focus on these remaining types of re-entrancy attacks and examine how they can be carried out.
