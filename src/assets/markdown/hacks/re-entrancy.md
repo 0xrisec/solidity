@@ -280,7 +280,7 @@ contract VulnerableContract is ReEntrancyGuard {
 
 <hr> 
 
-**1.** Single-Function Reentrancy : This type of attack occurs when a single function in a contract is called multiple times before the previous call completes which we have already discussed above.
+**1. Single-Function Reentrancy :** This type of attack occurs when a single function in a contract is called multiple times before the previous call completes which we have already discussed above.
 
 **2.** Cross-Function Reentrancy
 
@@ -290,4 +290,4 @@ contract VulnerableContract is ReEntrancyGuard {
 
 **5.** Read-Only Reentrancy
 
-In the next section, we will focus on these remaining types of re-entrancy attacks and examine how they can be carried out.
+In the next sections, we will focus on these remaining types of re-entrancy attacks and examine how they can be carried out.
