@@ -87,22 +87,37 @@ In our case, if the fallback function of the malicious contract calls the transf
 <center><img class="image" src="./assets/images/cross-function-re-entrancy.jpg"></center>
 <b><center class="img-label">Flow of execution</center></b>
 
-The attacker deposits some money into the vulnerable contract using their own malicious contract, with the intention of creating a balance and withdrawing it in order to exploit a vulnerability in the code. After that, they call the withdraw() function of the victim contract. The flow of execution is as follows:
+Let's begin by assuming the initial state of all accounts. The vulnerable contract belonging to the victim holds 50 ether, while the attacker contract holds 1 ether and has a wallet address with no ether.
 
-**1. Calling the victim contract's withdraw() function:** The attacker's contract sends a request to the victim contract to execute the withdraw() function.
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-1.jpg"></center>
+<b><center class="img-label">Initial Accounts State</center></b>
 
-**2. Transferring funds to the caller:** The victim contract begins executing the withdraw() function and checks if the caller has a positive balance. If so, it transfers the funds through the call() function to the sender (attacker's contract). However, the attacker's malicious contract triggers the fallback function when it receives the funds, and the fallback function calls the transfer() function of the victim contract while the execution of the withdraw() function is still in progress. (Note that the victim contract have not updated the caller's balance to zero because the line of code `balances[msg.sender] = 0;` that updates the sender's balance is still pending to execute.)
+The attacker deposits 1 ether into the vulnerable contract using their own malicious contract, with the intention of creating a balance and withdrawing it in order to exploit a vulnerability in the code. 
 
-**3. Updating the state variable:** Updating the state variable: The attacker's contract needs to provide parameters, such as the amount to transfer and the destination address, to call the transfer() function. The amount can be less than or equal to the balance of the attacker's contract, and the destination address can be the attacker's wallet address.
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-2.jpg"></center>
+<b><center class="img-label">Deposited 1 ether to Vulberable Contract</center></b>
+
+After that, they call the `withdraw()` function of the victim contract. The flow of execution is as follows:
+
+**1. Calling the victim contract's withdraw() function:** The attacker's contract sends a request to the victim contract to execute the `withdraw()` function.
+
+**2. Transferring funds to the caller:** The victim contract begins executing the `withdraw()` function and checks if the caller has a positive balance. If so, it transfers the funds through the call() function to the sender (attacker's contract). However, the attacker's malicious contract triggers the `fallback` function when it receives the funds, and the `fallback` function calls the `transfer()` function of the victim contract while the execution of the `withdraw()` function is still in pending. (Note that the victim contract have not updated the caller's balance to zero because the line of code `balances[msg.sender] = 0;` that updates the sender's balance is still pending to execute.) Now accounts state will be as below image.
+
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-3.jpg"></center>
+<b><center class="img-label">Withdraw 1 ether by attacker contract</center></b>
+
+**3. Updating the state variable:** For the `transfer()` function to be called, the attacker's contract must provide the necessary parameters, including the `amount` to transfer and the `destination address`. It's possible for the `amount` to be equal or less than the balance of the attacker's contract. Furthermore, the `destination address` could potentially be the attacker's own wallet address.
 
 **4. Reducing the amount from the caller address:** The victim contract deducts the amount from the attacker's contract address.
 
 **5. Increasing the amount to the wallet address:** The victim contract adds the amount to the attacker's wallet address.
 
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-4.jpg"></center>
+<b><center class="img-label"></center></b>
 
-**6. Updating the caller balance:** Eventually, the execution state returns to the withdraw() function, and the attacker's contract's balance is set to zero.
+**6. Updating the caller balance:** Eventually, the execution state returns to the `withdraw()` function, and the attacker's contract's balance is set to  (In our case that is already updated to zero because we have trasffered to other address).
 
-**7. Checking wallet address balance:** Finally, the attacker can check their wallet balance in the victim contract and withdraw additional funds using the withdraw() function.
+**7. Checking wallet address balance:** Finally, the attacker can check their wallet balance in the victim contract and withdraw additional funds using the `withdraw()` function. In the case we're examining, the balance has already been set to zero because the funds were transferred to wallet address.
 
 ## POC-1, Attacker Contract
 
@@ -164,9 +179,107 @@ contract AttackerContract {
 
 ## POC-2, Attacker Contract
 
-This POC is updated version of POC-1.
-<!-- <center><img class="image" src="./assets/images/cross function re-entrancy.jpg"></center>
-<b><center class="img-label">Output</center></b> -->
+To summarize `POC-1`, the attacker initially deposited `1 ether` into the vulnerable contract, withdrew it, and simultaneously updated the balances state variable for their wallet account. As a result, the attacker can withdraw another `1 ether` from the vulnerable contract, effectively allowing them to retrieve their initial deposit along with any additional funds deposited by the victim. For instance, if the victim contract holds `50 ether`, the attacker would need to deposit `25 ether` to drain all the funds. If the attacker does not have the necessary amount of ether, they would need to deposit smaller amounts multiple times until they can drain all the funds from the vulnerable contract.
+
+To launch a more precise attack, we will duplicate the attacker contract and utilize two instances of it to exploit the vulnerability.
+
+In the revised approach, the initial attacker contract will deposit `1 ether`, withdraw it, and call upon the transfer function, providing the address of the `second attacker contract` as a parameter. This action will update the `balances` state variable of the victim contract, indicating that the `second attacker contract address` now holds `1 ether`. The `second attacker contract` can subsequently launch an attack by passing the address of the `first attacker contract` to transfer the same amount of funds. Since the `second attacker contract` already has funds in the victim contract, there is no need to deposit any additional funds. With the `first attacker contract` also possessing funds in the balances state variable, it can withdraw and launch another attack. The attacker can alternate between both contracts to drain all the funds while depositing only `1 ether`.
+
+To better comprehend this methodology, refer to the flow of execution presented below.
+
+<center><img class="image" src="./assets/images/cross-function re-entrancy-attack.jpg"></center>
+<b><center class="img-label">Output</center></b>
+
+To start, let's assume the starting balance of each account. The victim's vulnerable contract contains `50 ether`, while `ATTACKER CONTRACT 1` holds 1 ether and `ATTACKER CONTRACT 2` with no ether.
+
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-5.jpg"></center>
+<b><center class="img-label">Initial Accounts State</center></b>
+
+To exploit a vulnerability in the code, the attacker deposits 1 ether into the vulnerable contract using `ATTACKER CONTRACT 1`, creating a balance that they can withdraw. 
+
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-6.jpg"></center>
+<b><center class="img-label">Deposit 1 ether</center></b>
+
+Calling the victim contract's `withdraw()` function, initiating the following execution flow:
+
+**1. Calling the victim contract's withdraw() function:** The attacker's contract, `ATTACKER CONTRACT 1`, calls the `withdraw()` function on the victim contract.
+
+**2. Transferring funds to the caller:** During the execution of the` withdraw()` function, the victim contract transfers funds to `ATTACKER CONTRACT 1`. However, the attacker's malicious contract triggers the fallback function upon receiving the funds, which in turn calls the `transfer()` function of the victim contract, while the `withdraw()` function is still being executed. It is important to note that the line of code responsible for updating the caller's balance to zero, `balances[msg.sender] = 0;`, is still awaiting execution in the victim contract.
+
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-7.jpg"></center>
+<b><center class="img-label">Deposit 1 ether</center></b>
+
+**3. Updating the state variable:** The function `transfer()` is called in `ATTACKER CONTRACT 1` with parameters that include the destination address and transfer amount. The destination address refer to `ATTACKER CONTRACT 2`.
+
+**4. Reducing the amount from the caller address:** The victim contract subtracts the transferred amount from the balance of the` ATTACKER CONTRACT 1 address`.
+
+**5. Increasing the amount to the second attacker contract address:** The victim contract adds the transferred amount to the balance of the `ATTACKER CONTRACT 2` address.
+
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-8.jpg"></center>
+<b><center class="img-label">Deposit 1 ether</center></b>
+
+**6.** The `ATTACKER CONTRACT 2` sends a request to execute the withdraw() function on the victim contract without depositing any funds since it was already deposited in the first contract attack.
+
+**7.** The `ATTACKER CONTRACT 2` initiates a request to the victim contract to execute the `withdraw()` function as part of the attack. 
+
+**8.** The victim contract starts to execute the `withdraw()` function once more, which transfers the funds to the caller (`ATTACKER CONTRACT 2`) using the `call()` function. However, the second attacker's malicious contract triggers the fallback function as it receives the funds. Since the fallback function calls the `transfer()` function of the victim contract while the `withdraw()` function is still in progress, the caller's balance is not yet updated to zero. Please note that the line of code `balances[msg.sender] = 0`; that updates the sender's balance is still pending to execute.
+
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-9.jpg"></center>
+<b><center class="img-label">Deposit 1 ether</center></b>
+
+**9.** The transfer call is initiated, with the destination address set to `ATTACKER CONTRACT 1`.
+
+**10.** The victim contract subtracts the transferred amount from the balance of `ATTACKER CONTRACT 2`.
+
+**11.** The victim contract adds the transferred amount to the balance of `ATTACKER CONTRACT 1`.
+
+### Code
+
+
+```sol
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.19;
+
+interface IVulnerableContract {
+    function deposit() external payable;
+    function transfer(address _to, uint _amount) external;
+    function withdraw() external;
+    function getUserBalance(address _user) external view returns (uint);
+} 
+
+contract AttackerContract {
+    IVulnerableContract public immutable vulnerableContract;
+    address public walletAddress = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
+
+    constructor(IVulnerableContract _vulnerableContract) {
+        vulnerableContract = _vulnerableContract;
+    }
+
+    fallback() external payable {
+        if (address(vulnerableContract).balance >= 1 ether) {
+            vulnerableContract.transfer(
+                walletAddress, 
+                vulnerableContract.getUserBalance(address(this))
+            );
+        }
+    }
+
+    function initiateAttack() external payable {
+        require(msg.value == 1 ether, "Require 1 Ether to attack");
+        vulnerableContract.deposit{value: 1 ether}();
+        vulnerableContract.withdraw();
+    }
+
+    function getBalance() external view returns (uint) {
+        return address(this).balance;
+    }
+}
+```
+
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-10.jpg"></center>
+<b><center class="img-label">Deposit 1 ether</center></b>
+
+**12.** The attacker can alternate between both contracts to drain all the funds by just attacking without despoit ethers again and again.
 
 ## mitigatation:
 
