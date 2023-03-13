@@ -233,8 +233,12 @@ Calling the victim contract's `withdraw()` function, initiating the following ex
 
 **11.** The victim contract adds the transferred amount to the balance of `ATTACKER CONTRACT 1`.
 
-### Code
+<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-10.jpg"></center>
+<b><center class="img-label">Deposit 1 ether</center></b>
 
+**12.** The attacker can alternate between both contracts to drain all the funds by just attacking without despoit ethers again and again.
+
+### Code
 
 ```sol
 // SPDX-License-Identifier: GPL-3.0
@@ -249,16 +253,19 @@ interface IVulnerableContract {
 
 contract AttackerContract {
     IVulnerableContract public immutable vulnerableContract;
-    address public walletAddress = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
-
+    AttackerContract public attackPeer;
     constructor(IVulnerableContract _vulnerableContract) {
         vulnerableContract = _vulnerableContract;
+    }
+
+    function setAttackPeer(AttackerContract _attackPeer) external {
+        attackPeer = _attackPeer;
     }
 
     fallback() external payable {
         if (address(vulnerableContract).balance >= 1 ether) {
             vulnerableContract.transfer(
-                walletAddress, 
+                address(attackPeer), 
                 vulnerableContract.getUserBalance(address(this))
             );
         }
@@ -270,16 +277,47 @@ contract AttackerContract {
         vulnerableContract.withdraw();
     }
 
+    function attackNext() external {
+        vulnerableContract.withdraw();
+    }
+
     function getBalance() external view returns (uint) {
         return address(this).balance;
     }
 }
 ```
 
-<center><img class="image" src="./assets/images/accounts-state-cf-reentrancy-10.jpg"></center>
-<b><center class="img-label">Deposit 1 ether</center></b>
+The attacker contract contains a reference to the vulnerable contract via an interface IVulnerableContract.
 
-**12.** The attacker can alternate between both contracts to drain all the funds by just attacking without despoit ethers again and again.
+The constructor of the AttackerContract takes an instance of the IVulnerableContract interface as an argument and initializes it to an immutable variable. This indicates that the instance cannot be changed once set during the constructor execution.
+
+The attacker contract has a function called setAttackPeer, which is used to set an instance of itself to another attacker contract instance. This function can be used to chain multiple instances of the AttackerContract, allowing the attacker to pass the attack to the next attacker contract in the chain.
+
+The fallback function is the entry point for the reentrancy attack. When the attacker contract receives funds, the fallback function checks if the vulnerable contract has a balance of at least 1 ether. If it does, the attacker contract calls the transfer function of the vulnerable contract and transfers the balance of the attacker contract to the attackPeer address, which is an instance of the AttackerContract.
+
+The initiateAttack function is used to deposit 1 ether into the vulnerable contract and then withdraw it, thereby exposing the reentrancy vulnerability. The attackNext function is used to withdraw the remaining balance from the vulnerable contract.
+
+Finally, the getBalance function returns the balance of the attacker contract. Overall, the AttackerContract aims to exploit the reentrancy vulnerability of the VulnerableContract and steal its funds.
+
+### Exploit
+
+Here's a summary of the steps involved in a re-entrancy attack:
+
+1. Deploy a vulnerable contract and deposit funds using an externally owned account to create a balance that can be attacked.
+
+2. Deploy two instances of the attacker contract, passing the vulnerable contract address as a parameter. Consider these contracts as `ATTACKER CONTRACT 1` and `ATTACKER CONTRACT 2`.
+
+3. Set the `attackPeer` state variable in both attacker contracts, use the `setAttackPeer()` function and pass the address of `ATTACKER CONTRACT 2` for` ATTACKER CONTRACT 1`, and the address of `ATTACKER CONTRACT 1` for `ATTACKER CONTRACT 2`. This address will be used in the `transfer()` function of the vulnerable contract.
+
+4. Call the `initiateAttack()` function of `ATTACKER CONTRACT 1` with a value of `1 ether`. This triggers the deposit function to deposit `1 ether` and the vulnerable contract's withdraw function to withdraw it.
+
+5. The vulnerable contract attempts to transfer funds to `ATTACKER CONTRACT 1` using the call low-level function, which triggers the fallback function in `ATTACKER CONTRACT 1`.
+
+6. The fallback function in `ATTACKER CONTRACT 1` calls the vulnerable contract's `transfer()` function, passing the `attackPeer` value (`ATTACKER CONTRACT 2` address) and the second balance of `ATTACKER CONTRACT 1` address in the vulnerable contract, which is `1 ether`.
+
+7. Call the `attackNext()` function in `ATTACKER CONTRACT 2` to execute the next attack.
+   
+8. Call `attackNext()` in sequence for `ATTACKER CONTRACT 1` and `ATTACKER CONTRACT 2` in an alternating way until all funds are drained.
 
 ## mitigatation:
 

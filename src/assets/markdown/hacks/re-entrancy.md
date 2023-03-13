@@ -194,9 +194,9 @@ Here's a summary of the steps involved in a re-entrancy attack:
 
 **4.** Call the attacker contract's `attack` function with a value of `1 ether`, in order to trigger the attack.
 
-**5.** The `attack` function will call the vulnerable contract's function that interacts with an external contract.
+**5.** The `attack` function will call the vulnerable contract's withdraw() function.
 
-**6.** The vulnerable contract will attempt to transfer funds to the attacker contract using the call low-level function. This triggers the fallback function in the attacker contract, allowing the attacker to execute further code and potentially steal more funds.
+**6.** The vulnerable contract will attempt to transfer funds to the attacker contract using the call low-level function. This triggers the fallback function in the attacker contract, allowing the attacker to execute further code.
 
 **7.** The fallback function in the attacker contract will repeatedly call the vulnerable contract's withdraw function, effectively re-entering the vulnerable contract's code.
 
