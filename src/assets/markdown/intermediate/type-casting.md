@@ -23,11 +23,19 @@ contract ContractA {
 
 contract ContractB {
     function bar(address _contract) external {
-        ContractA a = ContractA(_contract);
-        string memory result = a.foo();
+        // Check that the contract at _contract implements IContractA
+        require(
+            IContractA(_contract).foo() != "",
+            "Contract at _contract does not implement IContractA"
+        );
+        
+        // Call foo() function
+        string memory result = IContractA(_contract).foo();
+        
         // Do something with the result
     }
 }
+
 ```
 
 In this example, ContractB has a function called bar that takes an address parameter _contract representing the address of an instance of ContractA. The function casts _contract to ContractA using ContractA a = ContractA(_contract). Then it calls the foo function of ContractA using the a variable.
