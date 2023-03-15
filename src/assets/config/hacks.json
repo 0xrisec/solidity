@@ -72,10 +72,60 @@
                 {
                     "title": "Cross-Function Reentrancy",
                     "href": {
-                        "file": "coming-soon.md",
+                        "file": "cross-function-reentrancy.md",
                         "id": "top",
                         "githubLink": ""
-                    }
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Vulnerable Contract",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "vulnerable-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Identifying the vulnerability",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "identifying-the-vulnerability",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "POC-1, Attacker Contract",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "poc-1-attacker-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "POC-2, Attacker Contract",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "poc-2-attacker-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Preventative Technique",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "preventative-technique",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
                 }
             ]
         }
