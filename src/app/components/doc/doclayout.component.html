@@ -66,7 +66,7 @@
             </div>
             <hr>
             <div class="container" ngxUiLoaderBlurred #container>
-                <markdown [src]="contentLink" (load)="onLoad()" (error)="onError()"> </markdown>
+                <markdown clipboard [src]="contentLink" (load)="onLoad()" (error)="onError()"> </markdown>
                 <!-- <markdown [data]="markdown" [src]="contentLink" id="md"> </markdown> -->
             </div>
             <ngx-ui-loader></ngx-ui-loader>
