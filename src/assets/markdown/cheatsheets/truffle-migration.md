@@ -122,7 +122,7 @@ module.exports = function(deployer) {
 };
 ```
 
-### Deploy a contract and specify gas limit, gas price, sender, send Ether
+### Deploy a contract and specify gas limit, gas price, sender and send Ether
 
 ```js
 var A = artifacts.require("A");
@@ -153,7 +153,9 @@ module.exports = function(deployer) {
 };
 ```
 
-### Network considerations
+## Network considerations
+
+<hr>
 
 ```js
 module.exports = function(deployer, network) {
@@ -165,17 +167,16 @@ module.exports = function(deployer, network) {
 }
 ```
 
-```js
-module.exports = function(deployer, network, accounts) {
-  // Use the accounts within your migrations.
-}
-```
-
 ## Available accounts
+
+<hr>
 
 ### Injecting a parameter into the deployment
 
 ```js
+
+const A = artifacts.require("A");
+
 module.exports = function(deployer, network, accounts) {
     // Use the accounts within your migrations.
 	deployer.deploy(A, accounts[0]);
@@ -195,6 +196,10 @@ module.exports = async function(deployer) {
 };
 ```
 
-Source: 
-https://trufflesuite.com/docs/truffle/how-to/contracts/run-migrations/
-https://trufflesuite.com/docs/truffle/reference/configuration/#networks
+## Source: 
+
+<hr>
+
+<a href="https://trufflesuite.com/docs/truffle/how-to/contracts/run-migrations/" target="_blank">Migrations</a><br>
+<a href="https://trufflesuite.com/docs/truffle/reference/configuration/#networks" target="_blank">Networks</a>
+
