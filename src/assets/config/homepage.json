@@ -28,10 +28,10 @@
         },
         {
           "icon": "fas fa-file-alt",
-          "title": "Cheatsheet",
+          "title": "Cheatsheets",
           "detail": "Coming Soon!",
-          "route": "#",
-          "isDisable": true
+          "route": "cheatsheets/cheatsheets.md",
+          "isDisable": false
         },
         {
           "icon": "fas fa-bug",
