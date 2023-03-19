@@ -1,54 +1,61 @@
 {
     "config":[
         {
-          "icon": "fas fa-asterisk",
+          "icon": "faAsterisk",
           "title": "Prerequisites",
           "detail": "In order to start solidity, the following prerequisites must be met.",
           "route": "prerequisites"
         },
         {
-          "icon": "fas fa-chess-pawn",
+          "icon": "faChessPawn",
           "title": "Basics",
           "detail": "Learn the basic concepts of Solidity, including hands-on examples and projects.",
           "route": "basics/basics.md"
         },
         {
-          "icon": "fas fa-chess-queen",
+          "icon": "faChessQueen",
           "title": "Intermediate",
           "detail": "Coming Soon!",
           "route": "#",
           "isDisable": true
         },
         {
-          "icon": "fas fa-chess-king",
+          "icon": "faChessKing",
           "title": "Advanced",
           "detail": "Coming Soon!",
           "route": "#",
           "isDisable": true
         },
         {
-          "icon": "fas fa-file-alt",
+          "icon": "faCoins",
+          "title": "DeFi",
+          "detail": "Coming Soon!",
+          "route": "defi/defi.md",
+          "isDisable": false
+        },
+        {
+          "icon": "faFileAlt",
           "title": "Cheatsheets",
           "detail": "Quick reference guide.",
           "route": "cheatsheets/cheatsheets.md",
           "isDisable": false
         },
         {
-          "icon": "fas fa-bug",
+          "icon": "faBugs",
           "title": "Hacks",
           "detail": "Smart contract security, covering attack vectors, vulnerabilities, and mitigation strategies.",
           "route": "hacks/hacks.md",
           "isDisable": false
         },
         {
-          "icon": "fas fa-map",
+          "icon": "faMap",
           "title": "Roadmaps",
           "detail": "This section displays roadmaps for different parts of blockchain.",
           "route": "roadmaps/roadmaps.md",
           "isDisable": false
         },
         {
-          "icon": "fas fa-blog",
+          "icon": "faBlog",
           "title": "List of Blogs",
           "detail": "Listed external resources",
           "route": "blogs"
