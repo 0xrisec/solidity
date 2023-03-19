@@ -522,7 +522,9 @@ In addition to the `buyTokens` function, the Crowdsale contract includes other f
 
 <hr>
 
-**1. Crowdsale Rate** There are different ways to set the `rate` in a `crowdsale smart contract`. One way is to set a `fixed rate`, where the rate remains constant throughout the crowdsale. Another way is to set a dynamic rate, where the `rate` changes based on certain conditions, such as the number of tokens already sold or the amount of time that has passed since the start of the crowdsale. 
+**1. Crowdsale Rate** 
+
+There are different ways to set the `rate` in a `crowdsale smart contract`. One way is to set a `fixed rate`, where the rate remains constant throughout the crowdsale. Another way is to set a dynamic rate, where the `rate` changes based on certain conditions, such as the number of tokens already sold or the amount of time that has passed since the start of the crowdsale. 
 
 Here's a list of different ways to set the rate in a crowdsale smart contract:
 
