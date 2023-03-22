@@ -37,4 +37,4 @@ Some examples of `DeFi` applications include:
 - Aave: <a href="https://aave.com/" target="_blank">https://aave.com/</a>
 - Yearn Finance: <a href="https://yearn.finance/" target="_blank">https://yearn.finance/</a>
 
-DeFi is an exciting and rapidly growing sector of the blockchain industry, as it has the potential to disrupt traditional finance by providing a more open, transparent, and accessible financial system. However, it's important to note that DeFi is still a relatively new and experimental field, and it comes with its own set of risks and challenges, such as smart contract vulnerabilities, market volatility, and regulatory uncertainty.
+`DeFi` is an exciting and rapidly growing sector of the blockchain industry, as it has the potential to disrupt traditional finance by providing a more open, transparent, and accessible financial system. However, it's important to note that DeFi is still a relatively new and experimental field, and it comes with its own set of risks and challenges, such as smart contract vulnerabilities, market volatility, and regulatory uncertainty.
