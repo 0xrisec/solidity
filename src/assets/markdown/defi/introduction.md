@@ -4,11 +4,11 @@
 
 ## What is DeFi?
 
-DeFi stands for Decentralized Finance which refers to a new type of financial system that uses blockchain technology to provide financial services without relying on traditional financial institutions such as banks.
+`DeFi` stands for Decentralized Finance which refers to a new type of financial system that uses blockchain technology to provide financial services without relying on traditional financial institutions such as banks.
 
-DeFi applications are built on blockchain networks such as Ethereum, Binance Smart Chain, and other similar platforms, and they use smart contracts to automate financial transactions. DeFi applications can be accessed by anyone with an internet connection and a compatible cryptocurrency wallet, without requiring a middleman.
+`DeFi` applications are built on blockchain networks such as Ethereum, Binance Smart Chain, and other similar platforms, and they use smart contracts to automate financial transactions. `DeFi` applications can be accessed by anyone with an internet connection and a compatible cryptocurrency wallet, without requiring a middleman.
 
-Some examples of DeFi applications include:
+Some examples of `DeFi` applications include:
 
 **1. Decentralized exchanges (DEXs):** These are platforms where users can trade cryptocurrencies with each other in a decentralized and trustless manner. This means that users can trade cryptocurrencies without needing a middleman such as a centralized exchange or broker.
 
