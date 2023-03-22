@@ -1,0 +1,25 @@
+{
+    "title": "Cheatsheets",
+    "version": "",
+    "icon": "faFileAlt",
+    "folder": "cheatsheets",
+    "file": "cheatsheets.md",
+    "url": "cheatsheets/cheatsheets.md",
+    "disscussion": "",
+    "topicsList": [
+        {
+            "title": "Truffle",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "migration",
+                    "href": {
+                        "file": "truffle-migration.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

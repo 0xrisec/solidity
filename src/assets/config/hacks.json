@@ -126,6 +126,14 @@
                             }
                         }
                     ]
+                },
+                {
+                    "title": "Cross-Contract Reentrancy",
+                    "href": {
+                        "file": "coming-soon.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
                 }
             ]
         }

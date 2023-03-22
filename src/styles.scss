@@ -330,3 +330,11 @@ a,.card-icon,.clr-purple{
     margin-top: 10px;
   }
 }
+
+.docs-content .container div markdown-clipboard button{
+  opacity: 1;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  padding: 0px 10px 3px 10px;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faGithub, faDiscord, faMedium, faTwitter, faGitter } from '@fortawesome/free-brands-svg-icons';
-import { faAsterisk, faBlog, faBugs, faChessKing, faChessPawn, faChessQueen, faCircleInfo, faFileAlt, faMap } from '@fortawesome/free-solid-svg-icons';
+import { faAsterisk, faBlog, faBugs, faChessKing, faChessPawn, faChessQueen, faCircleInfo, faCoins, faFileAlt, faMap } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-homepage',
@@ -18,8 +18,17 @@ export class HomepageComponent implements OnInit {
   public faGitter:any;
   public config:any;
   public logo:string="rootbabu.sol"; 
-  public icon = [faAsterisk,faChessPawn,faChessQueen,faChessKing,faFileAlt,faBugs,faMap,faBlog]
-  
+  public iconComponents: any = {
+    "faAsterisk": faAsterisk,
+    "faChessPawn": faChessPawn,
+    "faChessQueen": faChessQueen,
+    "faChessKing" : faChessKing,
+    "faBugs": faBugs,
+    "faMap": faMap,
+    "faFileAlt": faFileAlt,
+    "faBlog": faBlog,
+    "faCoins": faCoins
+  }
   constructor(private activateRoute: ActivatedRoute, private route:Router) { }
   ngOnInit(): void {
     this.faGithub = faGithub;
