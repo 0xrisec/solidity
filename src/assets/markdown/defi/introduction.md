@@ -10,6 +10,9 @@
 
 ## Traditional Finance vs DeFi 
 
+<center><img class="image" src="./assets/images/finance.jpg"></center>
+<b><center class="img-label">Traditional Finance vs DeFi</center></b>
+
 Understanding the problems that exist in the traditional financial system is an essential step in realizing the potential benefits of DeFi.
 
 **1. Limited Access:** Traditional finance institutions require certain qualifications, documents, and credit scores to allow individuals to open bank accounts or access financial services. For example, if someone doesn't have a permanent address or identification documents, they may be unable to open a bank account, making it difficult for them to participate in the financial system.
