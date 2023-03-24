@@ -8,7 +8,29 @@
 
 `DeFi` applications are built on blockchain networks such as Ethereum, Binance Smart Chain, and other similar platforms, and they use smart contracts to automate financial transactions. `DeFi` applications can be accessed by anyone with an internet connection and a compatible cryptocurrency wallet, without requiring a middleman.
 
-Some examples of `DeFi` applications include:
+## Traditional Finance vs DeFi 
+
+Understanding the problems that exist in the traditional financial system is an essential step in realizing the potential benefits of DeFi.
+
+**1. Limited Access:** Traditional finance institutions require certain qualifications, documents, and credit scores to allow individuals to open bank accounts or access financial services. For example, if someone doesn't have a permanent address or identification documents, they may be unable to open a bank account, making it difficult for them to participate in the financial system.
+
+**2. Lack of Access Affecting Employability:** Without access to financial services individuals may not be able to receive salaries electronically and instead they would be paid in cash. This can affect their employability because some companies only offer electronic payment options. For example, a person without a bank account may not be able to apply for jobs that require electronic payment options.
+
+**3. Financial Services Can Block Payments:** Financial institutions may block or freeze accounts for various reasons such as suspected fraudulent activity, leaving individuals without access to their funds. For instance, a person who is wrongly suspected of fraudulent activities by their bank may have their account frozen, making it impossible for them to access their money.
+
+**4. Hidden Charges:** Financial institutions often charge fees for their services such as ATM fees, account maintenance fees, and transaction fees. Additionally many institutions collect data on their customers spending patterns which can be sold to third parties for profit. For example, a bank may charge a monthly maintenance fee on an account that doesn't meet a minimum balance requirement.
+
+**5. Governments and Centralized Institutions:** Centralized financial institutions can be shut down by governments or regulatory authorities. For example, in some countries governments have shut down stock markets and other financial institutions during times of political unrest or economic instability.
+
+**6. Limited Trading Hours:** Traditional finance markets operate within specific time zones and trading hours are often limited to business hours. For example, the New York Stock Exchange operates between 9:30 am and 4:00 pm Eastern Time making it difficult for people in other time zones to participate in trading.
+
+**7. Slow Transactions:** Transactions in traditional finance can take several days to complete due to internal processes and human intervention. For example, it can take several days for a check to clear and for funds to become available in an account.
+
+**8. Premium for Intermediaries:** Financial services have a premium attached to them because intermediary institutions need their cut. For instance, when sending money internationally banks charge a fee and the exchange rate is often unfavorable to the sender.
+
+Overall, DeFi aims to address these issues by leveraging decentralized networks, smart contracts, and blockchain technology to create a more accessible, transparent, and cost-effective financial system.
+
+## DeFi applications:
 
 **1. Decentralized exchanges (DEXs):** These are platforms where users can trade cryptocurrencies with each other in a decentralized and trustless manner. This means that users can trade cryptocurrencies without needing a middleman such as a centralized exchange or broker.
 
