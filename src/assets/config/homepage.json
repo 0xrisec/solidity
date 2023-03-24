@@ -29,7 +29,7 @@
         {
           "icon": "faCoins",
           "title": "DeFi",
-          "detail": "Coming Soon!",
+          "detail": "Introduction, Protocols, Tokens, Development, Projects.",
           "route": "defi/defi.md",
           "isDisable": false
         },
