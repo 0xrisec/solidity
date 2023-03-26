@@ -16,10 +16,58 @@
             },
             "childs": [
                 {
-                    "title": "What is DeFi?",
+                    "title": "Traditional finance / Centralized Finance (CeFi)",
                     "href": {
                         "file": "introduction.md",
                         "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "DeFi",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "defi",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Problems in Traditional Finance",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "problems-in-traditional-finance",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Traditional Finance vs DeFi",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "traditional-finance-vs-defi",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "What can you do with DeFi?",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "what-can-you-do-with-defi",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "DeFi applications",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "defi-applications",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Limitations of DeFi",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "limitations-of-defi",
                         "githubLink": ""
                     }
                 }
