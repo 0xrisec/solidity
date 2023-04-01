@@ -72,6 +72,100 @@
                     }
                 }
             ]
+        },
+        {
+            "title": "DEXs",
+            "href": {
+                "file": "dexs.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "Centralized exchanges (CEXs)",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "How CEXs work",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "how-cexs-work",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Limitation Of CEXs",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "limitation-of-cexs",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Decentralized exchanges (DEXs)",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "decentralized-exchanges-dexs",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "How DEXs work",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "how-dexs-work",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Benefits of DEXs",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "benefits-of-dexs",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Liquidity Pool",
+            "href": {
+                "file": "liquidity-pools.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "",
+                    "href": {
+                        "file": "liquidity-pools.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "AMM",
+            "href": {
+                "file": "amm.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "",
+                    "href": {
+                        "file": "amm.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
         }
     ]
 }
