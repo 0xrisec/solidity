@@ -19,3 +19,7 @@ Non-Fungible Liquidity: Uniswap V3 allows liquidity providers to create non-fung
 License: Uniswap V3 introduces a new license, the Business Source License 1.1, which balances the needs of open-source development with the needs of sustainable commercial businesses.
 
 These features work together to achieve better capital efficiency for the platform's traders and greater risk management for liquidity providers. Overall, Uniswap V3 offers significant improvements over its predecessor and is an exciting new development in the world of decentralized exchanges.
+
+
+## Concentrated Liquidity
+

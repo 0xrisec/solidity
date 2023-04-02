@@ -40,3 +40,14 @@ Website: https://balancer.finance/
 Documentation: https://docs.balancer.finance/
 
 ## Types of AMM
+
+Constant function market makers (CFMMs), such as constant product market makers, constant sum market makers, and constant mean market makers, are a class of first-generation AMMs made popular by protocols like Bancor, Curve, and Uniswap. 
+
+Here are some types of AMMs
+
+Constant Function Market Maker (CFMM)--Constant Product Market Maker, Constant Sum Market Maker, Constant Mean Market Maker-----------
+Weighted Average Market Maker (WAMM)
+Liquidity-Sensitive Automated Market Maker (LSAMM)
+Order Book Integrated Automated Market Maker (OB-AMM)
+Concentrated Liquidity Market Maker (CLMM)------------------
+Funded Liquidity Market Maker (FLMM)
