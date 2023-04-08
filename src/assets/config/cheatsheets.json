@@ -20,6 +20,20 @@
                     }
                 }
             ]
+        },
+        {
+            "title": "Solidity",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "Gas optimization",
+                    "href": {
+                        "file": "gas-optimization.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
         }
     ]
 }
