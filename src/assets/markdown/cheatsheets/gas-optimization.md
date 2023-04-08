@@ -1,7 +1,3 @@
-# Gas Optimization
-
-<hr>
-
 ## Gas Optimizations in Variables
 
 <hr>
