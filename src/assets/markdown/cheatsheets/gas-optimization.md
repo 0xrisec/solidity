@@ -4,15 +4,28 @@
 
 **1. Avoid Explicitly Initializing Variables with Default Values**
 
+```sol
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.19;
+
+contract Example {
+    // ❌ : unnecessary initialization of variable with default value
+    uint num1 = 0;
+    
+    // ✔️: variable will be automatically initialized with default value
+    uint num2;
+}
+```
+
 |  | Code                                           | Transaction Cost        | Execution Cost         |
 | :-: | ---------------------------------------------- | ----------------------- | ---------------------- |
 | ❌ | `uint num1 = 0;`<br>(unnecessary initialization)| 94337 gas               | 38093 gas              |
 | ✔️ | `uint num2;`<br>(automatically initialized)     | 92079 gas  | 35887 gas |
 
-**2.** Always Initialize i Variable in For Loops
+**2. Always Initialize i Variable in For Loops** 
 
 
-```
+```sol
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.19;
 
@@ -66,7 +79,7 @@ contract Example {
 
 **3. Substituting State Variables with Local Variables**
 
-```
+```sol
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.19;
 
