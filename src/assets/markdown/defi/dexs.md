@@ -40,13 +40,13 @@ Overall, `CEXs` offer a convenient and accessible way for users to buy and sell 
 
 `DEXs` are a type of cryptocurrency exchange that operates on a decentralized platform, allowing users to trade cryptocurrencies without the need for intermediaries such as banks or other financial institutions. `DEXs` use smart contracts and blockchain technology to automate transactions and removing the need for a central authority. They allow users to trade cryptocurrencies without the need for intermediaries, enabling them to retain control over their funds and execute trades in a peer-to-peer manner.
 
-Examples of DEXs include Uniswap, PancakeSwap, and Sushiswap.
+Examples of DEXs include `Uniswap`, `PancakeSwap`, and `Sushiswap`.
 
 Let's say you want to trade some of your Bitcoin for some Ethereum. You could use a centralized exchange like Coinbase which is operated by a central authority and requires you to trust Coinbase to hold and manage your funds during the trade.
 
-Alternatively, you could use a DEX like `Uniswap`. `Uniswap` is a decentralized exchange that operates on the Ethereum blockchain, meaning there is no central authority controlling the exchange. Instead, `Uniswap` uses smart contracts to facilitate trades between different cryptocurrency pairs.
+Alternatively, you could use a `DEX` like `Uniswap`. `Uniswap` is a decentralized exchange that operates on the Ethereum blockchain, meaning there is no central authority controlling the exchange. Instead, `Uniswap` uses smart contracts to facilitate trades between different cryptocurrency pairs.
 
-To use `Uniswap`, you would connect your cryptocurrency wallet (such as MetaMask) to the exchange and choose the cryptocurrency pair you want to trade (in this case, Bitcoin and Ethereum). Because `Uniswap` operates in a decentralized manner, there is no need for intermediaries or central authorities to manage the exchange. This means that trades can be executed more quickly and with lower fees than on centralized exchanges. Additionally, because `Uniswap` operates on the blockchain, all trades are transparent and can be audited by anyone on the network.
+To use `Uniswap`, you would connect your cryptocurrency wallet (such as `MetaMask`) to the exchange and choose the cryptocurrency pair you want to trade (in this case, Bitcoin and Ethereum). Because `Uniswap` operates in a decentralized manner, there is no need for intermediaries or central authorities to manage the exchange. This means that trades can be executed more quickly and with lower fees than on centralized exchanges. Additionally, because `Uniswap` operates on the blockchain, all trades are transparent and can be audited by anyone on the network.
 
 Overall, `DEXs` like `Uniswap` offer a more decentralized and transparent way to trade cryptocurrencies, without the need for intermediaries or central authorities to manage the exchange.
 
@@ -61,26 +61,26 @@ We will checkout these tings in detail in next sections.
 
 ### Benefits of DEXs:
 
-**1. No KYC:** DEXs do not require users to complete a Know Your Customer (KYC) process, which typically involves providing personal information such as name, address, and government-issued ID. This eliminates the need for users to surrender their personal information to a third-party, providing greater privacy and security.
+**1. No KYC:** `DEXs` do not require users to complete a Know Your Customer (`KYC`) process, which typically involves providing personal information such as name, address, and government-issued ID. This eliminates the need for users to surrender their personal information to a third-party, providing greater privacy and security.
 
-**2. No centralized authority:** DEXs are not controlled by a central authority, such as a company or government. Instead, they operate on a decentralized network and are governed by open-source smart contract code. This provides greater transparency and trust for users, as the code can be audited by anyone.
+**2. No centralized authority:** `DEXs` are not controlled by a central authority, such as a company or government. Instead, they operate on a decentralized network and are governed by open-source smart contract code. This provides greater transparency and trust for users, as the code can be audited by anyone.
 
-**3. Faster transactions:** DEXs can offer faster transaction speeds compared to CEXs, as they do not require a centralized authority to process transactions. This can result in quicker execution times for trades and a better user experience overall.
+**3. Faster transactions:** `DEXs` can offer faster transaction speeds compared to `CEXs`, as they do not require a centralized authority to process transactions. This can result in quicker execution times for trades and a better user experience overall.
 
-**4. Small fees:** DEXs often have lower fees compared to CEXs, as there are no intermediaries involved in the exchange. This can result in significant cost savings for traders, especially for those who engage in high-volume trading.
+**4. Small fees:** `DEXs` often have lower fees compared to `CEXs`, as there are no intermediaries involved in the exchange. This can result in significant cost savings for traders, especially for those who engage in high-volume trading.
 
-**5. Global access:** DEXs offer global access to anyone with an internet connection, providing greater opportunities for people who do not have access to traditional financial services.
+**5. Global access:** `DEXs` offer global access to anyone with an internet connection, providing greater opportunities for people who do not have access to traditional financial services.
 
-**6. Programmability:** DEXs offer greater programmability compared to CEXs, as they allow developers to build decentralized applications (dApps) on top of the exchange. This can lead to greater innovation and new use cases for the technology.
+**6. Programmability:** `DEXs` offer greater programmability compared to `CEXs`, as they allow developers to build decentralized applications (dApps) on top of the exchange. This can lead to greater innovation and new use cases for the technology.
 
-Overall, DEXs offer a range of benefits compared to centralized exchanges, including greater privacy, transparency, faster transactions, lower fees, global access, and programmability. As the cryptocurrency ecosystem continues to evolve, it is expected that DEXs will become increasingly popular and widely adopted.
+Overall, `DEXs` offer a range of benefits compared to centralized exchanges, including greater privacy, transparency, faster transactions, lower fees, global access, and programmability. As the cryptocurrency ecosystem continues to evolve, it is expected that `DEXs` will become increasingly popular and widely adopted.
 
 ### Downsides of using DEXs:
 
-**1. No support:** DEXs do not offer the same level of support as centralized exchanges. If a user falls victim to a scam or mistakenly trades for a fraudulent token, there is no central authority to turn to for help or recourse. This can lead to loss of funds if users are not careful.
+**1. No support:** `DEXs` do not offer the same level of support as centralized exchanges. If a user falls victim to a scam or mistakenly trades for a fraudulent token, there is no central authority to turn to for help or recourse. This can lead to loss of funds if users are not careful.
 
-**2. Use of hot storage devices:** DEXs require the use of hot wallets which are digital wallets that are connected to the internet. This can increase the risk of hacking or theft, as hackers may target hot wallets to gain access to funds.
+**2. Use of hot storage devices:** `DEXs` require the use of hot wallets which are digital wallets that are connected to the internet. This can increase the risk of hacking or theft, as hackers may target hot wallets to gain access to funds.
 
-**3. Low liquidity:** DEXs often have lower liquidity compared to centralized exchanges, as there may be fewer traders and trading pairs available. This can make it more difficult for users to execute trades at their desired price.
+**3. Low liquidity:** `DEXs` often have lower liquidity compared to centralized exchanges, as there may be fewer traders and trading pairs available. This can make it more difficult for users to execute trades at their desired price.
 
 **4. Code is open for anyone to exploit:** While the open-source nature of DEXs provides greater transparency and trust, it also means that anyone can inspect the code and potentially exploit any vulnerabilities they discover. This can lead to security risks and loss of funds for users.
