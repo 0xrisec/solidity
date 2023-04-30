@@ -128,40 +128,12 @@
                         "id": "benefits-of-dexs",
                         "githubLink": ""
                     }
-                }
-            ]
-        },
-        {
-            "title": "Liquidity Pool",
-            "href": {
-                "file": "liquidity-pools.md",
-                "id": "top",
-                "githubLink": ""
-            },
-            "childs": [
+                },
                 {
-                    "title": "",
+                    "title": "Downsides of using DEXs",
                     "href": {
-                        "file": "liquidity-pools.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
-                }
-            ]
-        },
-        {
-            "title": "AMM",
-            "href": {
-                "file": "amm.md",
-                "id": "top",
-                "githubLink": ""
-            },
-            "childs": [
-                {
-                    "title": "",
-                    "href": {
-                        "file": "amm.md",
-                        "id": "top",
+                        "file": "dexs.md",
+                        "id": "downsides-of-using-dexs",
                         "githubLink": ""
                     }
                 }
