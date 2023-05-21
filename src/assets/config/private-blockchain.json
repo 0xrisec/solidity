@@ -1,0 +1,25 @@
+{
+    "title": "Private Blockchain",
+    "version": "",
+    "icon": "faCube",
+    "folder": "private-blockchain",
+    "file": "private-blockchain.md",
+    "url": "private-blockchain/private-blockchain.md",
+    "disscussion": "",
+    "topicsList": [
+        {
+            "title": "Hyperledger",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "The Sample network",
+                    "href": {
+                        "file": "hyperledger.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        }
+    ]
+}
