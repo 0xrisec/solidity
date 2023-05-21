@@ -7,7 +7,8 @@ To `import` a file, you can use the `import` directive followed by the `file pat
 
 ```sol
 import "./Utils.sol"; // local file import
-import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol"; //external file import
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol"; // external file import
+import "@openzeppelin/contracts/access/Ownable.sol"; // external file import | shorthand notation for importing the contracts from the OpenZeppelin library.
 ```
 
 # Libraries

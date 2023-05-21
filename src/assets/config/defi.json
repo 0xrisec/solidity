@@ -1,0 +1,169 @@
+{
+    "title": "DeFi",
+    "version": "",
+    "icon": "faCoins",
+    "folder": "defi",
+    "file": "defi.md",
+    "url": "defi/defi.md",
+    "disscussion": "",
+    "topicsList": [
+        {
+            "title": "Introduction",
+            "href": {
+                "file": "introduction.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "Traditional finance / Centralized Finance (CeFi)",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "DeFi",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "defi",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Problems in Traditional Finance",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "problems-in-traditional-finance",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Traditional Finance vs DeFi",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "traditional-finance-vs-defi",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "What can you do with DeFi?",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "what-can-you-do-with-defi",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "DeFi applications",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "defi-applications",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Limitations of DeFi",
+                    "href": {
+                        "file": "introduction.md",
+                        "id": "limitations-of-defi",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "DEXs",
+            "href": {
+                "file": "dexs.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "Centralized exchanges (CEXs)",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "How CEXs work",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "how-cexs-work",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Limitation Of CEXs",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "limitation-of-cexs",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Decentralized exchanges (DEXs)",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "decentralized-exchanges-dexs",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "How DEXs work",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "how-dexs-work",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Benefits of DEXs",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "benefits-of-dexs",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Downsides of using DEXs",
+                    "href": {
+                        "file": "dexs.md",
+                        "id": "downsides-of-using-dexs",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "AMM",
+            "href": {
+                "file": "amm.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "AMM",
+                    "href": {
+                        "file": "amm.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Types of AMM",
+                    "href": {
+                        "file": "amm.md",
+                        "id": "types-of-amm",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

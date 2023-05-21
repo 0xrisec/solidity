@@ -45,7 +45,7 @@
     - [Address](https://rootbabu.github.io/basics/types.md#address)
     - [Fixed Size Byte Arrays](https://rootbabu.github.io/basics/types.md#fixed-size-byte-arrays)
   
-- [Refrence Types](https://rootbabu.github.io/basics/reference-types.md#top)
+- [Reference Types](https://rootbabu.github.io/basics/reference-types.md#top)
     - [Arrays](https://rootbabu.github.io/basics/reference-types.md#top)
     - [Fixed-size Arrays](https://rootbabu.github.io/basics/reference-types.md#fixed-size-arrays)
     - [Dynamic Arrays](https://rootbabu.github.io/basics/reference-types.md#dynamic-arrays)
@@ -131,22 +131,3 @@
 - [transfer](https://rootbabu.github.io/basics/low-level-function.md#transfer)
 - [call](https://rootbabu.github.io/basics/low-level-function.md#call)
 - [delegatecall](https://rootbabu.github.io/basics/low-level-function.md#delegatecall)
-
-<!--     
-    Learn the basics of blockchain technology and the Ethereum platform: Before diving into Solidity, it's important to have a solid understanding of the underlying technology and platform that you'll be working with. This includes concepts such as decentralized systems, consensus mechanisms, and smart contracts.
-
-    Learn the basics of Solidity syntax: Start by learning the basic structure and syntax of a Solidity program. This includes understanding data types, variables, functions, and contract structure.
-
-    Learn how to interact with the Ethereum network: Solidity contracts are deployed and executed on the Ethereum network, so it's important to learn how to interact with the network using web3.js and other tools.
-
-    Learn about smart contract design patterns: There are certain design patterns that are commonly used when writing smart contracts. Learn about these patterns, such as the factory pattern, and how to implement them in Solidity.
-
-    Learn about security best practices: Smart contract security is a critical aspect of Solidity programming. Learn about common vulnerabilities and how to avoid them through proper contract design and testing.
-
-    Learn about testing and debugging: Learn how to write unit tests for your contracts and how to debug them using tools like Truffle and Remix.
-
-    Explore more advanced topics: As you become more comfortable with Solidity, you can explore more advanced topics such as formal verification, off-chain computation, and scaling solutions.
-
-    Practice, practice, practice: As with any programming language, the best way to learn is to practice writing code. Try building small projects or contributing to open-source projects to get hands-on experience.
-
-    Keep yourself updated with the latest developments: The blockchain technology is fast-paced and new developments happen frequently. Stay up-to-date with the latest version of the Solidity and new developments in the Ethereum ecosystem. -->

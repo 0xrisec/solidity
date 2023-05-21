@@ -12,7 +12,123 @@
             "icon": "",
             "childs": [
                 {
-                    "title": "Re-Entrancy",
+                    "title": "Single-Function Re-Entrancy",
+                    "href": {
+                        "file": "re-entrancy.md",
+                        "id": "top",
+                        "githubLink": ""
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Understanding Reentrancy",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "understanding-reentrancy",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "POC",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "poc",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Exploit",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "exploit",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Preventing Re-Entrancy Attacks",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "preventing-re-entrancy-attacks",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Types of Re-Entrancy",
+                            "href": {
+                                "file": "re-entrancy.md",
+                                "id": "types-of-re-entrancy-attacks",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Cross-Function Reentrancy",
+                    "href": {
+                        "file": "cross-function-reentrancy.md",
+                        "id": "top",
+                        "githubLink": ""
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Vulnerable Contract",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "vulnerable-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Identifying the vulnerability",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "identifying-the-vulnerability",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "POC-1, Attacker Contract",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "poc-1-attacker-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "POC-2, Attacker Contract",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "poc-2-attacker-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Preventative Technique",
+                            "href": {
+                                "file": "cross-function-reentrancy.md",
+                                "id": "preventative-technique",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "title": "Cross-Contract Reentrancy",
                     "href": {
                         "file": "coming-soon.md",
                         "id": "top",

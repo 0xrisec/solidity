@@ -518,19 +518,12 @@
             "title": "Error handling",
             "icon": "fas fa-function",
             "childs": [
-                {
-                    "title": "Assert",
-                    "href": {
-                        "file": "error-handling.md",
-                        "id": "top",
-                        "githubLink": ""
-                    }
-                },
+                
                 {
                     "title": "Require",
                     "href": {
                         "file": "error-handling.md",
-                        "id": "require",
+                        "id": "top",
                         "githubLink": ""
                     }
                 },
@@ -541,11 +534,19 @@
                         "id": "revert",
                         "githubLink": ""
                     }
+                },
+                {
+                    "title": "Assert",
+                    "href": {
+                        "file": "error-handling.md",
+                        "id": "assert",
+                        "githubLink": ""
+                    }
                 }
             ]
         },
         {
-            "title": "Refrence Type",
+            "title": "Reference Type",
             "icon": "fas fa-function",
             "childs": [
                 {
@@ -627,10 +628,10 @@
                     }
                 },
                 {
-                    "title": "Refrence types Data location",
+                    "title": "Reference types Data location",
                     "href": {
                         "file": "data-locations.md",
-                        "id": "refrence-types-data-location",
+                        "id": "reference-types-data-location",
                         "githubLink": ""
                     }
                 },
@@ -924,6 +925,155 @@
                         "id": "top",
                         "githubLink": ""
                     }
+                },
+                {
+                    "title": "Auction Smart Contract",
+                    "href": {
+                        "file": "auction-smart-contract.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Todo Smart Contract",
+                    "href": {
+                        "file": "todo-smart-contract.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "ERC20 Token",
+                    "href": {
+                        "file": "ERC20.md",
+                        "id": "top",
+                        "githubLink": ""
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Objectives",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "objectives",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "ERC-20 Standard",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "erc-20-standard",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "ERC-20 Token Contract",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "erc-20-token-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "OpenZeppelin ERC-20 Token Contract implementation",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "openzeppelin-erc-20-token-contract-implementation",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "More Official Support Sources",
+                            "href": {
+                                "file": "ERC20.md",
+                                "id": "more-official-support-sources",
+                                "githubLink": ""
+                            }
+                        }
+                        
+                    ]
+                },
+                {
+                    "title": "Crowdsale Smart Contract",
+                    "href": {
+                        "file": "crowdsale.md",
+                        "id": "top",
+                        "githubLink": ""
+                    },
+                    "childs": [
+                        {
+                            "title": "Introduction",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "top",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Prerequistes",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "prerequistes",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Objectives",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "objectives",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Create a Token Smart Contract",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "create-a-token-smart-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Create a Crowdsale Contract",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "create-a-crowdsale-contract",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Output",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "output",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "Important Points",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "important-points",
+                                "githubLink": ""
+                            }
+                        },
+                        {
+                            "title": "External Resources",
+                            "href": {
+                                "file": "crowdsale.md",
+                                "id": "external-resources",
+                                "githubLink": ""
+                            }
+                        }
+                    ]
                 }
             ]
         }

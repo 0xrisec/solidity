@@ -1,4 +1,4 @@
-# ABI encode / decode
+# ABI encode/decode
 
 The `Application Binary Interface (ABI)` is a standard that specifies how to encode and decode data that is passed between a smart contract and an external caller, such as a wallet or another contract. The `ABI` is used to encode and decode function calls and transactions, including the types and values of their arguments.
 
@@ -116,7 +116,9 @@ The `getPackedData` function is similar to the `getData` function, but it retrie
 This function encodes a `function selector` and a list of values into a single byte array. It is often used to encode function calls that include a `function selector`.
 
 `abi.encodeWithSelector(...)` is a function that is used to encode a function call with its selector and arguments into binary form. It takes two arguments:
+
 **selector:** a `bytes4` value that represents the `function selector` of the function being called.
+
 **args:** a list of values that represent the arguments of the function being called. These values must match the types of the function's input parameters.
 
 `abi.encodeWithSelector(...)` returns a `bytes` value that represents the encoded function call.

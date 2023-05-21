@@ -4,7 +4,7 @@ In the Hello World example, we will follow a simple process to `create`, `write`
 
 ## Create new file in Remix IDE:
 
-<img class="image" alt="HelloWorld example in remix IDE"  src="./assets/images/hello-world.JPG"  >
+<center><img class="image" alt="HelloWorld example in remix IDE"  src="./assets/images/hello-world.JPG"></center>
 <b><center class="img-label">Created a new file HelloWorld.sol</center></b>
 
 To create a new file in the `Remix IDE`, you can follow these steps:
@@ -46,7 +46,7 @@ The first line of every Solidity smart contract should include the `SPDX License
 
 It is important to include a license identifier in your contract file, as the Solidity compiler will show a warning if it is not present. 
 
- <img class="image" src="./assets/images/parse-error.JPG"  >
+ <center><img class="image" src="./assets/images/parse-error.JPG"></center>
  <b><center class="img-label">ParseError: Multiple SPDX-License-Identifier</center></b>
 
 If there are multiple SPDX-License-Identifier lines in the contract file, the compiler will throw a `ParseError`.
@@ -64,7 +64,7 @@ It is important to specify the compiler version in your contract because differe
 
 Each Solidity contract must contain a `pragma` directive, because it will always be local to the file in which it is written.
 
- <img class="image" src="./assets/images/pragama-warning.JPG">
+ <center><img class="image" src="./assets/images/pragama-warning.JPG"></center>
  <b><center class="img-label">Warning: required of compiler version</center></b>
 
 If the `pragma` isn't included in the contract file the compiler will show a warning.
@@ -94,24 +94,24 @@ To compile and deploy your Solidity code:
 
 <b>Step 1:</b> Click the `Compile` button under the Compiler window to compile your code.
 
- <img class="image" src="./assets/images/compiler.JPG"  >
+ <center><img class="image" src="./assets/images/compiler.JPG"></center>
  <b><center class="img-label">Compilation of contract</center></b>
 
 <b>Step 2:</b> In the `Deploy and Run Transactions` window, click the Deploy button. After deployment, you can find the deployed contracts in the dropdown menu at the bottom of the panel.
 
- <img class="image" src="./assets/images/deploy.JPG"  >
+ <center><img class="image" src="./assets/images/deploy.JPG"></center>
  <b><center class="img-label">Deployment of contract</center></b>
 
  <b>Step 3 :</b> Click on a variable `hello` button under the deployed contracts dropdown menu to execute it. You can view the output in the logs by clicking the dropdown menu on the console.
 
-  <img class="image" src="././assets/images/output.JPG"   >
+  <center><img class="image" src="././assets/images/output.JPG"></center>
   <b><center class="img-label">Output of contract</center></b>
 
 ### Bytecode & ABI:
 
 When you compile a smart contract in Solidity, the compiler produces two outputs: `ByteCode` and `ABI`. These can be found at the bottom of the compiler tab panel.
 
-  <img class="image" src="././assets/images/remix-bytecode.JPG"  >
+  <center><img class="image" src="././assets/images/remix-bytecode.JPG"></center>
   <b><center class="img-label">Bytecode and ABI</center></b>
 
 **Bytecode:** 
@@ -135,7 +135,7 @@ This will display a list of `opcodes` that correspond to the instructions contai
 
 **ABI:** The `ABI (Application Binary Interface)` is a interface that allows you to interact with the bytecode of a smart contract.
 
-  <img class="image" src="././assets/images/abi-code.JPG"  >
+  <center><img class="image" src="././assets/images/abi-code.JPG"></center>
   <b><center class="img-label">ABI</center></b>
 
 It includes a set of methods that can be called in order to execute the contract's functions. For example, in a simple `"Hello World"` contract, the ABI include a `"get"` method that allows you to retrieve the value of the `"hello"` variable.

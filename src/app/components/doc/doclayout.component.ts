@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
-import { faBars, faBox, faBugs, faChessPawn, faCircleArrowUp, faF, faHandsPraying, faInfo, faSignsPost, faXmark, faMap } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBox, faBugs, faChessPawn, faCircleArrowUp, faF, faHandsPraying, faInfo, faSignsPost, faXmark, faMap, faFileAlt, faCoins } from '@fortawesome/free-solid-svg-icons';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { faDiscord, faGithub, faMedium, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -24,9 +24,6 @@ interface NavNode {
   styleUrls: ['./doclayout.component.css'],
   providers: [MatSidenav],
 })
-
-
-
 
 export class DocLayoutComponent implements OnInit,AfterViewInit {
 
@@ -56,6 +53,8 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   public markdown = '';
   public previousLink: string = '';
   public mdFolder:string;
+  public activeNode: any;
+  public activeTreeNode: any;
   public defaultGithubLink = "https://github.com/ROOTBABU/solidity/blob/dev/src/assets/markdown/"
   public iconComponents: any = {
     "faBox": faBox,
@@ -72,7 +71,9 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     "faTwitter": faTwitter,
     "faXmark": faXmark,
     "faCircleArrowUp":faCircleArrowUp,
-    "faMap": faMap
+    "faMap": faMap,
+    "faFileAlt": faFileAlt,
+    "faCoins": faCoins
   }
   public eleId: string = '';
   public isBar: boolean = true;
@@ -84,7 +85,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
 
   ngOnInit(): void {
-    this.route.fragment.subscribe(fragment => { this.eleId = fragment!; });
+    this.route.fragment.subscribe(fragment => this.eleId = fragment!);
     this.route.data.subscribe((ele: any) => {
       this.breadcrumb = [];
       this.route.url.subscribe(url => {
@@ -104,7 +105,35 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
       this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", ele.file)
       this.previousLink = this.contentLink;
       this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", ele.file);
+      const nodePath = this.findNodePath(this.config, ele.file);
+      if (nodePath) {
+        this.activeTreeNode = nodePath[0];
+        for (const node of nodePath) {
+          this.treeControl.expand(node);
+          this.activeNode = node;
+        }
+      }
     });
+    setTimeout(() => {
+      const element = document.querySelector('.active-tree-node');
+      if (element) {
+        element.scrollIntoView({behavior: 'smooth'});
+      }
+    });
+  }
+
+  private findNodePath(nodes: NavNode[], fileName: string): NavNode[] | undefined {
+    for (const node of nodes) {
+      if (node?.href?.file === fileName && node?.href?.id === this.eleId) {
+        return [node];
+      } else if (node.childs) {
+        const childNode = this.findNodePath(node.childs, fileName);
+        if (childNode) {
+          return [node, ...childNode];;
+        }
+      }
+    }
+    return undefined;
   }
 
   ngAfterViewInit(): void {
@@ -119,15 +148,16 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     }
   }
   
-  onTabClick(ele: any) {
-    if (ele) {
+  onTabClick(node: any) {
+    if (node) {
+      this.activeNode = node;
       if (window.screen.width <= 700) { 
         this.opened = false;
         this.isBar = true;
       }
-      this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", ele.file);
-      this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", ele.file);
-      this.eleId = ele.id;
+      this.contentLink = "./assets/markdown/".concat(this.mdFolder, "/", node.href.file);
+      this.githubLink = this.defaultGithubLink.concat(this.mdFolder, "/", node.href.file);
+      this.eleId = node.href.id;
       if (this.previousLink != this.contentLink) {
         this.ngxLoader.start();
       } else {
@@ -137,7 +167,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
         }
       }
     }
-    this.router.navigate([this.mdFolder, ele.file],{ fragment: this.eleId });
+    this.router.navigate([this.mdFolder, node.href.file],{fragment: node.href.id});
   }
 
   public toggleBar() {
