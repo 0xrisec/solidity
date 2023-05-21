@@ -138,6 +138,32 @@
                     }
                 }
             ]
+        },
+        {
+            "title": "AMM",
+            "href": {
+                "file": "amm.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "AMM",
+                    "href": {
+                        "file": "amm.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Types of AMM",
+                    "href": {
+                        "file": "amm.md",
+                        "id": "types-of-amm",
+                        "githubLink": ""
+                    }
+                }
+            ]
         }
     ]
 }

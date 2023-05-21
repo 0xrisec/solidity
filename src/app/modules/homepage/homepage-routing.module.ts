@@ -10,6 +10,7 @@ import homeConfig from 'src/assets/config/homepage.json';
 import roadmapsConfig from 'src/assets/config/roadmaps.json';
 import cheatsheetsConfig from 'src/assets/config/cheatsheets.json';
 import defiConfig from 'src/assets/config/defi.json';
+import privateBlockchainConfig from 'src/assets/config/private-blockchain.json';
 
 const routes: Routes = [
   {path:'',component:HomepageComponent,data:homeConfig, pathMatch: 'full'},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'roadmaps/:fileName',component:DocLayoutComponent,data: roadmapsConfig},
   {path:'hacks/:fileName',component:DocLayoutComponent,data: hacksConfig},
   {path:'cheatsheets/:fileName',component:DocLayoutComponent,data: cheatsheetsConfig},
-  {path:'defi/:fileName',component:DocLayoutComponent,data: defiConfig}
+  {path:'defi/:fileName',component:DocLayoutComponent,data: defiConfig},
+  {path:'private-blockchain/:fileName',component:DocLayoutComponent,data: privateBlockchainConfig}
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
