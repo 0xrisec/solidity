@@ -90,6 +90,13 @@
       "author": "Zaryab Afser",
       "tag": "hacks",
       "date":"01/09/2022"
+    },
+    {
+      "title":"DelegateCall or Storage Collision Attack on Smart Contracts",
+      "link":"https://blog.finxter.com/delegatecall-or-storage-collision-attack-on-smart-contracts",
+      "author": "Yogesh Kulkarni",
+      "tag": "hacks",
+      "date":"31/05/2023"
     }
   ]
 }
