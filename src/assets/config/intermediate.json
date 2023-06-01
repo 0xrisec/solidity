@@ -1,0 +1,43 @@
+{
+    "title": "Intermediate",
+    "version": "Solidity v0.8.20",
+    "icon": "faChessQueen",
+    "folder": "intermediate",
+    "file": "intermediate.md",
+    "url": "intermediate/intermediate.md",
+    "disscussion": "",
+    "topicsList": [
+        {
+            "title": "Storage Slots",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "Storage Slots",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "top",
+                        "githubLink": ""
+                    },
+                    "childs": [
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "DelegateCall",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "DelegateCall",
+                    "href": {
+                        "file": "delegatecall.md",
+                        "id": "top",
+                        "githubLink": ""
+                    },
+                    "childs": [
+                    ]
+                }
+            ]
+        }
+    ]
+}

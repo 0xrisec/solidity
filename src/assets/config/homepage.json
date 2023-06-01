@@ -16,8 +16,8 @@
           "icon": "faChessQueen",
           "title": "Intermediate",
           "detail": "Coming Soon!",
-          "route": "#",
-          "isDisable": true
+          "route": "intermediate/intermediate.md",
+          "isDisable": false
         },
         {
           "icon": "faChessKing",
