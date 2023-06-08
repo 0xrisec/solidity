@@ -86,4 +86,104 @@ Here is a diagram illustrating how the storage appears when storing state variab
 
 - The variable `"c"` is of type `uint8`, which requires only `1 byte` of memory. Similar to the case of `"a"`, the EVM will pad `"c"` with `31 zeros` to fill the entire slot. The resulting storage value for `"c"` would be `"0000000000000000000000000000000000000000000000000000000000000098"`.
 
+### byte-packing
+
+The storage in a smart contract is organized into 32-byte slots and each slot can hold one or more state variables, depending on their size and alignment requirements. To save space and make storage more efficient, multiple state variables can be packed together into a single slot.
+
+When the smart contract is written and compiled, the compiler automatically decides how to pack the variables. It considers the size and requirements of each variable to determine if they can fit together in the same slot. The compiler tries to organize the variables in a way that minimizes wasted space and optimizes the overall storage usage.
+
+For example, if you have several small variables that can fit within 32 bytes, they can be packed together in one slot. However, larger variables that exceed 32 bytes will need their own slot and cannot be split across multiple slots.
+
+<center><img class="image" src="./assets/images/packed-contract.jpg"></center>
+<b><center class="img-label">byte padding</center></b>
+
+The `PackedContract` declares three state variables: `a`, `c`, and `b`. These variables are stored in the contract's storage slots.
+
+Let's break down the state variables in the code and see how they are packed:
+
+`bool public a = true;`
+
+- The variable `a` is a boolean type and requires `1 byte` of storage.
+- Since a storage slot is `32 bytes` in size, `a` can fit entirely within the first slot (`slot 0`), starting from the right.
+
+`uint8 public c = 0x98;`
+
+- The variable c is an 8-bit unsigned integer (uint8) and also requires 1 byte of storage.
+- Since there is remaining space in slot 0 after a, c can be packed into the same slot (slot 0), moving left from a.
+- The initial value of `c` is set to `0x98`, which is the hexadecimal representation of the decimal value `152`.
+
+`uint256 public b = 0x01e8f7;`
+
+- The variable b is a 256-bit unsigned integer (uint256), which occupies 32 bytes. The initial value of b is set to 0x01e8f7, which is the hexadecimal representation of the decimal value 125751.
+- Unfortunately, the remaining space in slot 0 is not sufficient to accommodate b alongside a and c. As a result, the EVM assigns b to the next available slot, which is slot 1.
+
+To summarize the revised explanation:
+
+Variables a and c are packed together within storage slot 0, with c positioned to the left of a. Variable b is assigned to storage slot 1 because it cannot fit into the remaining space in slot 0. The order in which variables are declared also matters. Variables declared first will be placed in lower slots, while variables declared later will be placed in higher slots. This order can affect the packing and usage of storage.
+
+By carefully considering the size, arrangement, and order of state variables, developers can help the compiler pack them efficiently in storage slots, making the best use of space and reducing storage costs for the smart contract.
+
+When storing multiple small items that take up less than 32 bytes each, we try to pack them together in a single storage space. Here are the rules we follow:
+
+- The first item in a storage slot is stored lower-order aligned.
+  
+- Value types occupy only the minimum number of bytes required to store them.
+  
+- If a value type cannot fit within the remaining space of a storage slot, it is placed in the next available slot.
+  
+- Structs and array data always begin a new storage slot, and their individual items are tightly packed based on these rules.
+  
+- Items that appear after a struct or array data also initiate a new storage slot.
+
+**C3-linearization**
+
+When a contract in Ethereum uses inheritance, the order in which the state variables are stored is determined by a method called C3-linearization. This method arranges the contracts in a specific order, starting from the most basic contract and moving towards the derived contracts.
+
+For example, let's say we have three contracts: Contract A, Contract B, and Contract C. Contract B inherits from Contract A, and Contract C inherits from Contract B. The C3-linearized order of these contracts would be: Contract A, Contract B, Contract C.
+
+Now, when it comes to storing state variables, if the rules mentioned earlier allow it, state variables from different contracts can be stored in the same storage slot. This means that the variables from Contract A, Contract B, and Contract C may share the same storage slot if they meet the conditions specified by the rules we discussed earlier.
+
+## user-defined types (structs)
+
+<center><img class="image" src="./assets/images/struct-storage-slot.jpg"></center>
+<b><center class="img-label">byte padding</center></b>
+
+## statically-sized variables
+
+<center><img class="image" src="./assets/images/value-type-storage.jpg"></center>
+<b><center class="img-label">byte padding</center></b>
+
+
+## dynamically-sized state variables
+
+Dynamically-sized state variables are handled differently from statically-sized variables. The reason for this is that dynamic variables can grow in size, and if their data were stored directly in their assigned slots, it would cause problems. When new items are added to a dynamic variable, it would require more slots to store all the data. This would then push down subsequent state variables to further slots, potentially causing data overlap and making it difficult to manage the storage efficiently.
+
+<center><img class="image" src="./assets/images/dynamic-size-variable-storage-slot.jpg"></center>
+<b><center class="img-label">byte padding</center></b>
+
+The slots assigned to dynamic variables act as markers that indicate the presence of an array but they don't directly store the variable's data.
+
+A marker slot is a specific storage slot that is allocated for a dynamically-sized state variable. It doesn't store the actual data of the variable, but it serves as an indicator that the variable exists and provides essential information about the variable, such as its length or a reference to where its data is stored.
+
+The marker slot typically contains metadata about the dynamic variable, which can include the length of a dynamic array or a reference (often a hash) to the storage location of the variable's data. By using the marker slot, the contract can keep track of the variable's properties and access its data efficiently.
+
+To ensure that dynamically-sized variables don't cause conflicts or overlap with other variables in storage, we use a unique identifier for each variable. In this case, we use the keccak256 hash, which is a cryptographic function that takes an input (like the marker slot number) and produces a unique output (the hash value). This hash value serves as a special "pointer" to locate the actual storage slots where the variable's data is stored.
+
+In summary, dynamically-sized state variables use marker slots to indicate their presence and rely on a hashing technique to manage their data storage in a way that prevents overlap and allows for efficient storage management.
+
+## mappings
+
+The marker slot in mappings serves as an indication that a mapping exists. When searching for a value associated with a specific key, the formula `keccak256(h(k) . p)` is utilized. Here are the details regarding the components of the formula:
+
+- The symbol "." represents the concatenation of strings.
+- "p" represents the position of the state variable's declaration in the smart contract.
+- "h()" denotes a function applied to the key based on its type.
+- For value types, "h()" returns the value padded to 32 bytes.
+- For strings and byte arrays, "h()" simply returns the unpadded data.
+
+The following diagram illustrates how mappings are stored in memory:
+
+<center><img class="image" src="./assets/images/mapping-storage-slot.jpg"></center>
+<b><center class="img-label">byte padding</center></b>
+
 SRC: https://docs.soliditylang.org/en/v0.8.20/internals/layout_in_storage.html
