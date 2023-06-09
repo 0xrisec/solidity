@@ -11,6 +11,34 @@ Private blockchains offer several advantages over public blockchains, such as in
 
 ## Private Blockchain vs. Public Blockchain: What’s the Difference?
 
+## Ways to set up a Private Blockchain Network for development & testing
+
+### Geth
+https://geth.ethereum.org/docs/fundamentals/private-network#end-to-end-example
+
+https://medium.com/@yangnana11/how-to-setup-a-local-test-node-with-initial-ether-balance-using-geth-b0ad90ff697b
+https://medium.com/@hyoungsungkim/build-private-ethereum-network-and-test-step-by-step-ff50a2c88eca
+https://arvanaghi.com/blog/how-to-set-up-a-private-ethereum-blockchain-using-geth/
+
+Geth image on docker:
+https://medium.com/scb-digital/running-a-private-ethereum-blockchain-using-docker-589c8e6a4fe8
+
+### Terraform and Amazon ECS
+
+    Use Terraform to create a private Ethereum Blockchain Network : https://github.com/SCB-TechX-Saber-Labs/terraform-aws-ecs-private-ethereum-blockchain
+    Terraform module for creating a private Blockchain Ethereum network using ECS: https://registry.terraform.io/modules/SCB-TechX-Saber-Labs/ecs-private-ethereum-blockchain/aws/latest
+    Great tutorial for creating a private ethereum blockchain using Terraform and Amazon ECS: https://medium.com/scb-techx/a-terraform-module-to-setup-a-private-ethereum-network-on-aws-500d51681c6f
+
+
+
+### Amazon Managed Blockchain
+
+https://aws.amazon.com/managed-blockchain/
+https://aws.amazon.com/blogs/database/deploy-smart-contracts-to-your-private-ethereum-blockchain-network-on-aws/
+
+https://eu-west-2.console.aws.amazon.com/managedblockchain
+
+### Hyperledger fabric
 
 ## Setup private blockchain on AWS
 
@@ -156,3 +184,6 @@ Objective: Improve transparency, traceability, and efficiency in the coffee supp
     Explore opportunities to expand the blockchain implementation, such as including certifications, sustainability tracking, and customer engagement.
 
 By following this blueprint, the coffee supply chain stakeholders can leverage a private blockchain solution using Geth to enhance transparency, traceability, and efficiency in their operations, ensuring that all participants have access to verified and immutable information about the coffee beans throughout the supply chain.
+
+Deploying Blockchain Technology in the Supply Chain: https://www.intechopen.com/chapters/67390
+https://www.leewayhertz.com/how-to-create-a-private-blockchain/
