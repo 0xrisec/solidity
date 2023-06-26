@@ -94,7 +94,17 @@ With `delegatecall`, contracts can run code stored inside another contract as if
 
 Delegatecall plays a crucial role in proxy patterns utilized for upgrading smart contracts. In this scenario, a proxy contract holds the contract state, while a separate logic contract contains the business logic. By leveraging delegatecall, the proxy contract can delegate the execution of functions to the logic contract. This allows for protocol upgrades by simply pointing the proxy contract to a new logic contract, simulating an upgrade while keeping the proxy contract immutable.
 
-### Exploiting the Delegatecall Function
+<!-- ### Examples
+
+#### Example 1 : Gas-efficient Upgradeable Contracts
+
+Delegatecall is commonly utilized to implement proxy contracts that enable gas-efficient contract upgrades, known as upgradeable contracts.
+
+The fundamental concept behind this approach is to segregate the contract state from the contract logic, enabling upgrades to the logic without impacting the state.
+
+Here's an example of an upgradeable proxy contract that utilizes delegatecall: -->
+
+<!-- ### Exploiting the Delegatecall Function
 
 However, if the implementation of the .delegatecall() function is not handled properly, it can lead to malicious attacks that manipulate the storage of the calling contract. In the following scenario, we will simulate an attack utilizing the .delegatecall() function.
 
@@ -121,4 +131,4 @@ contract Delegate {
 
 Resources:
 
-https://blog.finxter.com/delegatecall-or-storage-collision-attack-on-smart-contracts/
+https://blog.finxter.com/delegatecall-or-storage-collision-attack-on-smart-contracts/ -->
