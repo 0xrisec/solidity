@@ -48,7 +48,7 @@ Here's a simple visualization of this concept:
 <center><img class="image w50" src="./assets/images/sequential-slots.jpg"></center>
 <b><center class="img-label">Diagram of how state variables are mapped to storage slots.</center></b>
 
-In this illustration, we observe the mapping of variables a, b, and c according to their order of declaration into storage slots. 
+In this illustration, we observe the mapping of variables `a`, `b`, and `c` according to their order of declaration into `storage slots`. 
 
 ### how the storage variables actually get encoded and stored in the slots at the binary level?
 
@@ -56,9 +56,9 @@ In order to gain a deeper understanding of how storage variables are encoded and
 
 ### Endian-ness
 
-Endian-ness refers to how computers store multi-byte values in memory, such as uint256, bytes32, addresses etc. There are two types of endian-ness: `big-endian` and `little-endian`.
+`Endian-ness` refers to how computers store multi-byte values in memory, such as `uint256`, `bytes32`, `addresses` etc. There are two types of `endian-ness`: `big-endian` and `little-endian`.
 
-In little-endian systems, the least significant byte is stored first, while in big-endian systems, the most significant byte is stored first. Let's examine how the hexadecimal number `0x01e8f7a1 (decimal 32044961)` would be stored in memory in both little-endian and big-endian systems:
+In `little-endian` systems, the least significant byte is stored first, while in big-endian systems, the most significant byte is stored first. Let's examine how the hexadecimal number `0x01e8f7a1 (decimal 32044961)` would be stored in memory in both `little-endian` and `big-endian` systems:
 
 <center><img class="image" src="./assets/images/diagram-of-big-endian-and-little-endian-storage-layouts-in-solidity-smart-contracts.jpeg"></center>
 <b><center class="img-label">Diagram of how computers store multi-byte values in memory.</center></b>
@@ -71,9 +71,9 @@ In Ethereum, the endian-ness format used depends on the variable type:
 
 ### byte-padding
 
-When storing data in Ethereum's storage, the Ethereum Virtual Machine (EVM) uses a specific method to make the best use of memory. If a variable needs less than 32 bytes of memory, like boolean values, small numbers (uint8), or addresses, the EVM adds extra zeros to the value until it reaches a total of 32 bytes.
+When storing data in Ethereum's storage, the Ethereum Virtual Machine (EVM) uses a specific method to make the best use of memory. If a variable needs less than `32 bytes` of memory, like `boolean` values, small numbers (`uint8`), or `addresses`, the EVM adds extra `zeros` to the value until it reaches a total of `32 bytes`.
 
-Here is a diagram illustrating how the storage appears when storing state variables that need less than 32 bytes of memory:
+Here is a diagram illustrating how the storage appears when storing state variables that need less than `32 bytes` of memory:
 
 <center><img class="image" src="./assets/images/padded-contract.jpg"></center>
 <b><center class="img-label">byte padding</center></b>
@@ -88,11 +88,11 @@ Here is a diagram illustrating how the storage appears when storing state variab
 
 ### byte-packing
 
-The storage in a smart contract is organized into 32-byte slots and each slot can hold one or more state variables, depending on their size and alignment requirements. To save space and make storage more efficient, multiple state variables can be packed together into a single slot.
+The storage in a smart contract is organized into `32-byte` slots and each slot can hold one or more state variables, depending on their size and alignment requirements. To save space and make storage more efficient, multiple state variables can be packed together into a single slot.
 
 When the smart contract is written and compiled, the compiler automatically decides how to pack the variables. It considers the size and requirements of each variable to determine if they can fit together in the same slot. The compiler tries to organize the variables in a way that minimizes wasted space and optimizes the overall storage usage.
 
-For example, if you have several small variables that can fit within 32 bytes, they can be packed together in one slot. However, larger variables that exceed 32 bytes will need their own slot and cannot be split across multiple slots.
+For example, if you have several small variables that can fit within `32 bytes`, they can be packed together in one slot. However, larger variables that exceed `32 bytes` will need their own slot and cannot be split across multiple slots.
 
 <center><img class="image" src="./assets/images/packed-contract.jpg"></center>
 <b><center class="img-label">byte padding</center></b>
@@ -103,27 +103,27 @@ Let's break down the state variables in the code and see how they are packed:
 
 `bool public a = true;`
 
-- The variable `a` is a boolean type and requires `1 byte` of storage.
+- The variable `a` is a `boolean` type and requires `1 byte` of storage.
 - Since a storage slot is `32 bytes` in size, `a` can fit entirely within the first slot (`slot 0`), starting from the right.
 
 `uint8 public c = 0x98;`
 
-- The variable c is an 8-bit unsigned integer (uint8) and also requires 1 byte of storage.
-- Since there is remaining space in slot 0 after a, c can be packed into the same slot (slot 0), moving left from a.
+- The variable `c` is an `8-bit` unsigned integer (`uint8`) and also requires `1 byte` of storage.
+- Since there is remaining space in slot `0` after `a`, `c` can be packed into the same slot (`slot 0`), moving left from `a`.
 - The initial value of `c` is set to `0x98`, which is the hexadecimal representation of the decimal value `152`.
 
 `uint256 public b = 0x01e8f7;`
 
-- The variable b is a 256-bit unsigned integer (uint256), which occupies 32 bytes. The initial value of b is set to 0x01e8f7, which is the hexadecimal representation of the decimal value 125751.
-- Unfortunately, the remaining space in slot 0 is not sufficient to accommodate b alongside a and c. As a result, the EVM assigns b to the next available slot, which is slot 1.
+- The variable `b` is a `256-bit` unsigned integer (`uint256`), which occupies `32 bytes`. The initial value of `b` is set to `0x01e8f7`, which is the hexadecimal representation of the decimal value `125751`.
+- Unfortunately, the remaining space in `slot 0` is not sufficient to accommodate `b` alongside `a` and `c`. As a result, the EVM assigns `b` to the next available slot, which is `slot 1`.
 
 To summarize the revised explanation:
 
-Variables a and c are packed together within storage slot 0, with c positioned to the left of a. Variable b is assigned to storage slot 1 because it cannot fit into the remaining space in slot 0. The order in which variables are declared also matters. Variables declared first will be placed in lower slots, while variables declared later will be placed in higher slots. This order can affect the packing and usage of storage.
+Variables `a` and `c` are packed together within storage `slot 0`, with `c` positioned to the left of `a`. Variable `b` is assigned to storage `slot 1` because it cannot fit into the remaining space in `slot 0`. The order in which variables are declared also matters. Variables declared first will be placed in lower slots, while variables declared later will be placed in higher slots. This order can affect the packing and usage of storage.
 
 By carefully considering the size, arrangement, and order of state variables, developers can help the compiler pack them efficiently in storage slots, making the best use of space and reducing storage costs for the smart contract.
 
-When storing multiple small items that take up less than 32 bytes each, we try to pack them together in a single storage space. Here are the rules we follow:
+When storing multiple small items that take up less than `32 bytes` each, we try to pack them together in a single storage space. Here are the rules we follow:
 
 - The first item in a storage slot is stored lower-order aligned.
   
@@ -131,15 +131,15 @@ When storing multiple small items that take up less than 32 bytes each, we try t
   
 - If a value type cannot fit within the remaining space of a storage slot, it is placed in the next available slot.
   
-- Structs and array data always begin a new storage slot, and their individual items are tightly packed based on these rules.
+- `Structs` and `array` data always begin a new storage slot, and their individual items are tightly packed based on these rules.
   
-- Items that appear after a struct or array data also initiate a new storage slot.
+- Items that appear after a `struct` or `array` data also initiate a new storage slot.
 
 **C3-linearization**
 
-When a contract in Ethereum uses inheritance, the order in which the state variables are stored is determined by a method called C3-linearization. This method arranges the contracts in a specific order, starting from the most basic contract and moving towards the derived contracts.
+When a contract in Ethereum uses inheritance, the order in which the state variables are stored is determined by a method called `C3-linearization`. This method arranges the contracts in a specific order, starting from the most basic contract and moving towards the derived contracts.
 
-For example, let's say we have three contracts: Contract A, Contract B, and Contract C. Contract B inherits from Contract A, and Contract C inherits from Contract B. The C3-linearized order of these contracts would be: Contract A, Contract B, Contract C.
+For example, let's say we have three contracts: Contract A, Contract B, and Contract C. Contract B inherits from Contract A, and Contract C inherits from Contract B. The `C3-linearized` order of these contracts would be: Contract A, Contract B, Contract C.
 
 Now, when it comes to storing state variables, if the rules mentioned earlier allow it, state variables from different contracts can be stored in the same storage slot. This means that the variables from Contract A, Contract B, and Contract C may share the same storage slot if they meet the conditions specified by the rules we discussed earlier.
 
