@@ -1,7 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
 import { faCube, faBars, faBox, faBugs, faChessPawn, faCircleArrowUp, faF, faHandsPraying, faInfo, faSignsPost, faXmark, faMap, faFileAlt, faCoins, faChessQueen } from '@fortawesome/free-solid-svg-icons';
 import { NestedTreeControl } from '@angular/cdk/tree';
@@ -84,7 +84,20 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
   @ViewChild('xmark') xmark: ElementRef;
 
-  constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { }
+  constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { 
+    // Subscribe to the NavigationEnd event
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        // Check if the current element ID is set and exists
+        if (this.eleId) {
+          const eleId = document.getElementById(this.eleId);
+          if (eleId) {
+            eleId.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.route.fragment.subscribe(fragment => this.eleId = fragment!);
