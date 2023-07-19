@@ -9,13 +9,13 @@
         {
           "icon": "faChessPawn",
           "title": "Basics",
-          "detail": "Learn the basic concepts of Solidity, including hands-on examples and projects.",
+          "detail": "Basic concepts of Solidity, including hands-on examples and projects.",
           "route": "basics/basics.md"
         },
         {
           "icon": "faChessQueen",
           "title": "Intermediate",
-          "detail": "Coming Soon!",
+          "detail": "Intermediate Solidity concepts and best practices with hands-on examples and projects.",
           "route": "intermediate/intermediate.md",
           "isDisable": false
         },
