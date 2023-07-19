@@ -26,7 +26,7 @@ In Ethereum, each contract has its own dedicated storage area, which is a persis
 
 The storage space of a contract is divided into a massive number of slots, specifically `2²⁵⁶` slots. Each slot can hold `32 bytes` of data. These slots are contiguous, meaning they are arranged in a continuous sequence. They are referenced by indexes, starting from `0` and going all the way up to `2²⁵⁶ - 1`.
 
-<center><img class="image w50" src="./assets/images/storage-slots.jpg"></center>
+<center><img class="image w40" src="./assets/images/storage-slots.jpg"></center>
 <b><center class="img-label">Storage Slots</center></b>
 
 <!-- When a contract is deployed, all the storage slots are initialized with a default value of `0`. This means that if a contract tries to access a storage slot that has not been explicitly written to, it will retrieve a value of `0` by default. -->
@@ -75,7 +75,7 @@ When storing data in Ethereum's storage, the Ethereum Virtual Machine (EVM) uses
 
 Here is a diagram illustrating how the storage appears when storing state variables that need less than `32 bytes` of memory:
 
-<center><img class="image" src="./assets/images/padded-contract.jpg"></center>
+<center><img class="image w60" src="./assets/images/padded-contract.jpg"></center>
 <b><center class="img-label">byte padding</center></b>
 
 `PaddedContract` includes three state variables: `"a"` of type `bool`, `"b"` of type `uint256`, and `"c"` of type `uint8`. Let's explore how padding is applied in this context:
@@ -94,8 +94,8 @@ When the smart contract is written and compiled, the compiler automatically deci
 
 For example, if you have several small variables that can fit within `32 bytes`, they can be packed together in one slot. However, larger variables that exceed `32 bytes` will need their own slot and cannot be split across multiple slots.
 
-<center><img class="image" src="./assets/images/packed-contract.jpg"></center>
-<b><center class="img-label">byte padding</center></b>
+<center><img class="image w60" src="./assets/images/packed-contract.jpg"></center>
+<b><center class="img-label">byte packing</center></b>
 
 The `PackedContract` declares three state variables: `a`, `c`, and `b`. These variables are stored in the contract's storage slots.
 
@@ -139,51 +139,100 @@ When storing multiple small items that take up less than `32 bytes` each, we try
 
 When a contract in Ethereum uses inheritance, the order in which the state variables are stored is determined by a method called `C3-linearization`. This method arranges the contracts in a specific order, starting from the most basic contract and moving towards the derived contracts.
 
-For example, let's say we have three contracts: Contract A, Contract B, and Contract C. Contract B inherits from Contract A, and Contract C inherits from Contract B. The `C3-linearized` order of these contracts would be: Contract A, Contract B, Contract C.
+For example, let's say we have three contracts: `Contract A`, `Contract B`, and `Contract C`. `Contract B` inherits from `Contract A`, and `Contract C` inherits from `Contract B`. The `C3-linearized` order of these contracts would be: `Contract A`, `Contract B`, `Contract C`.
 
-Now, when it comes to storing state variables, if the rules mentioned earlier allow it, state variables from different contracts can be stored in the same storage slot. This means that the variables from Contract A, Contract B, and Contract C may share the same storage slot if they meet the conditions specified by the rules we discussed earlier.
+Now, when it comes to storing state variables, if the rules mentioned earlier allow it, state variables from different contracts can be stored in the same storage slot. This means that the variables from `Contract A`, `Contract B`, and `Contract C` may share the same storage slot if they meet the conditions specified by the rules we discussed earlier.
 
-## user-defined types (structs)
+## User-defined types (structs)
+
+When we have a set of variables that are closely related and are typically accessed and modified together, we can create a custom data type using the `struct` keyword. By leveraging the concept of `byte-packing`, we can optimize the gas usage for storage operations such as storage allocation, reading, and writing of variables.
+
+By organizing variables within a `struct`, we can ensure that they are stored sequentially in memory, minimizing any wasted space due to padding.
 
 <center><img class="image" src="./assets/images/struct-storage-slot.jpg"></center>
-<b><center class="img-label">byte padding</center></b>
+<b><center class="img-label">Diagram of how computers store user-defined types in memory.</center></b>
 
-## statically-sized variables
+In the given image, there is a contract named `StorageExample` that includes a user-defined type called `MyStruct`. This struct consists of three variables: `a` of type `uint256`, `b` of type `uint16`, and `c` of type `bool`.
 
-<center><img class="image" src="./assets/images/value-type-storage.jpg"></center>
-<b><center class="img-label">byte padding</center></b>
+The struct `MyStruct` is then instantiated with a value in the `mystruct` variable. The values assigned are `0x1f` for `a`, `0x2d` for `b`, and `true` for `c`.
 
+Now, let's understand how the storage slots work for the struct variables within the contract.
 
-## dynamically-sized state variables
+When variables are defined within a `struct`, they are stored in sequential storage slots in the contract's storage. The order of the variables in the `struct` determines their position in the storage.
 
-Dynamically-sized state variables are handled differently from statically-sized variables. The reason for this is that dynamic variables can grow in size, and if their data were stored directly in their assigned slots, it would cause problems. When new items are added to a dynamic variable, it would require more slots to store all the data. This would then push down subsequent state variables to further slots, potentially causing data overlap and making it difficult to manage the storage efficiently.
+Since `a` is of type `uint256`, it fully occupies `slot 0`. On the other hand, `b` and `c` are smaller types and can be packed into a single storage slot. In this case, both `b` and `c` will share `slot 1`.
+
+There is an additional variable named `d` of type `bool` declared outside the `MyStruct` struct. This variable `d` will be stored in its own storage slot.
+
+```sol
+contract StorageExample {
+    struct MyStruct {
+        uint256 a;
+        uint16 b;
+        bool c;
+    }
+    MyStruct mystruct = MyStruct(0x1f,0x2d,true);
+    bool d = true;
+
+    function readStorageSlot(uint256 slotIndex) public view returns (uint256) {
+        uint256 value;
+        assembly {
+            value := sload(slotIndex)
+        }
+        return value;
+    }
+}
+```
+
+<!-- ## Statically-sized variables
+
+When dealing with `statically-sized` state variables, each variable is stored in its respective storage slot. If a statically-sized variable occupies multiple slots, such as being 64 bytes in size, it will be stored at a specific slot, and the subsequent storage variable will be stored at the slot following it.
+
+<center><img class="image w80" src="./assets/images/value-type-storage.jpg"></center>
+<b><center class="img-label">Diagram of how statically-sized state variables are stored in storage slots.</center></b>
+ -->
+
+## Dynamically-sized state variables
+
+`Dynamically-sized` state variables are handled differently from `statically-sized` variables. The reason for this is that dynamic variables can grow in size, and if their data were stored directly in their assigned slots, it would cause problems. When new items are added to a dynamic variable, it would require more slots to store all the data. This would then push down subsequent state variables to further slots, potentially causing data overlap and making it difficult to manage the storage efficiently.
 
 <center><img class="image" src="./assets/images/dynamic-size-variable-storage-slot.jpg"></center>
-<b><center class="img-label">byte padding</center></b>
+<b><center class="img-label">Diagram of how computers store dynamically-sized state variables in memory.</center></b>
 
-The slots assigned to dynamic variables act as markers that indicate the presence of an array but they don't directly store the variable's data.
+The slots assigned to dynamic variables act as `markers` that indicate the presence of an array but they don't directly store the variable's data.
 
-A marker slot is a specific storage slot that is allocated for a dynamically-sized state variable. It doesn't store the actual data of the variable, but it serves as an indicator that the variable exists and provides essential information about the variable, such as its length or a reference to where its data is stored.
+A `marker` slot is a specific storage slot that is allocated for a `dynamically-sized` state variable. It doesn't store the actual data of the variable, but it serves as an indicator that the variable exists and provides essential information about the variable, such as its length or a reference to where its data is stored.
 
-The marker slot typically contains metadata about the dynamic variable, which can include the length of a dynamic array or a reference (often a hash) to the storage location of the variable's data. By using the marker slot, the contract can keep track of the variable's properties and access its data efficiently.
+The `marker` slot typically contains metadata about the dynamic variable, which can include the length of a dynamic array or a reference (often a hash) to the storage location of the variable's data. By using the `marker slot`, the contract can keep track of the variable's properties and access its data efficiently.
 
-To ensure that dynamically-sized variables don't cause conflicts or overlap with other variables in storage, we use a unique identifier for each variable. In this case, we use the keccak256 hash, which is a cryptographic function that takes an input (like the marker slot number) and produces a unique output (the hash value). This hash value serves as a special "pointer" to locate the actual storage slots where the variable's data is stored.
+To ensure that `dynamically-sized` variables don't cause conflicts or overlap with other variables in storage, we use a unique identifier for each variable. In this case, we use the `keccak256` hash, which is a cryptographic function that takes an input (like the marker slot number) and produces a unique output (the hash value). This hash value serves as a special `"pointer"` to locate the actual `storage slots` where the variable's data is stored.
 
-In summary, dynamically-sized state variables use marker slots to indicate their presence and rely on a hashing technique to manage their data storage in a way that prevents overlap and allows for efficient storage management.
+In summary, `dynamically-sized` state variables use `marker slots` to indicate their presence and rely on a `hashing` technique to manage their data storage in a way that prevents overlap and allows for efficient storage management.
 
-## mappings
+## Mappings
 
-The marker slot in mappings serves as an indication that a mapping exists. When searching for a value associated with a specific key, the formula `keccak256(h(k) . p)` is utilized. Here are the details regarding the components of the formula:
+`Mappings` are data structures used to associate `values` with specific `keys`. They are stored in memory using a technique that involves a `"marker slot"` and a `formula` for searching for values based on `keys`.
 
-- The symbol "." represents the concatenation of strings.
-- "p" represents the position of the state variable's declaration in the smart contract.
-- "h()" denotes a function applied to the key based on its type.
-- For value types, "h()" returns the value padded to 32 bytes.
-- For strings and byte arrays, "h()" simply returns the unpadded data.
+The `marker slot` serves as an indicator that a mapping exists. It helps identify whether a given key has an associated value or not. This slot is initially set to its default value, indicating that the mapping is empty.
+
+To search for a `value` associated with a specific `key`, Solidity utilizes the formula `keccak256(h(k) . p)`. Let's break down the components of this formula:
+
+- The symbol `"."` represents the concatenation of strings.
+- `"p"` represents the position of the state variable's declaration in the smart contract. 
+<!-- - Each state variable in a contract has a unique position. -->
+- `"h()"` denotes a function applied to the key based on its type.
+
+When the `key` is of a `value type` (e.g., integers, addresses), `"h()"` returns the key padded to `32 bytes`. This ensures consistency and compatibility with the size of the storage slots used by the EVM.
+
+For `strings` and `byte arrays`, `"h()"` simply returns the unpadded data since their sizes can vary.
 
 The following diagram illustrates how mappings are stored in memory:
 
 <center><img class="image" src="./assets/images/mapping-storage-slot.jpg"></center>
-<b><center class="img-label">byte padding</center></b>
+<b><center class="img-label">Diagram of how mappings are stored in smart contract storage slots.</center></b>
+
+By applying the `keccak256` hash function to the concatenation of the transformed key and the position of the state variable, Solidity generates a unique identifier for each key-value pair in the mapping. This identifier is used to efficiently locate the storage slot where the associated value is stored.
+
+In summary, Solidity utilizes a `marker slot` and a formula involving key transformations and position information to store and retrieve values in mappings. This approach ensures efficient and secure storage and retrieval of key-value pairs in Solidity contracts.
 
 SRC: https://docs.soliditylang.org/en/v0.8.20/internals/layout_in_storage.html
