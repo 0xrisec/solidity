@@ -115,3 +115,5 @@ To make it clearer, think of it like this: the channel defines and commits to a 
 The network has grown by adding infrastructure from organization R2. They added a peer node called P2, which holds a copy of ledger L1 and a smart contract called S5. R2 approves the same definition of the smart contract as R1. P2 has also joined a communication channel called C1, along with application A2. Both A2 and P2 are identified using certificates from CA2. This means that both applications A1 and A2 can use the smart contract S5 on the channel C1, either through the peer node P1 or P2.
 
 In simple words, organization R2 joined the network and added a new computer called P2, which stores important information and a set of rules. R2 also brought in a new application called A2, which can connect to the network. To make this happen, someone in R2's team created P2 and connected it to the network, just like someone in R1's team did before. Now, both A1 and A2 can do transactions using the rules and information stored in P2 and communicate through the channel C1.
+
+Resource: https://hyperledger-fabric.readthedocs.io/en/release-2.2/network/network.html#defining-a-consortium

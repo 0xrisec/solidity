@@ -1,0 +1,81 @@
+{
+    "title": "Intermediate",
+    "version": "Solidity v0.8.20",
+    "icon": "faChessQueen",
+    "folder": "intermediate",
+    "file": "intermediate.md",
+    "url": "intermediate/intermediate.md",
+    "disscussion": "",
+    "topicsList": [
+        {
+            "title": "Storage Slots",
+            "icon": "",
+            "childs": [
+                {
+                    "title": "Why it Matters?",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "What is storage memory?",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "what-is-storage-memory",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "How data is physically stored?",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "how-data-is-physically-stored",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Byte-padding",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "byte-padding",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Byte-packing",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "byte-packing",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "User-defined types (structs)",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "user-defined-types-structs",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Dynamically-sized state variables",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "dynamically-sized-state-variables",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "Mappings",
+                    "href": {
+                        "file": "storage.md",
+                        "id": "mappings",
+                        "githubLink": ""
+                    }
+                }
+            ]
+        }
+    ]
+}
