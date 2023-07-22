@@ -1,5 +1,5 @@
-<mat-sidenav-container class="doclayout-container">
-    <mat-sidenav #sidenav [mode]="navMode" [(opened)]="opened" class="sidenav">
+<mat-drawer-container class="doclayout-container">
+    <mat-drawer #sidenav [mode]="navMode" [(opened)]="opened" class="sidenav">
         <div class="card">
             <div class="card-body text-center">
                 <span class="theme-icon-holder" style="background:none;">
@@ -44,27 +44,27 @@
                 </div>
             </mat-nested-tree-node>
         </mat-tree>
-    </mat-sidenav>
+    </mat-drawer>
 
-    <mat-sidenav-content class="vh-100" (scroll)="checkScroll($event)">
+    <mat-drawer-content class="vh-100" (scroll)="checkScroll($event)">
         <div class="docs-content sidenav-content" id="top">
-            <div class="d-flex content-header">
+            <div class="d-flex content-header header-fixed">
                 <div *ngIf="isBar">
-                    <span class="bars d-flex disable" role="button" (click)="toggleBar()">
+                    <span class="bars d-flex" role="button" (click)="toggleBar()">
                         <fa-icon class="fa-4x" [icon]="iconComponents['faBars']"></fa-icon>
                     </span>
                 </div>
                 <div class="nav" [ngClass]="{'breadcrumb-container':isBar}">
                     <app-breadcrumb [breadcrumbs]="breadcrumb"></app-breadcrumb>
                 </div>
-                <div class="github-link">
+                <div class="github-link hide-sm">
                     <a [href]="githubLink" class="d-flex flex-row " target="_blank">
                         <fa-icon [icon]="iconComponents['faGithub']" class="d-flex align-items-center"></fa-icon>
                         <span class="edit-on-github">Edit on GitHub</span>
                     </a>
                 </div>
             </div>
-            <hr>
+            <hr class="hide-sm">
             <div class="container" ngxUiLoaderBlurred #container>
                 <markdown clipboard [src]="contentLink" (load)="onLoad()" (error)="onError()"> </markdown>
                 <!-- <markdown [data]="markdown" [src]="contentLink" id="md"> </markdown> -->
@@ -75,5 +75,5 @@
         <fa-icon class="fa-4x ml-auto go-to-top"  *ngIf="isShow" (click)="gotoTop()" [icon]="iconComponents['faCircleArrowUp']"></fa-icon>
         <!-- <button class="go-to-top" *ngIf="isShow" (click)="gotoTop()">👆</button> -->
         <app-footer></app-footer>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    </mat-drawer-content>
+</mat-drawer-container>

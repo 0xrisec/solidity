@@ -1,46 +1,46 @@
-.docs-content .breadcrumb li a{
+.docs-content .breadcrumb li a {
   color: black;
 }
 
-.nav{
-  margin-right: auto;
+.nav {
   font-size: 1rem;
 }
 
-.docs-wrapper a{
-  color:#642070;
+.docs-wrapper a {
+  color: #642070;
 }
 
 .sidenav .card {
-  border-bottom: 1px solid rgba(0,0,0,0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   border-top: none;
   border-right: none;
   border-left: none;
   border-radius: unset;
 }
 
-.sidenav .card .card-title{
+.sidenav .card .card-title {
   margin-bottom: .5rem;
 }
 
-.sidenav .card .card-text{
+.sidenav .card .card-text {
   font-size: 16px;
 }
 
-.sidenav{
+.sidenav {
   width: 300px;
 }
 
-hr{
+hr {
   margin-top: 12px;
   margin-bottom: 24px;
 }
 
+/* 
 .content-header{
   margin-top: 10px;
-}
+} */
 
-.container{
+.container {
   padding: 0px;
 }
 
@@ -55,73 +55,73 @@ hr{
   list-style-type: none;
 }
 
-.nav-tree div[role=group] > .mat-tree-node{
+.nav-tree div[role=group]>.mat-tree-node {
   padding-left: 36px;
 }
 
-.nav-tree div[role=group] > .mat-nested-tree-node .mat-tree-node {
+.nav-tree div[role=group]>.mat-nested-tree-node .mat-tree-node {
   padding-left: 27px;
 
 }
-.nav-tree div[role=group] > .mat-nested-tree-node div[role=group] .mat-tree-node{
+
+.nav-tree div[role=group]>.mat-nested-tree-node div[role=group] .mat-tree-node {
   padding-left: 55px;
 }
 
-.nav-title{
+.nav-title {
   color: #5d6778;
   font-size: 1rem;
   padding-left: 4px;
   width: 100%;
 }
 
-.nav-link{
+.nav-link {
   width: 100%;
 }
 
-.mat-tree-node{
+.mat-tree-node {
   padding-left: 10px;
 }
 
-.bars{
+.bars {
   font-size: 7px;
   color: purple;
 }
 
-.breadcrumb-container{
+.breadcrumb-container {
   align-items: center;
-  margin-left: auto;
 }
 
-.github-link{
+.github-link {
   align-items: center;
   display: flex;
   font-size: 1rem;
 }
 
-.github-link a{
+.github-link a {
   text-decoration: none;
 }
 
-.container{
+.container {
   max-width: 100%;
 }
 
-.edit-on-github{
+.edit-on-github {
   margin-left: 10px;
 }
 
-.go-to-top{
+.go-to-top {
   position: fixed;
   bottom: 33px;
   right: 30px;
-  font-size: 26px;
+  font-size: 35px;
   text-align: center;
   border-radius: 5px;
   outline: none;
   color: purple;
 }
 
-.doc-sidebar-icon{
+.doc-sidebar-icon {
   color: purple;
 }
 

@@ -26,6 +26,8 @@ interface NavNode {
 })
 
 export class DocLayoutComponent implements OnInit,AfterViewInit {
+  // Add a variable to store the initial touch position and determine swipe direction
+  private touchStartX: number = 0;
 
   @HostListener('window:scroll', ['$event'])
   checkScroll(event:any) {
@@ -34,6 +36,33 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
       this.isShow = true;
     } else {
       this.isShow = false;
+    }
+  }
+
+   // Add touch event handlers to detect swipe gestures
+   @HostListener('touchstart', ['$event'])
+   onTouchStart(event: TouchEvent) {
+    console.log("touchstart");
+     this.touchStartX = event.touches[0].clientX;
+   }
+
+   @HostListener('touchend', ['$event'])
+    onTouchEnd(event: TouchEvent) {
+    console.log("touchend");
+
+    const touchEndX = event.changedTouches[0].clientX;
+    const swipeThreshold = 50; // You can adjust the threshold value as needed
+
+    // Calculate the distance of swipe movement
+    const swipeDistance = touchEndX - this.touchStartX;
+
+    // Determine if the swipe is left or right based on swipe distance
+    if (swipeDistance > swipeThreshold) {
+      // Swipe right, open the side navigation bar
+      this.sidenav.open();
+    } else if (swipeDistance < -swipeThreshold) {
+      // Swipe left, close the side navigation bar
+      this.sidenav.close();
     }
   }
 
@@ -186,11 +215,6 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   }
 
   public toggleBar() {
-    if (window.screen.width <= 700) {
-      this.isBar = false;
-    } else {
-      this.isBar = true;
-    }
     this.sidenav.toggle();
   }
 
