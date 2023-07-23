@@ -25,12 +25,12 @@ interface NavNode {
   providers: [MatSidenav],
 })
 
-export class DocLayoutComponent implements OnInit,AfterViewInit {
+export class DocLayoutComponent implements OnInit, AfterViewInit {
   // Add a variable to store the initial touch position and determine swipe direction
   private touchStartX: number = 0;
 
   @HostListener('window:scroll', ['$event'])
-  checkScroll(event:any) {
+  checkScroll(event: any) {
     const scrollPosition = event.currentTarget.scrollTop;
     if (scrollPosition >= this.topPosToStartShowing) {
       this.isShow = true;
@@ -39,30 +39,37 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     }
   }
 
-   // Add touch event handlers to detect swipe gestures
-   @HostListener('touchstart', ['$event'])
-   onTouchStart(event: TouchEvent) {
-    console.log("touchstart");
-     this.touchStartX = event.touches[0].clientX;
-   }
+  // Add touch event handlers to detect swipe gestures
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.touches[0].clientX;
+  }
 
-   @HostListener('touchend', ['$event'])
-    onTouchEnd(event: TouchEvent) {
-    console.log("touchend");
-
+  @HostListener('touchend', ['$event'])
+  onTouchEnd(event: TouchEvent) {
+    // Get the touch end position
     const touchEndX = event.changedTouches[0].clientX;
-    const swipeThreshold = 50; // You can adjust the threshold value as needed
+    const swipeThreshold = 50;
 
-    // Calculate the distance of swipe movement
-    const swipeDistance = touchEndX - this.touchStartX;
+    // Ensure event.target is not null and cast it to an Element
+    const targetElement = event.target as Element;
 
-    // Determine if the swipe is left or right based on swipe distance
-    if (swipeDistance > swipeThreshold) {
-      // Swipe right, open the side navigation bar
-      this.sidenav.open();
-    } else if (swipeDistance < -swipeThreshold) {
-      // Swipe left, close the side navigation bar
-      this.sidenav.close();
+    // Find the parent element that contains the .language-sol class
+    const scrollAreaElement = targetElement.closest('.language-sol');
+
+    // Check if the touch end event occurred within the scrollable area
+    if (!scrollAreaElement) {
+      // Calculate the distance of swipe movement
+      const swipeDistance = touchEndX - this.touchStartX;
+
+      // Determine if the swipe is left or right based on swipe distance
+      if (swipeDistance > swipeThreshold) {
+        // Swipe right, open the side navigation bar
+        this.sidenav.open();
+      } else if (swipeDistance < -swipeThreshold) {
+        // Swipe left, close the side navigation bar
+        this.sidenav.close();
+      }
     }
   }
 
@@ -81,7 +88,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   public githubLink: string = "";
   public markdown = '';
   public previousLink: string = '';
-  public mdFolder:string;
+  public mdFolder: string;
   public activeNode: any;
   public activeTreeNode: any;
   public defaultGithubLink = "https://github.com/ROOTBABU/solidity/blob/dev/src/assets/markdown/"
@@ -100,7 +107,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     "faMedium": faMedium,
     "faTwitter": faTwitter,
     "faXmark": faXmark,
-    "faCircleArrowUp":faCircleArrowUp,
+    "faCircleArrowUp": faCircleArrowUp,
     "faMap": faMap,
     "faFileAlt": faFileAlt,
     "faCoins": faCoins,
@@ -108,12 +115,12 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
   }
   public eleId: string = '';
   public isBar: boolean = true;
-  public navMode:MatDrawerMode = 'side'
+  public navMode: MatDrawerMode = 'side'
 
   @ViewChild('sidenav') sidenav: MatSidenav;
   @ViewChild('xmark') xmark: ElementRef;
 
-  constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) { 
+  constructor(private router: Router, private anchorService: AnchorService, private ngxLoader: NgxUiLoaderService, private route: ActivatedRoute, private viewportScroller: ViewportScroller, private http: HttpClient, private markdownService: MarkdownService) {
     // Subscribe to the NavigationEnd event
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -161,7 +168,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     setTimeout(() => {
       const element = document.querySelector('.active-tree-node');
       if (element) {
-        element.scrollIntoView({behavior: 'smooth'});
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     });
   }
@@ -184,18 +191,18 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
     if (this.eleId) {
       document?.querySelector('#' + this.eleId)?.scrollIntoView({ behavior: 'smooth' });
     }
-    if (window.screen.width <= 700) { 
+    if (window.screen.width <= 700) {
       this.opened = false;
       this.navMode = 'over'
-    } else{
+    } else {
       this.opened = true;
     }
   }
-  
+
   onTabClick(node: any) {
     if (node) {
       this.activeNode = node;
-      if (window.screen.width <= 700) { 
+      if (window.screen.width <= 700) {
         this.opened = false;
         this.isBar = true;
       }
@@ -211,7 +218,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
         }
       }
     }
-    this.router.navigate([this.mdFolder, node.href.file],{fragment: node.href.id});
+    this.router.navigate([this.mdFolder, node.href.file], { fragment: node.href.id });
   }
 
   public toggleBar() {
@@ -263,7 +270,7 @@ export class DocLayoutComponent implements OnInit,AfterViewInit {
 
   gotoTop() {
     let ele = document.getElementById("top");
-    if(ele){
+    if (ele) {
       ele.scrollIntoView({ behavior: 'smooth' });
     }
   }
