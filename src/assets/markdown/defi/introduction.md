@@ -120,6 +120,41 @@ In summary, the main differences between traditional finance and `DeFi` lie in t
 - Aave: <a href="https://aave.com/" target="_blank">https://aave.com/</a>
 - Yearn Finance: <a href="https://yearn.finance/" target="_blank">https://yearn.finance/</a>
 
+**6. Derivatives:**
+DeFi also offers platforms for creating and trading decentralized derivatives. These platforms enable users to speculate on the future price of assets without owning the underlying assets themselves.
+
+- Synthetix: [https://www.synthetix.io/](https://www.synthetix.io/)
+- dYdX: [https://trade.dydx.exchange/](https://trade.dydx.exchange/)
+- Hegic: [https://www.hegic.co/](https://www.hegic.co/)
+
+**7. Asset Management:**
+Asset management in DeFi involves the creation of decentralized investment funds and portfolio management services that allow users to invest in a diversified range of assets or strategies.
+
+- Set Protocol: [https://www.tokensets.com/](https://www.tokensets.com/)
+- Enzyme Finance (formerly Melon Protocol): [https://enzyme.finance/](https://enzyme.finance/)
+- Hegic: [https://www.hegic.co/](https://www.hegic.co/) (offers options for asset management)
+
+**8. Insurance:**
+DeFi insurance platforms provide coverage against smart contract vulnerabilities, hacks, and other risks within the DeFi ecosystem, offering protection to users' assets.
+
+- Nexus Mutual: [https://nexusmutual.io/](https://nexusmutual.io/)
+- Cover Protocol: [https://www.coverprotocol.com/](https://www.coverprotocol.com/)
+- InsurAce: [https://www.insurace.io/](https://www.insurace.io/)
+
+**9. Governance and DAOs (Decentralized Autonomous Organizations):**
+Governance tokens are used in DeFi platforms to allow users to participate in decision-making processes, such as protocol upgrades, fee adjustments, and other governance-related matters.
+
+- Yearn Finance: [https://yearn.finance/](https://yearn.finance/)
+- Compound: [https://compound.finance/](https://compound.finance/)
+- MakerDAO: [https://makerdao.com/](https://makerdao.com/)
+
+Decentralized Autonomous Organizations (DAOs) are entities governed by code and run by their members, often used in DeFi for collective decision-making and fund management.
+
+- The DAO (historical): [https://en.wikipedia.org/wiki/The_DAO_(organization)](https://en.wikipedia.org/wiki/The_DAO_(organization))
+- Aragon: [https://aragon.org/](https://aragon.org/)
+- DAOstack: [https://daostack.io/](https://daostack.io/)
+
+
 ## Limitations of DeFi
 
 While `DeFi` is a revolutionary development in the financial world, it still has some limitations that need to be addressed. Here are some of the limitations of `DeFi`:

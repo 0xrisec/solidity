@@ -8,7 +8,10 @@ To gain a better understanding of how `DEXs` work and why they are necessary, it
 
 `CEXs` is a type of exchange where buyers and sellers interact with a centralized `order book` and the exchange acts as a middleman to match the buyers and sellers. In a `CEXs`, market makers play a crucial role in maintaining liquidity by placing orders on both the buy and sell side of the `order book`.
 
-The `order book` is a list of all open buy and sell orders for a particular asset, displaying the price and quantity of each order. It is updated in real-time as new orders are placed, executed, or canceled. Traders can use the `order book` to see supply and demand for a particular asset, identify the best price to buy or sell, and gauge overall market sentiment. They can also use it to place orders at the best available price or analyze market trends.
+The <a href="https://www.binance.com/en/orderbook/BTC_USDT" target="_blank">order book</a> is a list of all open `buy` and `sell orders` for a particular asset, displaying the price and quantity of each order. It is updated in real-time as new orders are placed, executed, or canceled. Traders can use the `order book` to see supply and demand for a particular asset, identify the best price to buy or sell, and gauge overall market sentiment. They can also use it to place orders at the best available price or analyze market trends.
+
+<center><img class="image" src="./assets/images/binance-order-book.jpg"></center>
+<b><center class="img-label">Binance Order Book</center></b>
 
 `CEXs` typically charge fees for trading, deposits, and withdrawals. These fees can vary depending on the exchange and the type of transaction. Some exchanges may also require users to go through a verification process to comply with anti-money laundering (AML) and know-your-customer (KYC) regulations.
 
@@ -48,12 +51,11 @@ Alternatively, you could use a `DEX` like `Uniswap`. `Uniswap` is a decentralize
 
 To use `Uniswap`, you would connect your cryptocurrency wallet (such as `MetaMask`) to the exchange and choose the cryptocurrency pair you want to trade (in this case, Bitcoin and Ethereum). Because `Uniswap` operates in a decentralized manner, there is no need for intermediaries or central authorities to manage the exchange. This means that trades can be executed more quickly and with lower fees than on centralized exchanges. Additionally, because `Uniswap` operates on the blockchain, all trades are transparent and can be audited by anyone on the network.
 
-Overall, `DEXs` like `Uniswap` offer a more decentralized and transparent way to trade cryptocurrencies, without the need for intermediaries or central authorities to manage the exchange.
+Overall, `DEXs` like `Uniswap` offer a more decentralized and transparent way to trade cryptocurrencies, without the need for intermediaries or central authorities to manage the exchange. You can explore additional decentralized exchange platforms by visiting the following link: <a href="https://coinmarketcap.com/rankings/exchanges/dex/" target="_blank">https://coinmarketcap.com/rankings/exchanges/dex/</a>
 
 ### How DEXs work:
 
 `Centralized exchanges or CEXs` operate using the `order book method` which involves matching buy and sell orders from buyers and seller which has been effective for traditional finance and centralized exchanges, it has some drawbacks when it comes to `decentralized finance` and `DEXs`. 
-
 
 `Decentralized exchanges (DEXs)` have introduced new methods to address these challenges such as `automated market makers (AMMs)` and `liquidity pools`. `AMMs` use a mathematical formula to determine the price of an asset based on the ratio of the asset in a `liquidity pool`. Liquidity pools are pools of assets that traders can use to facilitate trades without the need for a centralized order book.
 
