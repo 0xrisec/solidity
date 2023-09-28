@@ -86,7 +86,6 @@ export class BlogsComponent implements OnInit {
       console.log(this.table)
     }
   }
-
   formatDate(date: any) {
     let month = date.getMonth() + 1;
     let day = date.getDate();

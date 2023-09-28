@@ -164,6 +164,32 @@
                     }
                 }
             ]
+        },
+        {
+            "title": "Liquidity Pool",
+            "href": {
+                "file": "liquidity-pools.md",
+                "id": "top",
+                "githubLink": ""
+            },
+            "childs": [
+                {
+                    "title": "what is Liquidity ?",
+                    "href": {
+                        "file": "liquidity-pools.md",
+                        "id": "top",
+                        "githubLink": ""
+                    }
+                },
+                {
+                    "title": "What are Liquidity Pools?",
+                    "href": {
+                        "file": "liquidity-pools.md",
+                        "id": "",
+                        "githubLink": ""
+                    }
+                }
+            ]
         }
     ]
 }
