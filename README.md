@@ -1,10 +1,10 @@
 # ROOTBABU.SOL-Solidity Programming Community
 
 <p>
-  <a href="https://www.twitter.com/root_babu">
+  <a href="https://www.twitter.com/0xrisec">
     <img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" height=25>
   </a>
-  <a href="https://rootbabu.medium.com/">
+  <a href="https://0xrisec.medium.com/">
     <img src="https://img.shields.io/badge/Medium-7289DA?color=black&style=for-the-badge&logo=medium&logoColor=white" height=25>
   </a>
    <a href="https://discord.gg/UqrZ78gYg3">
